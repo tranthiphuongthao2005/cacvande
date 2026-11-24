@@ -1,0 +1,8 @@
+{
+    "minimum_interval_seconds":  10,
+    "expires_at_utc":  "2026-11-24T16:19:32.1608087+00:00",
+    "trace_id":  "8cc314768cf9c12e300243a20669ad28",
+    "model":  "gemini-3.1-flash-lite",
+    "approval_id":  "gemini-smoke-7b1-001",
+    "activated_at_utc":  "2026-11-24T15:49:32.1608087+00:00"
+}

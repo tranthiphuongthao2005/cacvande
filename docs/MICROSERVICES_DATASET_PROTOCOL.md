@@ -1,0 +1,15 @@
+# Protocol dataset Microservices
+
+`tools.collect_micro_dataset` tạo User và Product mới qua HTTP thật, dùng ID do cơ sở dữ liệu cấp, thay quantity và giá bằng RNG, đảo thứ tự các request tạo dữ liệu, thay khoảng cách giữa request, và có cấu hình delay Product theo cohort timeout. Retry giữ đúng số lần theo kịch bản. Cấu hình fault được bật tạm qua Compose và phục hồi trong finally. Dữ liệu chuẩn bị đi qua ba database lab hiện có. Cùng một cohort chia sẻ topology và môi trường chạy, nên là lặp đo kỹ thuật có trace mới.
+
+Mỗi lượt có một run ID và trace ID. Collector so mã HTTP và lỗi quan sát với kịch bản khai báo riêng, kiểm tra số retry khi áp dụng, rồi đối chiếu event ID Docker với Elasticsearch. Lượt không đúng oracle được lưu dưới `rejected/`. `observations/` chỉ có DetectionSession và `labels/` có scenario, thời gian, nhãn, provenance và HTTP đã quan sát. `collection.json` băm cả hai theo run ID. Các thư mục không đi vào image. Thu nhận mất dữ liệu hoặc lỗi kết nối làm lượt dừng thay vì xác nhận trace thiếu.
+
+## Chia tập và khóa evaluation
+
+1. Tạo nhiều nhóm Normal độc lập với nghiệp vụ, topology hoặc burst khác nhau. Với Anomaly, tạo nhiều nhóm cơ chế gốc thực sự khác nhau và nhiều mức tác động. Thay giá, UUID hoặc sleep trong một nhóm không tạo nhóm độc lập. Thu thập theo nhiều campaign và giữ provenance của topology, seed, cấu hình, phiên bản log.
+2. Gom các lần cùng scenario family. Retry exhaustion, Product unavailable và cascade hiện chung family do cùng cơ chế Product 503. Hợp nhất các nhóm có signature template trùng theo chuỗi đã gộp lặp liên tiếp hoặc tập template. Kiểm tra thêm near-duplicate theo khoảng cách chuỗi và sự gần nhau của workload trước khi phê duyệt split. Giữ toàn bộ nhóm trong một tập.
+3. Đề xuất chia support, development, evaluation theo nhóm bằng seed cố định. Kiểm tra ba tập có hai lớp, không trùng trace ID, event ID hoặc group. Bộ kiểm tra báo số Normal/Anomaly, fault type và độ dài. Thay đổi split chỉ được thực hiện trước khi khóa và có lý do dựa trên lineage, không dựa trên score.
+4. Khi đủ điều kiện, lưu manifest SHA-256 với run/trace/event IDs, group IDs, nguồn nhãn, checkpoint, parser, vocabulary, support sampling, seed, threshold và cách tính metrics. Tách file nhãn evaluation khỏi người phát triển, khóa manifest trước tuning. Cohort pilot dùng để đo thu thập và parser, không chuyển thành evaluation bằng cách chia các lượt gần giống nhau.
+5. Single-Prototype cần cả hai lớp trong support, đủ mẫu độc lập để báo biến thiên. Length-Aware Multi-Prototype theo quy tắc HDFS cần ít nhất hai Anomaly support ở mỗi phía của ranh giới 4 event. Ranh giới chưa được xác minh ở Microservices. Khi phân bố chưa đủ, không ép prototype. Báo riêng tỷ lệ fallback nếu sau này được phép đánh giá.
+
+Cần xác minh điểm kết thúc trace qua evidence span gốc và chính sách late arrivals. Collector hiện đối chiếu Docker/Elasticsearch và giữ snapshot `partial` vì chưa có bằng chứng đầy đủ về quan hệ span. Chỉ adjudicate completion sau khi thu được evidence độc lập.

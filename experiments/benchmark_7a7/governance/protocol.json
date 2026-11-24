@@ -1,0 +1,12 @@
+{
+  "decision_id": "7c5d1ed04cee4d018a123bca11600453",
+  "operator_id": "local-project-operator",
+  "decision_source": "USER_OPERATOR_DECLARATION",
+  "recorded_at": "2026-11-24T12:30:06.238664+00:00",
+  "provenance": "Operator declaration in current 7A.6D.2 conversation; no signature asserted",
+  "decision": "Paired Cross minus Single root-cause accuracy; same trace, model, decoding and rubric; no ground truth in context; eight evaluable fault pairs and four independent groups plus two Normal pairs; report abstention, unsupported claims, evidence support, latency and cost; no unsupported significance",
+  "scope": {
+    "candidate_sha256": "d2dd2f5c9a36c71cbe648e1555824e4c4c88b1d7d80680101ac44e7f5d0999c6",
+    "use": "local design; no blind benchmark execution"
+  }
+}

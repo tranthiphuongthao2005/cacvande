@@ -1,0 +1,89 @@
+{
+  "cohort": "DEVELOPMENT_ACCEPTANCE",
+  "blind_eligible": false,
+  "approvals": {
+    "taxonomy": {
+      "decision_source": "OPERATOR",
+      "authority": "OPERATOR",
+      "operator_id": "local-project-operator",
+      "actual_approval_status": "APPROVED",
+      "evidence": {
+        "path": "taxonomy.evidence.json",
+        "sha256": "8a8fecd7e50e46bc865345c977e04e9c53b3d487250b5fe39a7c243184aa1de5"
+      },
+      "candidate_sha256": "dfbda2f68ea5ddd2b245cbc62c28dea8fdcbe1ffa68ebc981e478ac6e6088893",
+      "provenance_source": "USER_OPERATOR_DECLARATION"
+    },
+    "protocol": {
+      "decision_source": "OPERATOR",
+      "authority": "OPERATOR",
+      "operator_id": "local-project-operator",
+      "actual_approval_status": "APPROVED",
+      "evidence": {
+        "path": "protocol.evidence.json",
+        "sha256": "5b28810899a26df15a286183223a9fb165defbe788900d2371077e82af6b85d0"
+      },
+      "candidate_sha256": "d2dd2f5c9a36c71cbe648e1555824e4c4c88b1d7d80680101ac44e7f5d0999c6",
+      "provenance_source": "USER_OPERATOR_DECLARATION"
+    }
+  },
+  "collection_batches": {
+    "database-a": {
+      "decision_source": "OPERATOR",
+      "authority": "OPERATOR",
+      "operator_id": "local-project-operator",
+      "actual_approval_status": "APPROVED",
+      "evidence": {
+        "path": "database-a-r2.evidence.json",
+        "sha256": "c6ef027589e6353e9cf967cbcb4a5c4cb7b6f1207e48ae39156508bd4fa0cd2c"
+      },
+      "configuration_id": "database-a",
+      "proposal_sha256": "d49efdcebb233423229cd3fa8237d3fb3b03b5f142b14baad4ca693e05528b12",
+      "maximum_business_posts": 1,
+      "retries": 0,
+      "campaign_id": "7a7-database-a-r2",
+      "approval_id": "55d2aa3106f343b3b5ef040540618711",
+      "expires_at": "2026-11-24T18:27:15.991266+00:00",
+      "overall_seconds": 792,
+      "cohort": "7a7-evaluation-candidates-v1",
+      "blind_eligible": false,
+      "output_directory": "experiments/benchmark_7a7/runs/database-a-r2",
+      "rollback": "Restore baseline Compose and verify fault/scope cleared; preserve evidence on failure",
+      "repetition_id": "database-a-r2",
+      "collection_plan_sha256": "7bc63d44c6e1391a04606a1ed01a3a6ad1b703ebccb9cec7b74aabcd55dfb3cc",
+      "provenance_source": "USER_OPERATOR_DECLARATION"
+    }
+  },
+  "fault_adapters": {
+    "database-a": {
+      "decision_source": "OPERATOR",
+      "authority": "OPERATOR",
+      "operator_id": "local-project-operator",
+      "actual_approval_status": "APPROVED",
+      "evidence": {
+        "path": "database-a-r2.evidence.json",
+        "sha256": "c6ef027589e6353e9cf967cbcb4a5c4cb7b6f1207e48ae39156508bd4fa0cd2c"
+      },
+      "configuration_id": "database-a",
+      "proposal_sha256": "d49efdcebb233423229cd3fa8237d3fb3b03b5f142b14baad4ca693e05528b12",
+      "maximum_business_posts": 1,
+      "retries": 0,
+      "provenance_source": "USER_OPERATOR_DECLARATION"
+    }
+  },
+  "grouping_and_capture_policy": {
+    "decision_source": "OPERATOR",
+    "authority": "OPERATOR",
+    "operator_id": "local-project-operator",
+    "actual_approval_status": "APPROVED",
+    "evidence": {
+      "path": "database-a-r2.evidence.json",
+      "sha256": "c6ef027589e6353e9cf967cbcb4a5c4cb7b6f1207e48ae39156508bd4fa0cd2c"
+    },
+    "configuration_id": "database-a",
+    "proposal_sha256": "d49efdcebb233423229cd3fa8237d3fb3b03b5f142b14baad4ca693e05528b12",
+    "maximum_business_posts": 1,
+    "retries": 0,
+    "provenance_source": "USER_OPERATOR_DECLARATION"
+  }
+}

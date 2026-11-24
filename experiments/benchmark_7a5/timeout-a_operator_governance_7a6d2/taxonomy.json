@@ -1,0 +1,12 @@
+{
+  "decision_id": "f79290c02c0b4542838fbfd85bca93b1",
+  "operator_id": "local-project-operator",
+  "decision_source": "USER_OPERATOR_DECLARATION",
+  "recorded_at": "2026-11-24T12:30:06.238664+00:00",
+  "provenance": "Operator declaration in current 7A.6D.2 conversation; no signature asserted",
+  "decision": "Two dimensions; Cascade=propagation; retry exhaustion=handling; dependency unavailable=root mechanism",
+  "scope": {
+    "candidate_sha256": "dfbda2f68ea5ddd2b245cbc62c28dea8fdcbe1ffa68ebc981e478ac6e6088893",
+    "use": "local design; no blind benchmark execution"
+  }
+}

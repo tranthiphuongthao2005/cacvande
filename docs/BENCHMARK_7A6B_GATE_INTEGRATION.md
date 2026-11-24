@@ -1,0 +1,11 @@
+# Gate tại POST 7A.6B
+
+Normal A (7A.5C) và Processing A (7A.5E) truyền PostGate vào collector producer accounting dùng chung. Collector kiểm trước preflight/activation ở CLI. Ngay trước POST duy nhất, business_post kiểm lại readiness, digest snapshot governance, campaign/configuration, output đã đặt chỗ, one-POST cap, zero retry, budget và expiry. Spoof ADVISOR_SIMULATION bị từ chối kể cả khi field status ghi APPROVED. Không có gate thì collector dùng chung dừng trước deployment. Công cụ lịch sử dùng đường collector này không thể chạy bằng approval cũ. Các runner nghiên cứu độc lập ngoài đường này không thuộc entrypoint cohort.
+
+File governance do operator cung cấp chứa các record 7A.6A và thêm decision_source OPERATOR, campaign_id, approval_id gồm 32 hex thường, expires_at có timezone, output_directory đúng dạng tương đối từ root. Config Normal A có tổng budget ít nhất 450 giây, Processing A 792 giây. --governance bắt buộc cho live; Processing vẫn cần approval-file riêng. Kiểm tra dùng hồ sơ operator quản lý, SHA-256 và bằng chứng phạm vi. Danh tính operator cần được xác minh ngoài tool.
+
+Ledger collection_approval_usage dưới experiments/benchmark_7a5 ghi approval_id với exclusive create trước khi gọi client.post. Hai process dùng cùng ID chỉ có một process có thể consume. Timeout hoặc lỗi sau consume vẫn giữ marker, không retry và không dùng lại approval. Không xóa ledger để chạy tiếp. Ledger dùng chung trên workspace, phạm vi copy workspace/host khác cần operator bảo toàn bản ghi dùng chung. Đợt này kiểm bằng mock transport boundary và không gửi POST nghiệp vụ.
+
+Kiểm tra mã production xác nhận Normal A và Processing A cùng gọi smoke_producer_accounting.run. Hàm này chỉ có một điểm dispatch qua business_post và không có POST/request/send trực tiếp. Gọi collector dùng chung thiếu gate bị chặn trước tạo output. Collector legacy Batch 7A.4 dùng chung hàm này nên đường live cũ bị chặn. collect_micro_dataset và experiments/run_scenario là runner độc lập ngoài entrypoint cohort, vẫn có POST riêng và không dùng cho 7A.6B.
+
+Ledger flush và fsync trước dispatch. Fixture chạy process Python mới dùng cùng approval_id và đổi output sang đường dẫn chưa tồn tại, xác nhận marker trên đĩa vẫn chặn replay và transport ghi 0 POST mới. Đây là MOCK_VERIFIED tại transport, FIXTURE_VERIFIED cho liên kết mã/ledger, chưa LIVE_VERIFIED cho gate.

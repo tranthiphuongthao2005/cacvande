@@ -1,0 +1,57 @@
+filebeat.inputs:
+  - type: filestream
+    id: thesis-application-json-v1
+    pipeline: thesis-app-v1
+    paths: ["/logs/user/user.jsonl*", "/logs/product/product.jsonl*", "/logs/order/order.jsonl*"]
+    prospector.scanner.check_interval: 1s
+    prospector.scanner.fingerprint:
+      enabled: true
+      offset: 0
+      length: 128
+    file_identity.fingerprint: ~
+    parsers:
+      - ndjson:
+          target: app
+          add_error_key: true
+    processors:
+      - drop_event:
+          when:
+            not:
+              and:
+                - regexp:
+                    app.event_id: "^[a-f0-9]{32}$"
+                - regexp:
+                    app.timestamp: "^[0-9]{4}-[0-9]{2}-[0-9]{2}T"
+                - regexp:
+                    app.trace_id: "^[a-f0-9]{32}$"
+                - regexp:
+                    app.span_id: "^[a-f0-9]{16}$"
+                - regexp:
+                    app.request_id: "^[a-f0-9]{16}$"
+                - regexp:
+                    app.service: "^(user|product|order)$"
+                - regexp:
+                    app.level: "^(DEBUG|INFO|WARNING|ERROR|CRITICAL)$"
+                - regexp:
+                    app.event: "^(request_completed|request_failed|database_connection_failed|dependency_attempt_failed|dependency_exhausted|order_processing_failed)$"
+      - copy_fields:
+          fields: [{from: app.event_id, to: "@metadata._id"}]
+          fail_on_error: true
+      - drop_fields:
+          fields: [message]
+          ignore_missing: true
+queue.mem:
+  events: 512
+  flush.min_events: 128
+  flush.timeout: 1s
+setup.template.enabled: false
+setup.ilm.enabled: false
+monitoring.enabled: false
+output.elasticsearch:
+  hosts: ["http://elasticsearch:9200"]
+  username: filebeat_thesis
+  password: "${FILEBEAT_WRITER_PASSWORD}"
+  index: "thesis-logs-%{+yyyy.MM.dd}"
+  pipeline: thesis-app-v1
+  bulk_max_size: 128
+logging.json: true

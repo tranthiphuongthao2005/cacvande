@@ -1,0 +1,33 @@
+{
+  "decision_id": "1452fe4b8c624ae697e23a0d66ca81e6",
+  "operator_id": "local-project-operator",
+  "decision_source": "USER_OPERATOR_DECLARATION",
+  "timestamp": "2026-11-24T13:27:15.991266+00:00",
+  "scope": {
+    "decision_source": "OPERATOR",
+    "authority": "OPERATOR",
+    "operator_id": null,
+    "actual_approval_status": "PENDING",
+    "evidence": {
+      "path": null,
+      "sha256": null
+    },
+    "configuration_id": "processing-a",
+    "proposal_sha256": "d49efdcebb233423229cd3fa8237d3fb3b03b5f142b14baad4ca693e05528b12",
+    "maximum_business_posts": 1,
+    "retries": 0,
+    "campaign_id": "7a7-processing-a-r1",
+    "approval_id": "b19f3163ec8247d5ad11a04a734af01b",
+    "expires_at": "2026-11-24T18:27:15.991266+00:00",
+    "overall_seconds": 792,
+    "cohort": "7a7-evaluation-candidates-v1",
+    "blind_eligible": false,
+    "output_directory": "experiments/benchmark_7a7/runs/processing-a-r1",
+    "rollback": "Restore baseline Compose and verify fault/scope cleared; preserve evidence on failure",
+    "repetition_id": "processing-a-r1",
+    "collection_plan_sha256": "7bc63d44c6e1391a04606a1ed01a3a6ad1b703ebccb9cec7b74aabcd55dfb3cc"
+  },
+  "collection_plan_sha256": "7bc63d44c6e1391a04606a1ed01a3a6ad1b703ebccb9cec7b74aabcd55dfb3cc",
+  "limits": "Local Docker, one POST, no retry, blind eligibility false, separate reviewer; no external calls",
+  "adapter_acceptance_sha256": "b76745f86982cc748d4ba49ee38a169356c8077b16c792278cd854e2c941619a"
+}

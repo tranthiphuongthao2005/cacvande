@@ -1,0 +1,91 @@
+{
+  "cohort": "DEVELOPMENT_ACCEPTANCE",
+  "blind_eligible": false,
+  "approvals": {
+    "taxonomy": {
+      "decision_source": "OPERATOR",
+      "authority": "OPERATOR",
+      "operator_id": "local-project-operator",
+      "actual_approval_status": "APPROVED",
+      "evidence": {
+        "path": "taxonomy.json",
+        "sha256": "8a8fecd7e50e46bc865345c977e04e9c53b3d487250b5fe39a7c243184aa1de5"
+      },
+      "candidate_sha256": "dfbda2f68ea5ddd2b245cbc62c28dea8fdcbe1ffa68ebc981e478ac6e6088893",
+      "provenance_source": "USER_OPERATOR_DECLARATION"
+    },
+    "protocol": {
+      "decision_source": "OPERATOR",
+      "authority": "OPERATOR",
+      "operator_id": "local-project-operator",
+      "actual_approval_status": "APPROVED",
+      "evidence": {
+        "path": "protocol.json",
+        "sha256": "5b28810899a26df15a286183223a9fb165defbe788900d2371077e82af6b85d0"
+      },
+      "candidate_sha256": "d2dd2f5c9a36c71cbe648e1555824e4c4c88b1d7d80680101ac44e7f5d0999c6",
+      "provenance_source": "USER_OPERATOR_DECLARATION"
+    }
+  },
+  "collection_batches": {
+    "timeout-a": {
+      "decision_source": "OPERATOR",
+      "authority": "OPERATOR",
+      "operator_id": "local-project-operator",
+      "actual_approval_status": "APPROVED",
+      "evidence": {
+        "path": "batch.json",
+        "sha256": "e602b079a89382a60ef9fad06ab6dbe0703291ee0e5664a99696a5dc84cf7a20"
+      },
+      "configuration_id": "timeout-a",
+      "proposal_sha256": "d49efdcebb233423229cd3fa8237d3fb3b03b5f142b14baad4ca693e05528b12",
+      "maximum_business_posts": 1,
+      "retries": 0,
+      "campaign_id": "timeout-a-development-acceptance",
+      "approval_id": "ed5fa0cd205d4d9fb7f8c5a17aee538c",
+      "expires_at": "2026-11-24T15:41:07.074990+00:00",
+      "overall_seconds": 792,
+      "cohort": "DEVELOPMENT_ACCEPTANCE",
+      "blind_eligible": false,
+      "output_directory": "experiments/benchmark_7a5/accept_7a6d2_timeout_a",
+      "rollback": "Restore baseline Compose and verify fault/scope cleared; preserve evidence on failure",
+      "provenance_source": "USER_OPERATOR_DECLARATION"
+    }
+  },
+  "fault_adapters": {
+    "timeout-a": {
+      "decision_source": "OPERATOR",
+      "authority": "OPERATOR",
+      "operator_id": "local-project-operator",
+      "actual_approval_status": "APPROVED",
+      "evidence": {
+        "path": "adapter.json",
+        "sha256": "5d41d801a0a11769147c03186fb002c363a02c3f5e044dc7eafbc28ee6a51d96"
+      },
+      "configuration_id": "timeout-a",
+      "proposal_sha256": "d49efdcebb233423229cd3fa8237d3fb3b03b5f142b14baad4ca693e05528b12",
+      "maximum_business_posts": 1,
+      "retries": 0,
+      "provenance_source": "USER_OPERATOR_DECLARATION"
+    }
+  },
+  "grouping_and_capture_policy": {
+    "decision_source": "OPERATOR",
+    "authority": "OPERATOR",
+    "operator_id": "local-project-operator",
+    "actual_approval_status": "APPROVED",
+    "evidence": {
+      "path": "capture_completeness.json",
+      "sha256": "c9c27dc2e61e2ac89bcfdbc2d5a6f4073535ee3f418dc55d816c21b8e2324c69"
+    },
+    "configuration_id": "timeout-a",
+    "proposal_sha256": "d49efdcebb233423229cd3fa8237d3fb3b03b5f142b14baad4ca693e05528b12",
+    "maximum_business_posts": 1,
+    "retries": 0,
+    "grouping_evidence": {
+      "path": "grouping.json",
+      "sha256": "f72693ace895bff79e06ecb6f18592d511a36c9a12a7bba25fb2e64c963ed689"
+    },
+    "provenance_source": "USER_OPERATOR_DECLARATION"
+  }
+}

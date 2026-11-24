@@ -1,0 +1,91 @@
+{
+  "cohort": "DEVELOPMENT_ACCEPTANCE",
+  "blind_eligible": false,
+  "approvals": {
+    "taxonomy": {
+      "decision_source": "OPERATOR",
+      "authority": "OPERATOR",
+      "operator_id": "local-project-operator",
+      "actual_approval_status": "APPROVED",
+      "evidence": {
+        "path": "taxonomy.json",
+        "sha256": "8a8fecd7e50e46bc865345c977e04e9c53b3d487250b5fe39a7c243184aa1de5"
+      },
+      "candidate_sha256": "dfbda2f68ea5ddd2b245cbc62c28dea8fdcbe1ffa68ebc981e478ac6e6088893",
+      "provenance_source": "USER_OPERATOR_DECLARATION"
+    },
+    "protocol": {
+      "decision_source": "OPERATOR",
+      "authority": "OPERATOR",
+      "operator_id": "local-project-operator",
+      "actual_approval_status": "APPROVED",
+      "evidence": {
+        "path": "protocol.json",
+        "sha256": "5b28810899a26df15a286183223a9fb165defbe788900d2371077e82af6b85d0"
+      },
+      "candidate_sha256": "d2dd2f5c9a36c71cbe648e1555824e4c4c88b1d7d80680101ac44e7f5d0999c6",
+      "provenance_source": "USER_OPERATOR_DECLARATION"
+    }
+  },
+  "collection_batches": {
+    "processing-a": {
+      "decision_source": "OPERATOR",
+      "authority": "OPERATOR",
+      "operator_id": "local-project-operator",
+      "actual_approval_status": "APPROVED",
+      "evidence": {
+        "path": "batch.json",
+        "sha256": "501bae1c03fb0755141d3c94ee9c9b8ca31e69b9e5b4ba5ec2e405b11c9e8fa5"
+      },
+      "configuration_id": "processing-a",
+      "proposal_sha256": "d49efdcebb233423229cd3fa8237d3fb3b03b5f142b14baad4ca693e05528b12",
+      "maximum_business_posts": 1,
+      "retries": 0,
+      "campaign_id": "processing-a-development-pilot",
+      "approval_id": "939005fb7c224722a362a30747e3f87d",
+      "expires_at": "2026-11-24T15:41:07.074990+00:00",
+      "overall_seconds": 792,
+      "cohort": "DEVELOPMENT_ACCEPTANCE",
+      "blind_eligible": false,
+      "output_directory": "experiments/benchmark_7a5/accept_7a6d2_processing_a",
+      "rollback": "Restore baseline Compose and verify fault/scope cleared; preserve evidence on failure",
+      "provenance_source": "USER_OPERATOR_DECLARATION"
+    }
+  },
+  "fault_adapters": {
+    "processing-a": {
+      "decision_source": "OPERATOR",
+      "authority": "OPERATOR",
+      "operator_id": "local-project-operator",
+      "actual_approval_status": "APPROVED",
+      "evidence": {
+        "path": "adapter.json",
+        "sha256": "0ffb0eea768210e0f296d682188ed8aa111d46eeb4b503990a0b7920c0e33efc"
+      },
+      "configuration_id": "processing-a",
+      "proposal_sha256": "d49efdcebb233423229cd3fa8237d3fb3b03b5f142b14baad4ca693e05528b12",
+      "maximum_business_posts": 1,
+      "retries": 0,
+      "provenance_source": "USER_OPERATOR_DECLARATION"
+    }
+  },
+  "grouping_and_capture_policy": {
+    "decision_source": "OPERATOR",
+    "authority": "OPERATOR",
+    "operator_id": "local-project-operator",
+    "actual_approval_status": "APPROVED",
+    "evidence": {
+      "path": "capture_completeness.json",
+      "sha256": "628a88a7699baf7cd4bc38a8c881ebc29e3fc089c37e1c08124937a237aff8d1"
+    },
+    "configuration_id": "processing-a",
+    "proposal_sha256": "d49efdcebb233423229cd3fa8237d3fb3b03b5f142b14baad4ca693e05528b12",
+    "maximum_business_posts": 1,
+    "retries": 0,
+    "grouping_evidence": {
+      "path": "grouping.json",
+      "sha256": "16c33092292f894857afb416bc629eceefc2c69c9dafea6fa342a5636d25939f"
+    },
+    "provenance_source": "USER_OPERATOR_DECLARATION"
+  }
+}

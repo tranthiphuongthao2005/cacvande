@@ -1,0 +1,7 @@
+# Ground truth độc lập
+
+`GroundTruth` khai báo run_id, trace_id, scenario_family, injected_fault, injection_provenance, root_cause_service, root_cause_category, expected_causal_chain, affected_services, supporting_event_ids, expected_observations, acceptable_root_cause_variants, annotation_status và reviewer_id hoặc reviewer_role. Schema máy đọc được có trong [benchmark schemas](../experiments/benchmark_7a_schemas.json).
+
+Lưu sidecar trong thư mục `labels/` riêng ngoài đầu vào runtime. Kiểm tra evidence theo Docker/OTel, cấu hình lúc injection, status và diagnostics độc lập. Root cause quan sát phải giải thích triệu chứng với chuỗi bằng chứng. Injection dự kiến có thể không xảy ra hoặc có thể bị lỗi khác lấn át. Khi thiếu evidence, ghi `UNVERIFIED` và để trường chưa biết là null, dùng danh sách rỗng nếu chưa có dữ kiện. Normal có category `normal` khi đủ bằng chứng, không có root cause service. Trường hợp nhiều nguyên nhân có thể chấp nhận cần liệt kê variant và criteria trước khi chấm, không mở rộng danh sách sau khi thấy output.
+
+Curator đánh dấu bất đồng về sự kiện hoặc completeness và giữ nguồn bằng chứng riêng. Đối chiếu hai người; người adjudicate ghi lý do và quyết định khóa. Schema validator kiểm trace/run và event IDs, cấu trúc field và hash. Valid event ID xác nhận linkage, người chấm xác định hỗ trợ nhân quả. Data sidecars không đưa vào ES, Context, prompt hoặc n8n; chỉ dùng ngoại tuyến để audit hoặc chấm.

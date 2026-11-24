@@ -1,0 +1,22 @@
+services:
+  context-service:
+    build:
+      context: .
+      dockerfile: services/context/Dockerfile
+    environment:
+      CONTEXT_ES_URL: http://elasticsearch:9200
+      CONTEXT_ES_API_KEY: "${CONTEXT_ES_API_KEY:?set in .env.context}"
+    networks: [logging]
+    depends_on:
+      elasticsearch: {condition: service_healthy}
+    ports: ["127.0.0.1:8015:8000"]
+    mem_limit: 192m
+    cpus: 0.5
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "from urllib.request import urlopen; urlopen('http://127.0.0.1:8000/health', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 6

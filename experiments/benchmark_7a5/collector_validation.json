@@ -1,0 +1,57 @@
+{
+  "version": "7A.5B-v1",
+  "dry_run": {
+    "mode": "DRY_RUN",
+    "campaign": "normal-a",
+    "target_request_cap": 2,
+    "setup_requests": 0,
+    "work_seconds": 420,
+    "cleanup_seconds": 30,
+    "maximum_seconds": 450,
+    "target_requests": 0
+  },
+  "fixture_cases": {
+    "successful_target_posts": 2,
+    "post_error_posts": 1,
+    "timeout_posts": 1,
+    "preflight_failure_posts": 0,
+    "activation_failure_posts": 0,
+    "rollback_failure_status": "CLEANUP_FAILED",
+    "pair_and_ground_truth_checks": "passed",
+    "missing_es_event_rejected": true
+  },
+  "operational_target_requests": 0,
+  "openai_calls": 0,
+  "official_traces": 0,
+  "ground_truth_verified": 0,
+  "blind_eligible": 0,
+  "checksums": {
+    "families": 7,
+    "slots": 14,
+    "blocked": 8,
+    "independent_configurations_verified": 0,
+    "planned_pairs_ceiling": 28,
+    "review_packets": 7,
+    "batch_hashes": [
+      17,
+      20,
+      21
+    ],
+    "historical_hashes": {
+      "benchmark_7a1_pilot_seed124": 33,
+      "benchmark_7a2_verification": 9,
+      "benchmark_7a3_smoke": 4,
+      "benchmark_7a3b_smoke": 4
+    },
+    "research_hashes": 63
+  },
+  "draft_protocol_file_sha256": "1c0ea64c7ef80d4c6d060a74c31747dd73bb69d91f1d0f4983bcbdc42782fa50",
+  "regression": {
+    "passed": 95,
+    "warnings": 3,
+    "seconds": 57.91
+  },
+  "final_targeted_tests": {
+    "passed": 17
+  }
+}

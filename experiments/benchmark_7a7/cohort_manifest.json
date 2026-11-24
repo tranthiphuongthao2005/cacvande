@@ -1,0 +1,381 @@
+{
+  "cohort": "7a7-evaluation-candidates-v1",
+  "plan_sha256": "7bc63d44c6e1391a04606a1ed01a3a6ad1b703ebccb9cec7b74aabcd55dfb3cc",
+  "planned": 10,
+  "run_status": {
+    "TECHNICALLY_VALID": 10
+  },
+  "totals": {
+    "post_attempts": 10,
+    "producer": 42,
+    "docker": 42,
+    "es": 42
+  },
+  "blind_eligible": 0,
+  "independent_verified": 0,
+  "ground_truth_verified": 0,
+  "api_calls": 0,
+  "rows": [
+    {
+      "repetition_id": "normal-a-r1",
+      "campaign_id": "7a7-normal-a-r1",
+      "configuration_id": "normal-a",
+      "output_directory": "experiments/benchmark_7a7/runs/normal-a-r1",
+      "expected_mechanism": "normal",
+      "status": "TECHNICALLY_VALID",
+      "blind_eligible": false,
+      "post_attempts": 1,
+      "approval_consumed": true,
+      "bundle_hashes": 19,
+      "trace_id": "33a18e3bcbb3770cccb2fd265c3d558f",
+      "run_id": "85f0f8e5c6584c4aabc9135ed8290aad",
+      "reviewer_status": "NEEDS_REVIEW",
+      "ground_truth": "UNVERIFIED",
+      "event_ids": [
+        "474a9464f24e4df1b8382e840644f318",
+        "948186c968c64b5ca0b2b3f4ca38baf3",
+        "0bde2c3db5524a2581a5db937c66d395"
+      ],
+      "producer": 3,
+      "docker": 3,
+      "es": 3,
+      "single": 1,
+      "cross": 3,
+      "completeness": [
+        "UNKNOWN",
+        "PARTIAL"
+      ],
+      "http": 201,
+      "postflight": "PASS",
+      "rollback": "PASS"
+    },
+    {
+      "repetition_id": "normal-a-r2",
+      "campaign_id": "7a7-normal-a-r2",
+      "configuration_id": "normal-a",
+      "output_directory": "experiments/benchmark_7a7/runs/normal-a-r2",
+      "expected_mechanism": "normal",
+      "status": "TECHNICALLY_VALID",
+      "blind_eligible": false,
+      "post_attempts": 1,
+      "approval_consumed": true,
+      "bundle_hashes": 19,
+      "trace_id": "f06659d95c6507b75eb0a87ddbff392d",
+      "run_id": "1f9eb373cc3a491488eb47e997b2847d",
+      "reviewer_status": "NEEDS_REVIEW",
+      "ground_truth": "UNVERIFIED",
+      "event_ids": [
+        "9571dd0200e149b4b904a5bfd78a84f9",
+        "88654c91be5b40259459f14673c79b59",
+        "3d7cb5b79f1a45be8440e57f60eaa291"
+      ],
+      "producer": 3,
+      "docker": 3,
+      "es": 3,
+      "single": 1,
+      "cross": 3,
+      "completeness": [
+        "UNKNOWN",
+        "PARTIAL"
+      ],
+      "http": 201,
+      "postflight": "PASS",
+      "rollback": "PASS"
+    },
+    {
+      "repetition_id": "processing-a-r1",
+      "campaign_id": "7a7-processing-a-r1",
+      "configuration_id": "processing-a",
+      "output_directory": "experiments/benchmark_7a7/runs/processing-a-r1",
+      "expected_mechanism": "processing_failure",
+      "status": "TECHNICALLY_VALID",
+      "blind_eligible": false,
+      "post_attempts": 1,
+      "approval_consumed": true,
+      "bundle_hashes": 19,
+      "trace_id": "2c6cdbfd96c961845e8de9d9992e7b6c",
+      "run_id": "9b61322a5052452eaa1f9948d9f176b0",
+      "reviewer_status": "NEEDS_REVIEW",
+      "ground_truth": "UNVERIFIED",
+      "event_ids": [
+        "115e05cd66e54c10ac49a23672566d87",
+        "de00ea91683f4d438bf3ccff162f8c55",
+        "998cdadb36c14cc48745ce56eab7cb7d",
+        "a3b5764b6f924715a28b12142b84af8a"
+      ],
+      "producer": 4,
+      "docker": 4,
+      "es": 4,
+      "single": 2,
+      "cross": 4,
+      "completeness": [
+        "UNKNOWN",
+        "PARTIAL"
+      ],
+      "http": 500,
+      "postflight": "PASS",
+      "rollback": "PASS"
+    },
+    {
+      "repetition_id": "processing-a-r2",
+      "campaign_id": "7a7-processing-a-r2",
+      "configuration_id": "processing-a",
+      "output_directory": "experiments/benchmark_7a7/runs/processing-a-r2",
+      "expected_mechanism": "processing_failure",
+      "status": "TECHNICALLY_VALID",
+      "blind_eligible": false,
+      "post_attempts": 1,
+      "approval_consumed": true,
+      "bundle_hashes": 19,
+      "trace_id": "9253cc9ec0eac69e42208bc340942c69",
+      "run_id": "99804b41d1874374a8be4871fbacb6b2",
+      "reviewer_status": "NEEDS_REVIEW",
+      "ground_truth": "UNVERIFIED",
+      "event_ids": [
+        "8366c782918347dc9e4499c57795e8bf",
+        "29bbb00d07fa48bfb7d8eecb68b994e4",
+        "c5f772bb226d427893063a5d41cf78ae",
+        "ccce8089e3ed48778a5526b30d915d73"
+      ],
+      "producer": 4,
+      "docker": 4,
+      "es": 4,
+      "single": 2,
+      "cross": 4,
+      "completeness": [
+        "UNKNOWN",
+        "PARTIAL"
+      ],
+      "http": 500,
+      "postflight": "PASS",
+      "rollback": "PASS"
+    },
+    {
+      "repetition_id": "timeout-a-r1",
+      "campaign_id": "7a7-timeout-a-r1",
+      "configuration_id": "timeout-a",
+      "output_directory": "experiments/benchmark_7a7/runs/timeout-a-r1",
+      "expected_mechanism": "dependency_timeout",
+      "status": "TECHNICALLY_VALID",
+      "blind_eligible": false,
+      "post_attempts": 1,
+      "approval_consumed": true,
+      "bundle_hashes": 19,
+      "trace_id": "ddc0fc6e6329639fcf1ff872cc963fb8",
+      "run_id": "86d6079799ab4762bee36a9f213cbb39",
+      "reviewer_status": "NEEDS_REVIEW",
+      "ground_truth": "UNVERIFIED",
+      "event_ids": [
+        "b454d2f1eb8e451cb76277d76fa6cb27",
+        "0fc7a005d7db4329a28c3c18673ca806",
+        "f1e904352df74311b83bb5a1e24c4bb0",
+        "beb0cb1378284c4abfab40c9205d7b27",
+        "48b88747925649338a070a136fb0919c"
+      ],
+      "producer": 5,
+      "docker": 5,
+      "es": 5,
+      "single": 3,
+      "cross": 5,
+      "completeness": [
+        "UNKNOWN",
+        "PARTIAL"
+      ],
+      "http": 504,
+      "postflight": "PASS",
+      "rollback": "PASS"
+    },
+    {
+      "repetition_id": "timeout-a-r2",
+      "campaign_id": "7a7-timeout-a-r2",
+      "configuration_id": "timeout-a",
+      "output_directory": "experiments/benchmark_7a7/runs/timeout-a-r2",
+      "expected_mechanism": "dependency_timeout",
+      "status": "TECHNICALLY_VALID",
+      "blind_eligible": false,
+      "post_attempts": 1,
+      "approval_consumed": true,
+      "bundle_hashes": 19,
+      "trace_id": "1371a475e726accb6eb78e66c8d60be4",
+      "run_id": "60e793015fe74c89a81a070c1f944bb9",
+      "reviewer_status": "NEEDS_REVIEW",
+      "ground_truth": "UNVERIFIED",
+      "event_ids": [
+        "524c371accbd459a86185c1bb6c9217d",
+        "8b139a86c72c4d7495100d422c5acaeb",
+        "b8bc2bf24bed490393c08a3179610efa",
+        "4ed3d6b2f1134bc696ba5feca8c12729",
+        "7c74d0decf0645508efd99346baa6f7e"
+      ],
+      "producer": 5,
+      "docker": 5,
+      "es": 5,
+      "single": 3,
+      "cross": 5,
+      "completeness": [
+        "UNKNOWN",
+        "PARTIAL"
+      ],
+      "http": 504,
+      "postflight": "PASS",
+      "rollback": "PASS"
+    },
+    {
+      "repetition_id": "database-a-r1",
+      "campaign_id": "7a7-database-a-r1",
+      "configuration_id": "database-a",
+      "output_directory": "experiments/benchmark_7a7/runs/database-a-r1",
+      "expected_mechanism": "database_connection_failure",
+      "status": "TECHNICALLY_VALID",
+      "blind_eligible": false,
+      "post_attempts": 1,
+      "approval_consumed": true,
+      "bundle_hashes": 19,
+      "trace_id": "4edfedcd68661d340a39fa095801d80c",
+      "run_id": "1c59b94d34bd43729a9cd9a61ab110b4",
+      "reviewer_status": "NEEDS_REVIEW",
+      "ground_truth": "UNVERIFIED",
+      "event_ids": [
+        "6928fc51f3f94856b6b88ef14b93da2f",
+        "777b80d76c8140cc850d359be9ec2ac8",
+        "1c6a3991b73b4089b257a02cfc8d20ea",
+        "223b296521534391bb1159f004a931ff"
+      ],
+      "producer": 4,
+      "docker": 4,
+      "es": 4,
+      "single": 2,
+      "cross": 4,
+      "completeness": [
+        "UNKNOWN",
+        "PARTIAL"
+      ],
+      "http": 503,
+      "postflight": "PASS",
+      "rollback": "PASS"
+    },
+    {
+      "repetition_id": "database-a-r2",
+      "campaign_id": "7a7-database-a-r2",
+      "configuration_id": "database-a",
+      "output_directory": "experiments/benchmark_7a7/runs/database-a-r2",
+      "expected_mechanism": "database_connection_failure",
+      "status": "TECHNICALLY_VALID",
+      "blind_eligible": false,
+      "post_attempts": 1,
+      "approval_consumed": true,
+      "bundle_hashes": 19,
+      "trace_id": "bc13a751d11b8b4b3115753be0620a62",
+      "run_id": "5b04801333464caea79d15baa8458342",
+      "reviewer_status": "NEEDS_REVIEW",
+      "ground_truth": "UNVERIFIED",
+      "event_ids": [
+        "0b111f75c6064c7c985c1bbcfe95d8cb",
+        "fe3a9918ad924bb5b470463d8636aaf0",
+        "35d743a5012d4bdf80ce934ee1176ebe",
+        "02d3753946d04fff94172e4b9daa18bf"
+      ],
+      "producer": 4,
+      "docker": 4,
+      "es": 4,
+      "single": 2,
+      "cross": 4,
+      "completeness": [
+        "UNKNOWN",
+        "PARTIAL"
+      ],
+      "http": 503,
+      "postflight": "PASS",
+      "rollback": "PASS"
+    },
+    {
+      "repetition_id": "cascade-a-r1",
+      "campaign_id": "7a7-cascade-a-r1",
+      "configuration_id": "cascade-a",
+      "output_directory": "experiments/benchmark_7a7/runs/cascade-a-r1",
+      "expected_mechanism": "dependency_unavailable",
+      "status": "TECHNICALLY_VALID",
+      "blind_eligible": false,
+      "post_attempts": 1,
+      "approval_consumed": true,
+      "bundle_hashes": 19,
+      "trace_id": "6317b3cfd046f6a225b6bb599b74a608",
+      "run_id": "309d8527af5c496487bd1d0b20b62f51",
+      "reviewer_status": "NEEDS_REVIEW",
+      "ground_truth": "UNVERIFIED",
+      "event_ids": [
+        "494d6cb9529647198955ecccd6de68be",
+        "b7431c5d39d442f2ba4c1190566f8461",
+        "26a98c783c514dc8801cb9cd991a8b7a",
+        "f28acae66ab24f2ab888fec5f36f1d2a",
+        "6feb513f8d144587ac2b0a8aa95d59de"
+      ],
+      "producer": 5,
+      "docker": 5,
+      "es": 5,
+      "single": 3,
+      "cross": 5,
+      "completeness": [
+        "UNKNOWN",
+        "PARTIAL"
+      ],
+      "http": 502,
+      "postflight": "PASS",
+      "rollback": "PASS"
+    },
+    {
+      "repetition_id": "cascade-a-r2",
+      "campaign_id": "7a7-cascade-a-r2",
+      "configuration_id": "cascade-a",
+      "output_directory": "experiments/benchmark_7a7/runs/cascade-a-r2",
+      "expected_mechanism": "dependency_unavailable",
+      "status": "TECHNICALLY_VALID",
+      "blind_eligible": false,
+      "post_attempts": 1,
+      "approval_consumed": true,
+      "bundle_hashes": 19,
+      "trace_id": "fcb8317f0f3ab06ce7a33b010f8b77b8",
+      "run_id": "e82b99bd5e5a41ecb3c4001345e3e7cb",
+      "reviewer_status": "NEEDS_REVIEW",
+      "ground_truth": "UNVERIFIED",
+      "event_ids": [
+        "e952f4a9de114b4083d4bb26f0c8b7ef",
+        "3d26f68d90ee4217a732eee9d073234e",
+        "ae6dc3883fb14b138cec8b2f3cf9b693",
+        "4cd7f8adecec47c5bf8cb52124dbb447",
+        "51c31b558af84a118989e1c0fc1dd945"
+      ],
+      "producer": 5,
+      "docker": 5,
+      "es": 5,
+      "single": 3,
+      "cross": 5,
+      "completeness": [
+        "UNKNOWN",
+        "PARTIAL"
+      ],
+      "http": 502,
+      "postflight": "PASS",
+      "rollback": "PASS"
+    }
+  ],
+  "integrity": {
+    "sufficient_for_review": 5,
+    "missing_evidence": 2,
+    "batch_hashes": [
+      17,
+      20,
+      21
+    ],
+    "historical": {
+      "benchmark_7a1_pilot_seed124": 33,
+      "benchmark_7a2_verification": 9,
+      "benchmark_7a3_smoke": 4,
+      "benchmark_7a3b_smoke": 4
+    },
+    "smoke_hashes": 15,
+    "research_hashes": 63,
+    "acceptance_hashes": 95
+  },
+  "stability_pass": 40
+}

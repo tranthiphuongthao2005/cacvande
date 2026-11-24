@@ -1,0 +1,81 @@
+{
+  "traces": [
+    {
+      "trace_id": "fdd83c426f267b765374a8a140f982e3",
+      "candidate_root": "order",
+      "event_count": 3,
+      "services": [
+        "order",
+        "product",
+        "user"
+      ],
+      "completeness": "partial"
+    },
+    {
+      "trace_id": "2a6bf96ce7bbeb4b964013ad274f1e6c",
+      "candidate_root": "order",
+      "event_count": 5,
+      "services": [
+        "order",
+        "product",
+        "user"
+      ],
+      "completeness": "partial"
+    },
+    {
+      "trace_id": "c906502b843cb8cd6cd1105e6db8d0b4",
+      "candidate_root": "unknown",
+      "event_count": 1,
+      "services": [
+        "product"
+      ],
+      "completeness": "partial"
+    },
+    {
+      "trace_id": "ca98f9ff9a6c0cc1953ac1469fa9ab05",
+      "candidate_root": "order",
+      "event_count": 4,
+      "services": [
+        "order",
+        "product",
+        "user"
+      ],
+      "completeness": "partial"
+    },
+    {
+      "trace_id": "c4998fe3b31f5e4f81b5a58f3f8c4302",
+      "candidate_root": "order",
+      "event_count": 4,
+      "services": [
+        "order",
+        "product",
+        "user"
+      ],
+      "completeness": "partial"
+    },
+    {
+      "trace_id": "c8591dbe0db3b7573f42e63fd0e54ecf",
+      "candidate_root": "order",
+      "event_count": 9,
+      "services": [
+        "order",
+        "product",
+        "user"
+      ],
+      "completeness": "partial"
+    },
+    {
+      "trace_id": "09b71700f5dca84ec31f133b92b2ba91",
+      "candidate_root": "order",
+      "event_count": 5,
+      "services": [
+        "order",
+        "product",
+        "user"
+      ],
+      "completeness": "partial"
+    }
+  ],
+  "scoring": "NOT_READY_FOR_SCORING",
+  "model_forward_executed": false
+}

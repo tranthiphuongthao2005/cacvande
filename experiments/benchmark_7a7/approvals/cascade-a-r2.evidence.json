@@ -1,0 +1,33 @@
+{
+  "decision_id": "f2c54138b74d4090ad89e4cbbfdd3e30",
+  "operator_id": "local-project-operator",
+  "decision_source": "USER_OPERATOR_DECLARATION",
+  "timestamp": "2026-11-24T13:27:15.991266+00:00",
+  "scope": {
+    "decision_source": "OPERATOR",
+    "authority": "OPERATOR",
+    "operator_id": null,
+    "actual_approval_status": "PENDING",
+    "evidence": {
+      "path": null,
+      "sha256": null
+    },
+    "configuration_id": "cascade-a",
+    "proposal_sha256": "d49efdcebb233423229cd3fa8237d3fb3b03b5f142b14baad4ca693e05528b12",
+    "maximum_business_posts": 1,
+    "retries": 0,
+    "campaign_id": "7a7-cascade-a-r2",
+    "approval_id": "127abcc3b4e44a239364f2ad73e194d3",
+    "expires_at": "2026-11-24T18:27:15.991266+00:00",
+    "overall_seconds": 792,
+    "cohort": "7a7-evaluation-candidates-v1",
+    "blind_eligible": false,
+    "output_directory": "experiments/benchmark_7a7/runs/cascade-a-r2",
+    "rollback": "Restore baseline Compose and verify fault/scope cleared; preserve evidence on failure",
+    "repetition_id": "cascade-a-r2",
+    "collection_plan_sha256": "7bc63d44c6e1391a04606a1ed01a3a6ad1b703ebccb9cec7b74aabcd55dfb3cc"
+  },
+  "collection_plan_sha256": "7bc63d44c6e1391a04606a1ed01a3a6ad1b703ebccb9cec7b74aabcd55dfb3cc",
+  "limits": "Local Docker, one POST, no retry, blind eligibility false, separate reviewer; no external calls",
+  "adapter_acceptance_sha256": "e9a1dfaed7923ff69d4472c04ba5a1de2d2fb3d9fb95deb5f4214f3276f96fff"
+}

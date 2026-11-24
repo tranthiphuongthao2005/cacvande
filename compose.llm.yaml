@@ -1,0 +1,33 @@
+services:
+  llm-service:
+    build:
+      context: .
+      dockerfile: services/llm/Dockerfile
+    environment:
+      CONTEXT_API_URL: http://context-service:8000
+      LLM_PROVIDER: "${LLM_PROVIDER:-openai}"
+      OPENAI_API_KEY: "${OPENAI_API_KEY:-}"
+      GEMINI_API_KEY: "${GEMINI_API_KEY:-}"
+      LLM_GEMINI_FREE_TIER_CONFIRMED: "${LLM_GEMINI_FREE_TIER_CONFIRMED:-}"
+      LLM_GEMINI_SMOKE_APPROVAL_ID: "${LLM_GEMINI_SMOKE_APPROVAL_ID:-}"
+      LLM_GEMINI_SMOKE_EXPIRES_UTC: "${LLM_GEMINI_SMOKE_EXPIRES_UTC:-}"
+      LLM_GEMINI_SMOKE_TRACE_ID: "${LLM_GEMINI_SMOKE_TRACE_ID:-}"
+      LLM_MODEL: "${LLM_MODEL:-}"
+      LLM_ALLOW_EXTERNAL: "${LLM_ALLOW_EXTERNAL:-0}"
+      LLM_CALL_CAP: "${LLM_CALL_CAP:-1}"
+      LLM_INPUT_BUDGET: "${LLM_INPUT_BUDGET:-7000}"
+      LLM_VALIDATION_RETRIES: "${LLM_VALIDATION_RETRIES:-0}"
+    networks: [logging]
+    depends_on:
+      context-service: {condition: service_healthy}
+    ports: ["127.0.0.1:8016:8000"]
+    mem_limit: 192m
+    cpus: 0.5
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "from urllib.request import urlopen; urlopen('http://127.0.0.1:8000/health', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 6

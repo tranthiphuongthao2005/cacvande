@@ -1,0 +1,7 @@
+# Kế hoạch blind cohort 7A.5H
+
+Khóa tách development và evaluation theo campaign/configuration group trước khi xem output LLM. Loại Normal A smoke, Processing A pilot, ba batch đã xem và các pilot lịch sử. Candidate mới dùng run/trace/event ID chưa thấy và snapshot chưa phơi bày. Giữ cả họ cấu hình gần trùng trong một split. So topology, fault site, trigger/retry policy, fixture, version và observable signature/near-duplicates. Đổi seed, trace ID, payload nhỏ hoặc lặp execution đo biến thiên trong cùng cấu hình. Dùng grouping bảo thủ cho Product unavailability, propagation và retry. Generalization sang cấu hình mới hoặc cơ chế chưa thấy cần chứng cứ riêng.
+
+Đề xuất ngưỡng feasibility chờ duyệt gồm ít nhất 8 cặp fault chấm được từ ít nhất 4 nhóm cấu hình fault độc lập, phủ bốn họ fault xác định nếu khả thi, cộng ít nhất 2 cặp Normal xác minh và chấm được cho chỉ số riêng. Với trần cũ 17 cặp, đây là mục tiêu vận hành, chưa có phân tích power. Nếu dưới ngưỡng, báo coverage và kết quả thăm dò theo nhóm sẵn có, bỏ kết luận xác nhận ở mức cohort. Nếu thiếu một họ lỗi, giới hạn phát biểu ở các họ có dữ liệu, không suy rộng sang họ vắng mặt. Cỡ mẫu nhỏ và phụ thuộc làm CI mặc định null. Không dùng kết quả inference để bù cặp.
+
+17 cặp tối đa tương ứng 34 lượt OpenAI, hai lượt mỗi trace và không retry. Đây là trần dự toán, chưa duyệt chi phí. Trước khi chạy cần cân đối model/token budget, khóa danh sách trace theo nhóm và đặt sổ đếm call cap cấp campaign.

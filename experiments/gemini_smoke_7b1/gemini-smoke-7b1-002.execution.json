@@ -1,0 +1,77 @@
+{
+  "approval_id": "gemini-smoke-7b1-002",
+  "activation": {
+    "expires_at_utc": "2026-11-24T16:46:49.2203154+00:00",
+    "model": "gemini-3.1-flash-lite",
+    "minimum_interval_seconds": 10,
+    "trace_id": "8cc314768cf9c12e300243a20669ad28",
+    "quota_observed_at_utc": "2026-11-24T16:07:45.0274545+00:00",
+    "freeze_index_sha256": "6f4e45bdbf11a6a26c6ec5210377366795208020d35066a2be5dc1b81fd36b49",
+    "activated_at_utc": "2026-11-24T16:16:49.2203154+00:00",
+    "approval_id": "gemini-smoke-7b1-002"
+  },
+  "attempts": [
+    {
+      "mode": "single_service",
+      "started_at_utc": "2026-11-24T16:19:09.821448+00:00",
+      "status": "FAILED",
+      "input_sha256": "13ff08ad42f900dab039c9dfc2966f752e11419cabd449ac19e0ea8a08a7cc81",
+      "http_status": 502,
+      "latency_ms": 3050.665,
+      "error": {
+        "code": "PROVIDER_ERROR"
+      }
+    }
+  ],
+  "started_at_utc": "2026-11-24T16:19:07.395115+00:00",
+  "prompt_sha256": "1b28c9aa3273ec1e5157a5b8c31cd6dcc82320ede6b2791a28bdab4dd0a6f2a8",
+  "prompt_version": "rca-evidence-v1",
+  "runtime_identity": [
+    "909f93cf35c2ca4a0977922b4ef7d3a9c3580f40c1938050fb4fc5d57d9b4b02",
+    "2026-11-24T16:16:53.038377515Z",
+    "0",
+    "true"
+  ],
+  "integrity_preflight": {
+    "frozen": 8,
+    "cohort": 190,
+    "acceptance": 95,
+    "historical": 88,
+    "mecolog": 63
+  },
+  "context_preflight": {
+    "single_service": {
+      "http_status": 200,
+      "events": 3,
+      "completeness": "UNKNOWN",
+      "payload_sha256": "13ff08ad42f900dab039c9dfc2966f752e11419cabd449ac19e0ea8a08a7cc81"
+    },
+    "cross_service": {
+      "http_status": 200,
+      "events": 5,
+      "completeness": "PARTIAL",
+      "payload_sha256": "835872dc3932a8c49dfbaee3927e2b59f013d5dc220a51aa3ea7bd91ae19febf"
+    }
+  },
+  "calls_consumed_runtime": 1,
+  "cleanup": {
+    "status": "PASS",
+    "method": "Stopped isolated llm-service",
+    "runtime": "exited",
+    "port_8016": "connection_refused",
+    "disabled_config_restored": false
+  },
+  "integrity_postflight": {
+    "frozen": 8,
+    "cohort": 190,
+    "acceptance": 95,
+    "historical": 88,
+    "mecolog": 63
+  },
+  "status": "FAILED_SMOKE",
+  "closed_at_utc": "2026-11-24T16:19:19.210034+00:00",
+  "estimated_free_tier_usd": 0,
+  "actual_invoice_usd": null,
+  "openai_calls": 0,
+  "evaluation_calls": 0
+}

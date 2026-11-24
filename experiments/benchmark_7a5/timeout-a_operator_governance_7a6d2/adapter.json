@@ -1,0 +1,22 @@
+{
+  "decision_id": "406c50394f0249fbb922c9902e7ebe5a",
+  "operator_id": "local-project-operator",
+  "decision_source": "USER_OPERATOR_DECLARATION",
+  "recorded_at": "2026-11-24T12:41:07.074990+00:00",
+  "provenance": "Operator declaration in current 7A.6D.2 request; no signature asserted",
+  "decision": "Authorize only timeout-a development acceptance",
+  "scope": {
+    "configuration_id": "timeout-a",
+    "proposal_sha256": "d49efdcebb233423229cd3fa8237d3fb3b03b5f142b14baad4ca693e05528b12",
+    "campaign_id": "timeout-a-development-acceptance",
+    "output_directory": "experiments/benchmark_7a5/accept_7a6d2_timeout_a",
+    "approval_id": "ed5fa0cd205d4d9fb7f8c5a17aee538c",
+    "expires_at": "2026-11-24T15:41:07.074990+00:00",
+    "maximum_business_posts": 1,
+    "retries": 0,
+    "overall_seconds": 792,
+    "cohort": "DEVELOPMENT_ACCEPTANCE",
+    "blind_eligible": false,
+    "rollback": "Restore baseline Compose and verify fault/scope cleared; preserve evidence on failure"
+  }
+}

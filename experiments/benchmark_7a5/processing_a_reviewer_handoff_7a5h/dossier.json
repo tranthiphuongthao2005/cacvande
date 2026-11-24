@@ -1,0 +1,86 @@
+{
+  "candidate_mechanism": "processing_failure",
+  "candidate_service": "order",
+  "configuration": "processing-a",
+  "references": {
+    "activation.json": "e42c506206dae07a6d87927d08295addd33fff05bf27a11e0e119d9c03a11001",
+    "postflight.json": "6e581c4707595205d2bff33a832dd4e7dcb9356710ecac7c59f9c64ffda8a65d",
+    "snapshot_manifest.json": "adddd6b7c655d0007e4b66228068e42aa2968a0353d120e600ebe56c78c5944f",
+    "telemetry.json": "1bc3f541af0d0bbe0f7d5b9654f56d8bb218374dec99112be5d5642d6a1e3165"
+  },
+  "reviewer_status": "NEEDS_REVIEW",
+  "run_id": "77423da550654d5497ac8cc2a8d1ec41",
+  "trace_id": "743b36700c9da51381cdb1889103ba69",
+  "verification_status": "UNVERIFIED",
+  "schema_version": "7A.5H-review-dossier-v1",
+  "cohort": "DEVELOPMENT_PILOT",
+  "blind_eligible": false,
+  "source_dossier": {
+    "path": "experiments/benchmark_7a5/processing_a_development_pilot/labels/dossier.json",
+    "sha256": "b116891edacb675bed2da1fedcda8ae6ea66e19fbb7fe331f7dd15d0851cb60a"
+  },
+  "source_bundle_manifest": {
+    "path": "experiments/benchmark_7a5/processing_a_development_pilot/bundle_sha256.json",
+    "sha256": "0c6fdc66a13f11525bd42e752807729b51493c8b7529180413f61e642f5e1527"
+  },
+  "evidence_sufficient_for_candidate_review": true,
+  "supporting_evidence": {
+    "event_ids": [
+      "17effc7807c24a639bc308678dfee27b",
+      "47db8d4362b54748a078d94370ea1175",
+      "3d2ea9750f3047ed8ef6d7e8fe3c5e6e",
+      "82cd05e3c1c44db7bb2abcbef319ae6c"
+    ],
+    "artifacts": {
+      "activation.json": {
+        "path": "experiments/benchmark_7a5/processing_a_development_pilot/activation.json",
+        "sha256": "e42c506206dae07a6d87927d08295addd33fff05bf27a11e0e119d9c03a11001"
+      },
+      "http_response.json": {
+        "path": "experiments/benchmark_7a5/processing_a_development_pilot/http_response.json",
+        "sha256": "c55457ef423c31ebc370d25958ab6287ac7739626948dc576e345297c4c02f06"
+      },
+      "telemetry.json": {
+        "path": "experiments/benchmark_7a5/processing_a_development_pilot/telemetry.json",
+        "sha256": "1bc3f541af0d0bbe0f7d5b9654f56d8bb218374dec99112be5d5642d6a1e3165"
+      },
+      "postflight.json": {
+        "path": "experiments/benchmark_7a5/processing_a_development_pilot/postflight.json",
+        "sha256": "6e581c4707595205d2bff33a832dd4e7dcb9356710ecac7c59f9c64ffda8a65d"
+      },
+      "snapshot_manifest.json": {
+        "path": "experiments/benchmark_7a5/processing_a_development_pilot/snapshot_manifest.json",
+        "sha256": "adddd6b7c655d0007e4b66228068e42aa2968a0353d120e600ebe56c78c5944f"
+      },
+      "reconciliation.json": {
+        "path": "experiments/benchmark_7a5/processing_a_development_pilot/reconciliation.json",
+        "sha256": "9f5dfd2c198b96b7a54eee81710a47141c04f39d2a7f97ca1528b753f2eb29a2"
+      },
+      "request_attempt.json": {
+        "path": "experiments/benchmark_7a5/processing_a_development_pilot/request_attempt.json",
+        "sha256": "4425ad898ef50104bb470152a6969470545ba5a0964c6191baaff333822d1de1"
+      },
+      "context-cross_service.json": {
+        "path": "experiments/benchmark_7a5/processing_a_development_pilot/context-cross_service.json",
+        "sha256": "752a6b2a6beea5e907b110200c6a045679b604160e7452632307930f62afc299"
+      },
+      "context-single_service.json": {
+        "path": "experiments/benchmark_7a5/processing_a_development_pilot/context-single_service.json",
+        "sha256": "4bdf0c200a87246a7ad268485bd45c8357f72bdbd76798d86b3a15df19a82905"
+      },
+      "accounting.json": {
+        "path": "experiments/benchmark_7a5/processing_a_development_pilot/accounting.json",
+        "sha256": "22c0168c63b82bc2cc50e80c6f442006454330f5e66385d69d83bcad117ba3ca"
+      },
+      "receipts/743b36700c9da51381cdb1889103ba69.json": {
+        "path": "experiments/benchmark_7a5/processing_a_development_pilot/receipts/743b36700c9da51381cdb1889103ba69.json",
+        "sha256": "a1030543cb779931989218c6b2ce8c3d420b8976c8dd4f7ce70ab77b5d15644f"
+      }
+    }
+  },
+  "limitations": [
+    "Observed capture only; producer transport handoff unconfirmed",
+    "No transaction audit for absence of INSERT; stage inferred from hook and observed dependency calls",
+    "Docker projected fields only; no replay of full raw payload hash"
+  ]
+}

@@ -1,0 +1,1 @@
+{"elasticsearch_verified_via_context":true,"postgresql_verified_via_app":true,"readiness_http":{"context":200,"order":200,"product":200,"user":200},"runtime":{"order":["producer-accounting-v1",null,null,null,null],"product":["producer-accounting-v1",null,null,null,null],"user":["producer-accounting-v1",null,null,null,null]},"status":"PASS"}

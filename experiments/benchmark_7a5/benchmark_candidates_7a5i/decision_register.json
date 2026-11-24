@@ -1,0 +1,64 @@
+{
+  "decisions": [
+    {
+      "decision_id": "taxonomy",
+      "decision": "Two dimensions; cascade propagation, retry exhausted handling, dependency unavailable mechanism",
+      "rationale": "Separates causal mechanism from observed impact",
+      "decision_source": "ADVISOR_SIMULATION",
+      "authority": "NON_BINDING",
+      "actual_approval_status": "PENDING",
+      "implementation_readiness": "Candidate encoded",
+      "evidence_required": "Operator sign-off on candidate hash and rubric mapping"
+    },
+    {
+      "decision_id": "protocol",
+      "decision": "Paired Cross minus Single correctness on VERIFIED scorable fault pairs; descriptive feasibility",
+      "rationale": "Preserves matched case comparison and separate outcomes",
+      "decision_source": "ADVISOR_SIMULATION",
+      "authority": "NON_BINDING",
+      "actual_approval_status": "PENDING",
+      "implementation_readiness": "Candidate encoded",
+      "evidence_required": "Operator approval of outcome definitions and frozen protocol"
+    },
+    {
+      "decision_id": "feasibility",
+      "decision": "At least eight evaluable fault pairs, four verified independent fault groups and two Normal pairs",
+      "rationale": "Defines minimum descriptive coverage",
+      "decision_source": "ADVISOR_SIMULATION",
+      "authority": "NON_BINDING",
+      "actual_approval_status": "PENDING",
+      "implementation_readiness": "Planner preflight counts available",
+      "evidence_required": "Independent grouping records, authenticated labels, post-run scorable coverage"
+    },
+    {
+      "decision_id": "completeness",
+      "decision": "Conditionally include PARTIAL/UNKNOWN, preserve TRACE_COMPLETE and handoff flags",
+      "rationale": "Allows bounded evidence without claiming full capture",
+      "decision_source": "ADVISOR_SIMULATION",
+      "authority": "NON_BINDING",
+      "actual_approval_status": "PENDING",
+      "implementation_readiness": "Per-pair completeness reporting",
+      "evidence_required": "Operator-approved inclusion policy and provenance per mode"
+    },
+    {
+      "decision_id": "blind",
+      "decision": "Exclude development, isolate ground truth, same trace/model/decoding/rubric",
+      "rationale": "Prevents exposure and paired confounding",
+      "decision_source": "ADVISOR_SIMULATION",
+      "authority": "NON_BINDING",
+      "actual_approval_status": "PENDING",
+      "implementation_readiness": "Manifest validator reusable",
+      "evidence_required": "Frozen blind manifest and reviewer conflict records"
+    },
+    {
+      "decision_id": "budget",
+      "decision": "17 pairs, 34 LLM calls, zero retries",
+      "rationale": "Caps nominal two-mode workload",
+      "decision_source": "ADVISOR_SIMULATION",
+      "authority": "NON_BINDING",
+      "actual_approval_status": "PENDING",
+      "implementation_readiness": "Dry-run forecast available",
+      "evidence_required": "Operator credential/model/cost attestation and real spend ceiling"
+    }
+  ]
+}

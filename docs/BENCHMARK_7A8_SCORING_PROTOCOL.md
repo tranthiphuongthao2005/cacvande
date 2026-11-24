@@ -1,0 +1,7 @@
+# Scoring protocol trước lock
+
+Primary là mean Cross đúng − Single đúng trên fault pairs có VERIFIED ground truth, đủ điều kiện và chấm được cả hai mode. Exact cần cause đúng theo biến thể đã adjudicate, vị trí/service khi rubric yêu cầu và evidence hỗ trợ. Partial có yếu tố đúng nhưng thiếu thành phần bắt buộc. Partial và incorrect đóng góp 0 khi chấm được. Abstention, provider failure, invalid output và missing result báo riêng trên số mode/attempt đã đăng ký. Báo N 8 fault planned, N eligible, N scorable pair, số discordant và buckets loại theo mode, null khi denominator bằng 0. Báo phân tích bổ sung trên toàn bộ 8 fault đã lên kế hoạch, trong đó abstention, provider failure, invalid, missing, partial và incorrect không tính là root cause correct. Không xác định evaluable pairs trước output và adjudication.
+
+Secondary root service, mechanism và handling accuracy dùng từng thành phần có nhãn xác minh và chấm được, báo coverage. Evidence support và unsupported claim rate chia trên các claim chấm được, ghi claim thiếu citation và số output đóng góp. Abstention chia trên output hợp lệ. Normal false attribution chia trên Normal VERIFIED/ANALYZED chấm được. Latency ghi theo attempt có đo; input/output tokens và cost báo coverage, bảng giá và tổng, giá trị thiếu là null.
+
+Khóa cùng model, prompt, schema, decoding và case. Chỉ đổi context scope. Phép mô tả theo cặp, không suy luận significance hoặc quyền chạy LLM. Hai reviewer output độc lập, adjudication và che mode khi khả thi. scoring_protocol.json là bản prelock candidate.

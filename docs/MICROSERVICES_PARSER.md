@@ -1,0 +1,7 @@
+# Parser Microservices
+
+`app/micro_parser.py` nhận message đã quan sát do collector chuyển đến. Với mỗi event, parser chuẩn hóa whitespace, đối chiếu service và tên message với catalog cố định, tạo template dạng `order request completed`, và tách status HTTP thành một tham số số khi có. Unknown message dùng template cố định `unknown application event`; nội dung tự do không truyền vào SBERT. Bảo toàn trace ID và event ID trong provenance. Không đưa ID, nhãn, fault config, expected root cause hoặc nội dung nhạy cảm vào template. Parser hỗ trợ User, Product và Order.
+
+Chẩn đoán so sánh ba cách biểu diễn: HDFS replay trên chuỗi giai đoạn 3, catalog với `key:status`, và catalog với `pos:1`. Cả ba dùng cùng frozen vocabulary, local SBERT revision đã băm, parameter encoder và window 50. Hai biến thể catalog là **preprocessing adaptation**. Đặc biệt, positional encoding là giả thuyết tương thích chỉ số. Chưa có bằng chứng nó cải thiện biểu diễn.
+
+Catalog version `micro-observed-v1` chỉ bao phủ message đã xuất hiện trong schema ứng dụng. Truy vấn Elasticsearch hiện có allowlist app event nên tỷ lệ unknown trên tập lấy được có mẫu số giới hạn. Cần thống kê event bị loại ở nguồn nếu hệ thống mở rộng schema. Việc mã hóa tên event có thể khiến model học shortcut khi một lỗi luôn xuất hiện dưới cùng một mã log; do đó cần giữ nhóm template, báo tỷ lệ near-duplicate và thử đối chứng bỏ status hoặc gom tên lỗi theo nhóm trên development.

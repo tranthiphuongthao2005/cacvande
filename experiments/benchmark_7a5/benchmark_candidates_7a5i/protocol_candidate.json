@@ -1,0 +1,28 @@
+{
+  "version": "7A.5I-v1",
+  "status": "IMPLEMENTATION_CANDIDATE",
+  "actual_approval_status": "PENDING",
+  "primary": "Mean paired Cross minus Single root-cause correctness on VERIFIED, scorable fault pairs",
+  "secondary": [
+    "normal false attribution",
+    "abstention",
+    "unsupported claims",
+    "evidence support",
+    "latency",
+    "cost",
+    "provider failures"
+  ],
+  "statistics": "DESCRIPTIVE",
+  "single": "Order projection",
+  "cross": "same trace",
+  "pairing": "same model, decoding, prompt and rubric; only retrieval mode differs",
+  "completeness": "PARTIAL/UNKNOWN conditional with per-mode coverage; preserve original completeness/TRACE_COMPLETE and handoff flags",
+  "capacity": {
+    "min_fault_pairs": 8,
+    "min_independent_fault_groups": 4,
+    "min_normal_pairs": 2,
+    "pair_cap": 17,
+    "call_cap": 34,
+    "retries": 0
+  }
+}

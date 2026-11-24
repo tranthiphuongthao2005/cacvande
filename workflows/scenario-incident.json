@@ -1,0 +1,68 @@
+{
+  "id": "thesisScenario01",
+  "name": "Thesis Scenario Incident",
+  "active": false,
+  "nodes": [
+    {
+      "id": "e327709b-ff88-4dd7-aaa8-62d66240604f",
+      "name": "Scenario Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [0, 0],
+      "webhookId": "a7393b91-b97c-4701-972a-0d32ec9e4995",
+      "parameters": {"httpMethod": "POST", "path": "scenario-incident", "responseMode": "responseNode", "options": {}}
+    },
+    {
+      "id": "a6edad11-66eb-4cfa-b940-ea419106e113",
+      "name": "Orchestrate and Persist Incident",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [260, 0],
+      "retryOnFail": false,
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "method": "POST",
+        "url": "http://incident-adapter:8000/trigger",
+        "sendHeaders": true,
+        "headerParameters": {"parameters": [{"name": "Authorization", "value": "={{ $json.headers.authorization || '' }}"}]},
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.body ?? {}) }}",
+        "options": {"redirect": {"redirect": {"followRedirects": false}},
+          "response": {"response": {"fullResponse": true, "neverError": true, "responseFormat": "json"}}, "timeout": 58000}
+      }
+    },
+    {
+      "id": "81954fbd-6ca9-47ec-81a1-df707e1df46c",
+      "name": "Return Workflow Result",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [520, -80],
+      "parameters": {"respondWith": "json", "responseBody": "={{ $json.body }}",
+        "options": {"responseCode": "={{ $json.statusCode }}"}}
+    },
+    {
+      "id": "a4048657-dc69-47bf-a72f-ff2cdf1c039f",
+      "name": "Return Transport Error",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [520, 110],
+      "parameters": {"respondWith": "json", "responseBody": "={{ { analysis_status: 'INTERNAL_ERROR' } }}",
+        "options": {"responseCode": 502}}
+    }
+  ],
+  "connections": {
+    "Scenario Webhook": {"main": [[{"node": "Orchestrate and Persist Incident", "type": "main", "index": 0}]]},
+    "Orchestrate and Persist Incident": {"main": [
+      [{"node": "Return Workflow Result", "type": "main", "index": 0}],
+      [{"node": "Return Transport Error", "type": "main", "index": 0}]
+    ]}
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "none",
+    "saveDataSuccessExecution": "none",
+    "saveManualExecutions": false,
+    "saveExecutionProgress": false
+  }
+}

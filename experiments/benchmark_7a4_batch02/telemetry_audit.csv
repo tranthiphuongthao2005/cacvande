@@ -1,0 +1,2 @@
+﻿run_id,trace_id,scenario,http_status,transport_handoff,events,docker_events,es_events,fault_activation_observed,status
+2ffef988d50840d5b59495263fd42c7d,2a6888b936b58eb8760c40d8f2ec1633,timeout,504,UNCONFIRMED,5,5,5,True,TECHNICALLY_VALID

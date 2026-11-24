@@ -1,0 +1,1 @@
+{"runs":[{"docker_events":5,"es_events":5,"events":5,"fault_activation_observed":true,"http_status":502,"run_id":"1d3140d225414983ac361d14ed978220","scenario":"cascade","status":"TECHNICALLY_VALID","trace_id":"96a68fa080ebbc19e71aedcc5bc2fd48","transport_handoff":"UNCONFIRMED"}]}

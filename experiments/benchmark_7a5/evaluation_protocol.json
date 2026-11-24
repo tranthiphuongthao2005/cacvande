@@ -1,0 +1,85 @@
+{
+  "version": "7A.5A-v1",
+  "status": "DRAFT_PENDING_OPERATOR_APPROVAL",
+  "lock_sha256": null,
+  "question": "Trong cùng mô hình LLM và cấu hình suy luận, cross-service context có cải thiện độ chính xác phân tích nguyên nhân và chất lượng bằng chứng so với single-service context hay không?",
+  "primary": "Paired Cross minus Single root cause accuracy among fault pairs scorable in both modes",
+  "secondary": [
+    "evidence support",
+    "unsupported causal claims",
+    "abstention",
+    "latency",
+    "input/output tokens",
+    "cost",
+    "Normal false attribution",
+    "end-to-end correctness"
+  ],
+  "normal": "Separate negative control; false attribution on analyzed Normal, plus abstention and coverage; excluded from primary",
+  "abstention": "Null for conditional primary; report by mode and count as unsuccessful in fault end-to-end sensitivity",
+  "alternatives": "Reviewer adjudicates acceptable cause/service variants before provider calls",
+  "modes": {
+    "single": "order",
+    "cross": "same trace"
+  },
+  "projection": "Same final persisted Cross snapshot, exact Order event projection with identical ordering and contents, same sanitizer and budget; log selected IDs and trim omissions",
+  "selection": "Freeze one settled snapshot per trace after fixed reconciliation cutoff; no post-output selection",
+  "snapshot_cutoff_seconds": 420,
+  "completeness": [
+    "COMPLETE",
+    "PARTIAL",
+    "UNKNOWN"
+  ],
+  "exclusions": [
+    "exposed run",
+    "unverified labels",
+    "missing Order projection",
+    "hash/provenance failure",
+    "cross-split ID or group overlap",
+    "ground-truth leakage",
+    "duplicate or unreconciled events"
+  ],
+  "analysis": {
+    "uncertainty": "descriptive only for feasibility; report by group, family and Cross completeness",
+    "bootstrap_min_groups": null
+  },
+  "model": {
+    "provider": "OpenAI",
+    "snapshot": null,
+    "decoding": "SDK defaults for unspecified options; no tools; temperature not sent",
+    "prompt_version": "rca-evidence-v1",
+    "input_evidence_ascii_bytes": 7000,
+    "output_tokens": 800,
+    "provider_timeout_seconds": 20,
+    "validation_retries": 0
+  },
+  "required_before_lock": [
+    "model snapshot",
+    "canonical hashes for prompt + rubric + schema + build + snapshots",
+    "reviewed labels in isolated store",
+    "independence review",
+    "cost approval",
+    "token preflight",
+    "collection operator approval"
+  ],
+  "cost": {
+    "pairs": 28,
+    "calls_per_pair": 2,
+    "extra_calls": 0,
+    "call_cap": 56,
+    "input_tokens_per_call_planning": 8192,
+    "input_token_cap_plan": 458752,
+    "output_token_cap_plan": 44800,
+    "price_source": null,
+    "input_usd_per_million": null,
+    "output_usd_per_million": null,
+    "approved_usd_cap": null
+  },
+  "cohorts": {
+    "historical": "excluded",
+    "development_pilot": "excluded",
+    "integration_smoke": "excluded",
+    "batches_01_03": "excluded",
+    "new_candidates": "pending independent review"
+  },
+  "provider_calls_authorized": false
+}

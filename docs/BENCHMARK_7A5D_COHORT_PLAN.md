@@ -1,0 +1,9 @@
+# Cohort v2 dự thảo
+
+Phân biệt family cơ chế, propagation variant, cấu hình triển khai và lần thực thi. Trong 14 slot có 9 đường kỹ thuật khả thi có điều kiện, gồm Normal A có smoke và 8 đường fixture. Năm slot loại hoặc chặn gồm Normal B, Unavailable A trực tiếp thiếu Order, Unavailable B chưa có cơ chế riêng, Retry B thiếu live transport adapter và Database B thiếu fixture xác thực có SQLSTATE. Khả thi kỹ thuật không đồng nghĩa được duyệt thu. Không có cấu hình độc lập đã xác minh.
+
+Cascade A và Retry A có thể dùng cùng Product 503 và khác handling. Giữ chung grouping với Unavailable Product, không đếm như hai họ lỗi độc lập. Cascade B chuyển sang cạnh User nhưng vẫn cùng cơ chế unavailable. Timeout A/B khác vị trí, Processing A/B khác giai đoạn. Xác minh configuration/campaign independence và kiểm near-duplicate trước split. Historical, smoke và development tiếp tục bị loại khỏi blind set.
+
+Thứ tự Normal A, Dependency Unavailable qua Order, Processing, Retry variant, sau đó Timeout và DB. Preregister một batch Normal tối đa 1 POST, các batch khác tối đa 2 POST, không retry, trần 17 cặp nếu mọi gate qua. Với hai lượt LLM mỗi cặp, trần danh nghĩa 34 calls trước lỗi, không có dự phòng retry. Đây là giới hạn kế hoạch, không phải cỡ mẫu đạt power hoặc ngân sách duyệt.
+
+Mỗi batch cần preflight, readback activation, producer scope và accounting, đối chiếu Docker/ES, seal và receipt, cặp snapshot, rollback, postflight, checksums và dossier riêng. Collector Normal A hiện có 420 giây work và 30 giây cleanup, không có live adapter được duyệt cho fault variants. Cutoff snapshot 420 giây sau request của protocol không thể mặc định vừa với work budget 420 giây tính từ đầu collector. Cần operator duyệt tách snapshot settlement khỏi cửa sổ execution hoặc một draft cutoff khác trước khi thu. Không dùng smoke snapshot như snapshot evaluation đã khóa.

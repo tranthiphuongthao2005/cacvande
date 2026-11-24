@@ -1,0 +1,1 @@
+{"family":"product-unavailable","fault_type":"cascade","label":1,"observed_error":"dependency_unavailable","observed_status":502,"product_delay_base":null,"provenance":"lab-injection+http+docker-events-v1","run_id":"4f37659b37694381bc2e61666632e079","scenario_id":"cascade","timestamp":"2026-11-22T18:52:18.452323+00:00","trace_id":"eae87e37a11e1a11734f06fec087ca43"}

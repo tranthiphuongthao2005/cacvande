@@ -1,0 +1,22 @@
+{
+  "decision_id": "3794b3fd1ddc4537b62f8d87f8c243ec",
+  "operator_id": "local-project-operator",
+  "decision_source": "USER_OPERATOR_DECLARATION",
+  "recorded_at": "2026-11-24T12:30:06.238664+00:00",
+  "provenance": "Operator declaration in current 7A.6D.2 conversation; no signature asserted",
+  "decision": "Authorize Normal A acceptance on local Docker; no LIVE_VERIFIED claim before evidence",
+  "scope": {
+    "configuration_id": "normal-a",
+    "proposal_sha256": "d49efdcebb233423229cd3fa8237d3fb3b03b5f142b14baad4ca693e05528b12",
+    "campaign_id": "normal-a",
+    "output_directory": "experiments/benchmark_7a5/accept_7a6d2_normal_a",
+    "approval_id": "1ca3ab01228c4f2bbeeeabf7ff4559c5",
+    "expires_at": "2026-11-24T14:30:06.238664+00:00",
+    "maximum_business_posts": 1,
+    "retries": 0,
+    "overall_seconds": 792,
+    "cohort": "DEVELOPMENT_ACCEPTANCE",
+    "blind_eligible": false,
+    "rollback": "Restore baseline Compose and verify fault/scope cleared; preserve evidence on failure"
+  }
+}

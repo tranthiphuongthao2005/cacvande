@@ -1,0 +1,9 @@
+services:
+  user-service:
+    environment: &accounting
+      ACCOUNTING_RUN_ID: "${ACCOUNTING_RUN_ID:?explicit scoped run}"
+      ACCOUNTING_TRACE_ID: "${ACCOUNTING_TRACE_ID:?explicit scoped trace}"
+  product-service:
+    environment: *accounting
+  order-service:
+    environment: *accounting

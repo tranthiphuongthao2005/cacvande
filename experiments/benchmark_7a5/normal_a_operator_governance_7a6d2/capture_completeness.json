@@ -1,0 +1,22 @@
+{
+  "decision_id": "a9dc325f75fd4b478d61d6d1f8880f7a",
+  "operator_id": "local-project-operator",
+  "decision_source": "USER_OPERATOR_DECLARATION",
+  "recorded_at": "2026-11-24T12:30:06.238664+00:00",
+  "provenance": "Operator declaration in current 7A.6D.2 conversation; no signature asserted",
+  "decision": "Allow PARTIAL/UNKNOWN; preserve false TRACE_COMPLETE and unconfirmed Filebeat handoff; reconcile producer/Docker/ES and disclose missing, duplicate and late events",
+  "scope": {
+    "configuration_id": "normal-a",
+    "proposal_sha256": "d49efdcebb233423229cd3fa8237d3fb3b03b5f142b14baad4ca693e05528b12",
+    "campaign_id": "normal-a",
+    "output_directory": "experiments/benchmark_7a5/accept_7a6d2_normal_a",
+    "approval_id": "1ca3ab01228c4f2bbeeeabf7ff4559c5",
+    "expires_at": "2026-11-24T14:30:06.238664+00:00",
+    "maximum_business_posts": 1,
+    "retries": 0,
+    "overall_seconds": 792,
+    "cohort": "DEVELOPMENT_ACCEPTANCE",
+    "blind_eligible": false,
+    "rollback": "Restore baseline Compose and verify fault/scope cleared; preserve evidence on failure"
+  }
+}

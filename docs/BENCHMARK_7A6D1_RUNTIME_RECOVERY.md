@@ -1,0 +1,5 @@
+# Runtime recovery 7A.6D.1
+
+Dùng GET có timeout hữu hạn từ host và container, đọc Docker states, health, stats, DNS và log. Probe readiness của Context dùng PIT đọc dữ liệu, không gửi POST nghiệp vụ. Sau khi regression cô lập dừng, tách các probe readiness để đo lại khi giảm tải kiểm thử. Không sửa timeout, firewall, Compose, credentials hoặc app. Không restart/recreate vì chưa có dấu hiệu container cần thay thế hoặc restart sẽ xử lý được nguyên nhân. Không xóa volume và không chạy lại bootstrap.
+
+Trước kiểm tra 7A.6D.1, 7A.6C ghi bốn GET timeout. Trong 7A.6D.1, User/Product/Order có lúc trả 200 từ host, Context có cả 503 và 200. Điều kiện recovery đánh giá bằng ba vòng cuối sau regression và tình trạng ELK, xem STABILITY_VERIFICATION.md. Nếu kết quả còn bất ổn, cần operator xem xét tải Docker Desktop và workload cạnh tranh, sau đó đo lại trong cửa sổ ổn định. Chỉ cân nhắc restart riêng service khi log và probe cho thấy thành phần đó đã kẹt. Recreate, đổi tài nguyên hoặc cấu hình chờ phê duyệt riêng.

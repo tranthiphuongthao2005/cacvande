@@ -1,0 +1,195 @@
+{
+  "recorded_at_utc": "2026-11-24T16:00:14.516669+00:00",
+  "status": "CONTEXT_PREFLIGHT_PASS_WAITING_NEW_APPROVAL",
+  "trace_id": "8cc314768cf9c12e300243a20669ad28",
+  "attempts": [
+    {
+      "mode": "single_service",
+      "run": 1,
+      "pass": true,
+      "latency_ms": 466.176,
+      "http_status": 200,
+      "event_count": 3,
+      "event_ids": [
+        "c2d71a4fdece4c22827ef265ebd5ea59",
+        "7a4dbb6f795e40b9a1bf5f95172dde08",
+        "63f6d378438e4d44a9f23b36085a7c3b"
+      ],
+      "projected_payload_sha256": "13ff08ad42f900dab039c9dfc2966f752e11419cabd449ac19e0ea8a08a7cc81",
+      "completeness": "UNKNOWN"
+    },
+    {
+      "mode": "single_service",
+      "run": 2,
+      "pass": true,
+      "latency_ms": 60.011,
+      "http_status": 200,
+      "event_count": 3,
+      "event_ids": [
+        "c2d71a4fdece4c22827ef265ebd5ea59",
+        "7a4dbb6f795e40b9a1bf5f95172dde08",
+        "63f6d378438e4d44a9f23b36085a7c3b"
+      ],
+      "projected_payload_sha256": "13ff08ad42f900dab039c9dfc2966f752e11419cabd449ac19e0ea8a08a7cc81",
+      "completeness": "UNKNOWN"
+    },
+    {
+      "mode": "single_service",
+      "run": 3,
+      "pass": true,
+      "latency_ms": 75.106,
+      "http_status": 200,
+      "event_count": 3,
+      "event_ids": [
+        "c2d71a4fdece4c22827ef265ebd5ea59",
+        "7a4dbb6f795e40b9a1bf5f95172dde08",
+        "63f6d378438e4d44a9f23b36085a7c3b"
+      ],
+      "projected_payload_sha256": "13ff08ad42f900dab039c9dfc2966f752e11419cabd449ac19e0ea8a08a7cc81",
+      "completeness": "UNKNOWN"
+    },
+    {
+      "mode": "single_service",
+      "run": 4,
+      "pass": true,
+      "latency_ms": 69.508,
+      "http_status": 200,
+      "event_count": 3,
+      "event_ids": [
+        "c2d71a4fdece4c22827ef265ebd5ea59",
+        "7a4dbb6f795e40b9a1bf5f95172dde08",
+        "63f6d378438e4d44a9f23b36085a7c3b"
+      ],
+      "projected_payload_sha256": "13ff08ad42f900dab039c9dfc2966f752e11419cabd449ac19e0ea8a08a7cc81",
+      "completeness": "UNKNOWN"
+    },
+    {
+      "mode": "single_service",
+      "run": 5,
+      "pass": true,
+      "latency_ms": 60.244,
+      "http_status": 200,
+      "event_count": 3,
+      "event_ids": [
+        "c2d71a4fdece4c22827ef265ebd5ea59",
+        "7a4dbb6f795e40b9a1bf5f95172dde08",
+        "63f6d378438e4d44a9f23b36085a7c3b"
+      ],
+      "projected_payload_sha256": "13ff08ad42f900dab039c9dfc2966f752e11419cabd449ac19e0ea8a08a7cc81",
+      "completeness": "UNKNOWN"
+    },
+    {
+      "mode": "cross_service",
+      "run": 1,
+      "pass": true,
+      "latency_ms": 57.456,
+      "http_status": 200,
+      "event_count": 5,
+      "event_ids": [
+        "2626e42f6fd749b59e12e7c7ef029eb9",
+        "f8867c9c9d6645bd9990a55164603de6",
+        "c2d71a4fdece4c22827ef265ebd5ea59",
+        "7a4dbb6f795e40b9a1bf5f95172dde08",
+        "63f6d378438e4d44a9f23b36085a7c3b"
+      ],
+      "projected_payload_sha256": "835872dc3932a8c49dfbaee3927e2b59f013d5dc220a51aa3ea7bd91ae19febf",
+      "completeness": "PARTIAL"
+    },
+    {
+      "mode": "cross_service",
+      "run": 2,
+      "pass": true,
+      "latency_ms": 75.205,
+      "http_status": 200,
+      "event_count": 5,
+      "event_ids": [
+        "2626e42f6fd749b59e12e7c7ef029eb9",
+        "f8867c9c9d6645bd9990a55164603de6",
+        "c2d71a4fdece4c22827ef265ebd5ea59",
+        "7a4dbb6f795e40b9a1bf5f95172dde08",
+        "63f6d378438e4d44a9f23b36085a7c3b"
+      ],
+      "projected_payload_sha256": "835872dc3932a8c49dfbaee3927e2b59f013d5dc220a51aa3ea7bd91ae19febf",
+      "completeness": "PARTIAL"
+    },
+    {
+      "mode": "cross_service",
+      "run": 3,
+      "pass": true,
+      "latency_ms": 77.939,
+      "http_status": 200,
+      "event_count": 5,
+      "event_ids": [
+        "2626e42f6fd749b59e12e7c7ef029eb9",
+        "f8867c9c9d6645bd9990a55164603de6",
+        "c2d71a4fdece4c22827ef265ebd5ea59",
+        "7a4dbb6f795e40b9a1bf5f95172dde08",
+        "63f6d378438e4d44a9f23b36085a7c3b"
+      ],
+      "projected_payload_sha256": "835872dc3932a8c49dfbaee3927e2b59f013d5dc220a51aa3ea7bd91ae19febf",
+      "completeness": "PARTIAL"
+    },
+    {
+      "mode": "cross_service",
+      "run": 4,
+      "pass": true,
+      "latency_ms": 63.577,
+      "http_status": 200,
+      "event_count": 5,
+      "event_ids": [
+        "2626e42f6fd749b59e12e7c7ef029eb9",
+        "f8867c9c9d6645bd9990a55164603de6",
+        "c2d71a4fdece4c22827ef265ebd5ea59",
+        "7a4dbb6f795e40b9a1bf5f95172dde08",
+        "63f6d378438e4d44a9f23b36085a7c3b"
+      ],
+      "projected_payload_sha256": "835872dc3932a8c49dfbaee3927e2b59f013d5dc220a51aa3ea7bd91ae19febf",
+      "completeness": "PARTIAL"
+    },
+    {
+      "mode": "cross_service",
+      "run": 5,
+      "pass": true,
+      "latency_ms": 54.246,
+      "http_status": 200,
+      "event_count": 5,
+      "event_ids": [
+        "2626e42f6fd749b59e12e7c7ef029eb9",
+        "f8867c9c9d6645bd9990a55164603de6",
+        "c2d71a4fdece4c22827ef265ebd5ea59",
+        "7a4dbb6f795e40b9a1bf5f95172dde08",
+        "63f6d378438e4d44a9f23b36085a7c3b"
+      ],
+      "projected_payload_sha256": "835872dc3932a8c49dfbaee3927e2b59f013d5dc220a51aa3ea7bd91ae19febf",
+      "completeness": "PARTIAL"
+    }
+  ],
+  "latency": {
+    "single_service": {
+      "min_ms": 60.011,
+      "median_ms": 69.508,
+      "max_ms": 466.176,
+      "headroom_vs_2500_ms": 2033.824
+    },
+    "cross_service": {
+      "min_ms": 54.246,
+      "median_ms": 63.577,
+      "max_ms": 77.939,
+      "headroom_vs_2500_ms": 2422.061
+    }
+  },
+  "containers_stopped_by_this_run": [],
+  "integrity": {
+    "frozen": 8,
+    "cohort": 190,
+    "acceptance": 95,
+    "historical": 88,
+    "mecolog": 63
+  },
+  "external_calls": {
+    "gemini": 0,
+    "openai": 0,
+    "evaluation": 0,
+    "cost_usd": 0
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "status": "UNVERIFIED",
+  "groups": [
+    {
+      "configuration_id": "normal-a",
+      "mechanism": "normal",
+      "repetitions": 2,
+      "independence": "UNVERIFIED",
+      "historical_overlap": "Same accepted adapter; observable signature review required before blind lock"
+    },
+    {
+      "configuration_id": "processing-a",
+      "mechanism": "processing_failure",
+      "repetitions": 2,
+      "independence": "UNVERIFIED",
+      "historical_overlap": "Same accepted adapter; observable signature review required before blind lock"
+    },
+    {
+      "configuration_id": "timeout-a",
+      "mechanism": "dependency_timeout",
+      "repetitions": 2,
+      "independence": "UNVERIFIED",
+      "historical_overlap": "Same accepted adapter; observable signature review required before blind lock"
+    },
+    {
+      "configuration_id": "database-a",
+      "mechanism": "database_connection_failure",
+      "repetitions": 2,
+      "independence": "UNVERIFIED",
+      "historical_overlap": "Same accepted adapter; observable signature review required before blind lock"
+    },
+    {
+      "configuration_id": "cascade-a",
+      "mechanism": "dependency_unavailable",
+      "repetitions": 2,
+      "independence": "UNVERIFIED",
+      "historical_overlap": "Same accepted adapter; observable signature review required before blind lock"
+    }
+  ]
+}

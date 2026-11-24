@@ -1,0 +1,392 @@
+{
+  "adjudicated_review": {
+    "$defs": {
+      "ClaimReview": {
+        "additionalProperties": false,
+        "properties": {
+          "claim_id": {
+            "title": "Claim Id",
+            "type": "string"
+          },
+          "event_ids": {
+            "items": {
+              "pattern": "^[0-9a-f]{32}$",
+              "type": "string"
+            },
+            "title": "Event Ids",
+            "type": "array"
+          },
+          "judgement": {
+            "enum": [
+              "SUPPORTED",
+              "UNSUPPORTED",
+              "HALLUCINATED",
+              "UNRATEABLE"
+            ],
+            "title": "Judgement",
+            "type": "string"
+          }
+        },
+        "required": [
+          "claim_id",
+          "event_ids",
+          "judgement"
+        ],
+        "title": "ClaimReview",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "adjudicated": {
+        "title": "Adjudicated",
+        "type": "boolean"
+      },
+      "analysis_status": {
+        "anyOf": [
+          {
+            "enum": [
+              "ANALYZED",
+              "INSUFFICIENT_EVIDENCE"
+            ],
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Analysis Status"
+      },
+      "cause_correct": {
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Cause Correct"
+      },
+      "claims": {
+        "items": {
+          "$ref": "#/$defs/ClaimReview"
+        },
+        "title": "Claims",
+        "type": "array"
+      },
+      "completeness_acknowledged": {
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Completeness Acknowledged"
+      },
+      "config_sha256": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Config Sha256"
+      },
+      "cost_usd": {
+        "anyOf": [
+          {
+            "minimum": 0,
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Cost Usd"
+      },
+      "input_event_ids": {
+        "items": {
+          "pattern": "^[0-9a-f]{32}$",
+          "type": "string"
+        },
+        "title": "Input Event Ids",
+        "type": "array"
+      },
+      "input_tokens": {
+        "anyOf": [
+          {
+            "minimum": 0,
+            "type": "integer"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Input Tokens"
+      },
+      "latency_ms": {
+        "anyOf": [
+          {
+            "minimum": 0,
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Latency Ms"
+      },
+      "mode": {
+        "enum": [
+          "single_service",
+          "cross_service"
+        ],
+        "title": "Mode",
+        "type": "string"
+      },
+      "model_name": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Model Name"
+      },
+      "output_tokens": {
+        "anyOf": [
+          {
+            "minimum": 0,
+            "type": "integer"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Output Tokens"
+      },
+      "provider_status": {
+        "enum": [
+          "OK",
+          "PROVIDER_FAILURE",
+          "MISSING"
+        ],
+        "title": "Provider Status",
+        "type": "string"
+      },
+      "recommendations": {
+        "items": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "title": "Recommendations",
+        "type": "array"
+      },
+      "reviewer_id": {
+        "title": "Reviewer Id",
+        "type": "string"
+      },
+      "service_correct": {
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Service Correct"
+      },
+      "trace_id": {
+        "pattern": "^[0-9a-f]{32}$",
+        "title": "Trace Id",
+        "type": "string"
+      }
+    },
+    "required": [
+      "trace_id",
+      "mode",
+      "provider_status",
+      "analysis_status",
+      "reviewer_id",
+      "adjudicated",
+      "model_name",
+      "config_sha256",
+      "input_event_ids",
+      "cause_correct",
+      "service_correct",
+      "claims",
+      "recommendations"
+    ],
+    "title": "Review",
+    "type": "object"
+  },
+  "ground_truth": {
+    "additionalProperties": false,
+    "properties": {
+      "acceptable_root_cause_variants": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Acceptable Root Cause Variants",
+        "type": "array"
+      },
+      "affected_services": {
+        "items": {
+          "enum": [
+            "user",
+            "product",
+            "order"
+          ],
+          "type": "string"
+        },
+        "title": "Affected Services",
+        "type": "array"
+      },
+      "annotation_status": {
+        "enum": [
+          "VERIFIED",
+          "UNVERIFIED"
+        ],
+        "title": "Annotation Status",
+        "type": "string"
+      },
+      "expected_causal_chain": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Expected Causal Chain",
+        "type": "array"
+      },
+      "expected_observations": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Expected Observations",
+        "type": "array"
+      },
+      "injected_fault": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Injected Fault"
+      },
+      "injection_provenance": {
+        "title": "Injection Provenance",
+        "type": "string"
+      },
+      "reviewer_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Reviewer Id"
+      },
+      "reviewer_role": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Reviewer Role"
+      },
+      "root_cause_category": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Root Cause Category"
+      },
+      "root_cause_service": {
+        "anyOf": [
+          {
+            "enum": [
+              "user",
+              "product",
+              "order"
+            ],
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Root Cause Service"
+      },
+      "run_id": {
+        "title": "Run Id",
+        "type": "string"
+      },
+      "scenario_family": {
+        "title": "Scenario Family",
+        "type": "string"
+      },
+      "supporting_event_ids": {
+        "items": {
+          "pattern": "^[0-9a-f]{32}$",
+          "type": "string"
+        },
+        "title": "Supporting Event Ids",
+        "type": "array"
+      },
+      "trace_id": {
+        "pattern": "^[0-9a-f]{32}$",
+        "title": "Trace Id",
+        "type": "string"
+      }
+    },
+    "required": [
+      "run_id",
+      "trace_id",
+      "scenario_family",
+      "injected_fault",
+      "injection_provenance",
+      "root_cause_service",
+      "root_cause_category",
+      "expected_causal_chain",
+      "affected_services",
+      "supporting_event_ids",
+      "expected_observations",
+      "acceptable_root_cause_variants",
+      "annotation_status"
+    ],
+    "title": "GroundTruth",
+    "type": "object"
+  }
+}

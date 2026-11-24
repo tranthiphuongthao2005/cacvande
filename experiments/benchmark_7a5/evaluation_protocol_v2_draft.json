@@ -1,0 +1,43 @@
+{
+  "version": "7A.5D-v2",
+  "status": "DRAFT",
+  "supersedes_on_approval_only": "evaluation_protocol.json",
+  "lock_sha256": null,
+  "primary": "Mean Cross minus Single paired binary root cause correctness among scorable non-Normal pairs",
+  "normal": "False attribution among ANALYZED verified Normal outputs, coverage separate",
+  "matching": "Match pre-adjudicated mechanism and causal attribution, service if required by variant, and evidence support; symptom alone insufficient",
+  "partial_correctness": "Secondary ordinal only; partial counts as primary incorrect when scorable",
+  "abstention": "Null for primary; separate rate; fault sensitivity counts as unsuccessful",
+  "provider_failure": "Separate from abstention and counted unsuccessful in end-to-end sensitivity",
+  "pairing": "Exact Order projection of same frozen Cross trace",
+  "snapshot_cutoff_seconds": 420,
+  "grouping": "Keep related configuration, campaign, templates and shared fixture groups together across splits",
+  "exclusions": [
+    "exposed cohort",
+    "unverified labels",
+    "ID or group overlap",
+    "missing Order projection",
+    "ground truth leakage",
+    "unreconciled or duplicate events",
+    "invalid hash or provenance"
+  ],
+  "secondary": [
+    "evidence support",
+    "unsupported causal claims",
+    "Normal false attribution",
+    "partial correctness",
+    "abstention",
+    "provider failure",
+    "latency",
+    "tokens",
+    "cost"
+  ],
+  "prompt_version": "rca-evidence-v1",
+  "model_snapshot": null,
+  "decoding_locked": false,
+  "credential_verification": "NOT_CHECKED_ON_PROVIDER",
+  "input_token_planning_cap": 8192,
+  "output_token_planning_cap": 800,
+  "provider_calls_authorized": false,
+  "cost_ceiling_usd": null
+}

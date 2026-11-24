@@ -1,0 +1,53 @@
+name: thesis-log-anomaly
+x-db: &db
+  image: postgres:16-alpine
+  healthcheck:
+    test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+    interval: 2s
+    timeout: 2s
+    retries: 20
+services:
+  user-db:
+    <<: *db
+    environment: {POSTGRES_USER: user_app, POSTGRES_PASSWORD: lab_user, POSTGRES_DB: users}
+    volumes: [users:/var/lib/postgresql/data]
+  product-db:
+    <<: *db
+    environment: {POSTGRES_USER: product_app, POSTGRES_PASSWORD: lab_product, POSTGRES_DB: products}
+    volumes: [products:/var/lib/postgresql/data]
+  order-db:
+    <<: *db
+    environment: {POSTGRES_USER: order_app, POSTGRES_PASSWORD: lab_order, POSTGRES_DB: orders}
+    volumes: [orders:/var/lib/postgresql/data]
+  user-service:
+    build: {context: ., dockerfile: services/user/Dockerfile}
+    environment:
+      DATABASE_URL: postgresql://user_app:lab_user@user-db:5432/users
+      TRACE_EXPORT: stdout
+    depends_on:
+      user-db: {condition: service_healthy}
+    ports: ["127.0.0.1:8011:8000"]
+  product-service:
+    build: {context: ., dockerfile: services/product/Dockerfile}
+    environment:
+      DATABASE_URL: postgresql://product_app:lab_product@product-db:5432/products
+      TRACE_EXPORT: stdout
+    depends_on:
+      product-db: {condition: service_healthy}
+    ports: ["127.0.0.1:8012:8000"]
+  order-service:
+    build: {context: ., dockerfile: services/order/Dockerfile}
+    environment:
+      DATABASE_URL: postgresql://order_app:lab_order@order-db:5432/orders
+      USER_SERVICE_URL: http://user-service:8000
+      PRODUCT_SERVICE_URL: http://product-service:8000
+      TRACE_EXPORT: stdout
+    depends_on:
+      order-db: {condition: service_healthy}
+      user-service: {condition: service_started}
+      product-service: {condition: service_started}
+    ports: ["127.0.0.1:8013:8000"]
+volumes:
+  users:
+  products:
+  orders:

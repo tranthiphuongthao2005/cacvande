@@ -1,0 +1,96 @@
+[
+  {
+    "scenario_id": "normal",
+    "root_cause_service": null,
+    "root_cause_type": null,
+    "affected_services": [],
+    "expected_behavior": {
+      "request_service": "order",
+      "status": 201
+    }
+  },
+  {
+    "scenario_id": "timeout",
+    "root_cause_service": "product",
+    "root_cause_type": "response_timeout",
+    "affected_services": [
+      "product",
+      "order"
+    ],
+    "expected_behavior": {
+      "request_service": "order",
+      "status": 504,
+      "error": "dependency_timeout",
+      "attempts": 1
+    }
+  },
+  {
+    "scenario_id": "unavailable",
+    "root_cause_service": "product",
+    "root_cause_type": "service_unavailable",
+    "affected_services": [
+      "product"
+    ],
+    "expected_behavior": {
+      "request_service": "product",
+      "status": 503,
+      "error": "service_unavailable"
+    }
+  },
+  {
+    "scenario_id": "database",
+    "root_cause_service": "order",
+    "root_cause_type": "database_connection_failure",
+    "affected_services": [
+      "order"
+    ],
+    "expected_behavior": {
+      "request_service": "order",
+      "status": 503,
+      "error": "database_unavailable"
+    }
+  },
+  {
+    "scenario_id": "processing",
+    "root_cause_service": "order",
+    "root_cause_type": "processing_failure",
+    "affected_services": [
+      "order"
+    ],
+    "expected_behavior": {
+      "request_service": "order",
+      "status": 500,
+      "error": "order_processing_error"
+    }
+  },
+  {
+    "scenario_id": "retry",
+    "root_cause_service": "product",
+    "root_cause_type": "retry_exhaustion",
+    "affected_services": [
+      "product",
+      "order"
+    ],
+    "expected_behavior": {
+      "request_service": "order",
+      "status": 502,
+      "error": "dependency_unavailable",
+      "attempts": 3
+    }
+  },
+  {
+    "scenario_id": "cascade",
+    "root_cause_service": "product",
+    "root_cause_type": "cascading_dependency_failure",
+    "affected_services": [
+      "product",
+      "order"
+    ],
+    "expected_behavior": {
+      "request_service": "order",
+      "status": 502,
+      "error": "dependency_unavailable",
+      "attempts": 1
+    }
+  }
+]

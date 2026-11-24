@@ -1,0 +1,1 @@
+{"behavior_confirmed":true,"expected_behavior":{"attempts":1,"error":"dependency_unavailable","request_service":"order","status":502},"http_error_code":"dependency_unavailable","http_status":502,"runtime":{"order":["1","","1"],"product":["1","unavailable",null]},"variant":"cascade"}

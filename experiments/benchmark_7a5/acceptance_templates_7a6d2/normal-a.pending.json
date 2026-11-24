@@ -1,0 +1,82 @@
+{
+  "cohort": "DEVELOPMENT_ACCEPTANCE",
+  "blind_eligible": false,
+  "approvals": {
+    "taxonomy": {
+      "decision_source": "OPERATOR",
+      "authority": "OPERATOR",
+      "operator_id": null,
+      "actual_approval_status": "PENDING",
+      "evidence": {
+        "path": null,
+        "sha256": null
+      },
+      "candidate_sha256": "dfbda2f68ea5ddd2b245cbc62c28dea8fdcbe1ffa68ebc981e478ac6e6088893"
+    },
+    "protocol": {
+      "decision_source": "OPERATOR",
+      "authority": "OPERATOR",
+      "operator_id": null,
+      "actual_approval_status": "PENDING",
+      "evidence": {
+        "path": null,
+        "sha256": null
+      },
+      "candidate_sha256": "d2dd2f5c9a36c71cbe648e1555824e4c4c88b1d7d80680101ac44e7f5d0999c6"
+    }
+  },
+  "collection_batches": {
+    "normal-a": {
+      "decision_source": "OPERATOR",
+      "authority": "OPERATOR",
+      "operator_id": null,
+      "actual_approval_status": "PENDING",
+      "evidence": {
+        "path": null,
+        "sha256": null
+      },
+      "configuration_id": "normal-a",
+      "proposal_sha256": "d49efdcebb233423229cd3fa8237d3fb3b03b5f142b14baad4ca693e05528b12",
+      "maximum_business_posts": 1,
+      "retries": 0,
+      "campaign_id": "normal-a",
+      "approval_id": null,
+      "expires_at": null,
+      "overall_seconds": 792,
+      "cohort": "DEVELOPMENT_ACCEPTANCE",
+      "blind_eligible": false,
+      "output_directory": "experiments/benchmark_7a5/accept_7a6d2_normal_a",
+      "rollback": "Restore baseline Compose and verify fault/scope cleared; preserve evidence on failure"
+    }
+  },
+  "fault_adapters": {
+    "normal-a": {
+      "decision_source": "OPERATOR",
+      "authority": "OPERATOR",
+      "operator_id": null,
+      "actual_approval_status": "PENDING",
+      "evidence": {
+        "path": null,
+        "sha256": null
+      },
+      "configuration_id": "normal-a",
+      "proposal_sha256": "d49efdcebb233423229cd3fa8237d3fb3b03b5f142b14baad4ca693e05528b12",
+      "maximum_business_posts": 1,
+      "retries": 0
+    }
+  },
+  "grouping_and_capture_policy": {
+    "decision_source": "OPERATOR",
+    "authority": "OPERATOR",
+    "operator_id": null,
+    "actual_approval_status": "PENDING",
+    "evidence": {
+      "path": null,
+      "sha256": null
+    },
+    "configuration_id": "normal-a",
+    "proposal_sha256": "d49efdcebb233423229cd3fa8237d3fb3b03b5f142b14baad4ca693e05528b12",
+    "maximum_business_posts": 1,
+    "retries": 0
+  }
+}

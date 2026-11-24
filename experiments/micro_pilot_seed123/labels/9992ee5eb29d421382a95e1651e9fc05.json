@@ -1,0 +1,1 @@
+{"family":"timeout","fault_type":"timeout","label":1,"observed_error":"dependency_timeout","observed_status":504,"product_delay_base":"2.15","provenance":"lab-injection+http+docker-events-v1","run_id":"9992ee5eb29d421382a95e1651e9fc05","scenario_id":"timeout","timestamp":"2026-11-22T17:37:33.664910+00:00","trace_id":"18915851be4ac7076c6b331b8d7862ae"}

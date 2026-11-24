@@ -1,0 +1,22 @@
+{
+  "decision_id": "2f862dace2c64c4a943f13781c75e1c8",
+  "operator_id": "local-project-operator",
+  "decision_source": "USER_OPERATOR_DECLARATION",
+  "recorded_at": "2026-11-24T12:41:07.074990+00:00",
+  "provenance": "Operator declaration in current 7A.6D.2 request; no signature asserted",
+  "decision": "Apply existing grouping without declaring independence",
+  "scope": {
+    "configuration_id": "processing-a",
+    "proposal_sha256": "d49efdcebb233423229cd3fa8237d3fb3b03b5f142b14baad4ca693e05528b12",
+    "campaign_id": "processing-a-development-pilot",
+    "output_directory": "experiments/benchmark_7a5/accept_7a6d2_processing_a",
+    "approval_id": "939005fb7c224722a362a30747e3f87d",
+    "expires_at": "2026-11-24T15:41:07.074990+00:00",
+    "maximum_business_posts": 1,
+    "retries": 0,
+    "overall_seconds": 792,
+    "cohort": "DEVELOPMENT_ACCEPTANCE",
+    "blind_eligible": false,
+    "rollback": "Restore baseline Compose and verify fault/scope cleared; preserve evidence on failure"
+  }
+}

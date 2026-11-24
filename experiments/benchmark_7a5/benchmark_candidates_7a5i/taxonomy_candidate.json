@@ -1,0 +1,25 @@
+{
+  "version": "7A.5I-v1",
+  "status": "IMPLEMENTATION_CANDIDATE",
+  "actual_approval_status": "PENDING",
+  "mechanisms": [
+    "normal_no_fault",
+    "dependency_unavailable",
+    "dependency_timeout",
+    "database_connection_failure",
+    "processing_failure",
+    "other_unknown"
+  ],
+  "handling": [
+    "local",
+    "propagated",
+    "retry_exhausted",
+    "unknown"
+  ],
+  "multilabel": true,
+  "legacy_relationships": {
+    "cascade": "propagated",
+    "retry_exhaustion": "retry_exhausted",
+    "service_unavailable": "dependency_unavailable"
+  }
+}

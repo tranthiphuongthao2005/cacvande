@@ -1,0 +1,6 @@
+services:
+  context-service:
+    environment:
+      CONTEXT_RECEIPT_DIR: /telemetry-receipts
+    volumes:
+      - ./experiments/benchmark_7a3_smoke/receipts:/telemetry-receipts:ro

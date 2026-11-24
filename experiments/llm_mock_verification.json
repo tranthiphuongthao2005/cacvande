@@ -1,0 +1,269 @@
+{
+  "trace_id": "09b71700f5dca84ec31f133b92b2ba91",
+  "trigger": "scenario-triggered",
+  "external_calls": 0,
+  "reports": {
+    "single_service": {
+      "analysis_status": "INSUFFICIENT_EVIDENCE",
+      "suspected_root_cause": null,
+      "suspected_root_cause_service": null,
+      "affected_services": [],
+      "observations": [
+        {
+          "event_id": "a4ab0c75b27f4590a8959f4d92eef48a",
+          "service_name": "order",
+          "kind": "status",
+          "value": "502"
+        },
+        {
+          "event_id": "e38fe847b11d45128048e903ea4f275c",
+          "service_name": "order",
+          "kind": "status",
+          "value": "502"
+        },
+        {
+          "event_id": "fe4cc6935f814c4e95ad9b8c66349361",
+          "service_name": "order",
+          "kind": "status",
+          "value": "502"
+        }
+      ],
+      "hypotheses": [],
+      "evidence": [
+        {
+          "event_id": "a4ab0c75b27f4590a8959f4d92eef48a",
+          "service_name": "order",
+          "observation": {
+            "event_id": "a4ab0c75b27f4590a8959f4d92eef48a",
+            "service_name": "order",
+            "kind": "status",
+            "value": "502"
+          },
+          "supports_claim": "Observed HTTP status"
+        },
+        {
+          "event_id": "e38fe847b11d45128048e903ea4f275c",
+          "service_name": "order",
+          "observation": {
+            "event_id": "e38fe847b11d45128048e903ea4f275c",
+            "service_name": "order",
+            "kind": "status",
+            "value": "502"
+          },
+          "supports_claim": "Observed HTTP status"
+        },
+        {
+          "event_id": "fe4cc6935f814c4e95ad9b8c66349361",
+          "service_name": "order",
+          "observation": {
+            "event_id": "fe4cc6935f814c4e95ad9b8c66349361",
+            "service_name": "order",
+            "kind": "status",
+            "value": "502"
+          },
+          "supports_claim": "Observed HTTP status"
+        }
+      ],
+      "missing_information": [
+        "Validated parent span links and upstream diagnostics"
+      ],
+      "recommended_checks": [
+        "Inspect the referenced request completions and upstream spans"
+      ],
+      "suggested_remediations": [],
+      "limitations": [
+        "Deterministic mock output for contract verification"
+      ],
+      "analysis_id": "1a079c29b5794b86ba94d042b1fd1c48",
+      "trace_id": "09b71700f5dca84ec31f133b92b2ba91",
+      "analysis_mode": "single_service",
+      "selected_service": "order",
+      "model_name": "mock-rca-v1",
+      "configured_model": "mock-rca-v1",
+      "provider": "mock",
+      "prompt_version": "rca-evidence-v1",
+      "analysis_config_id": "rca-v1",
+      "context_completeness": "UNKNOWN",
+      "input_event_ids": [
+        "a4ab0c75b27f4590a8959f4d92eef48a",
+        "e38fe847b11d45128048e903ea4f275c",
+        "fe4cc6935f814c4e95ad9b8c66349361"
+      ],
+      "omitted_event_ids": [],
+      "omitted_event_count": 0,
+      "redacted_event_count": 0,
+      "validation_status": "FACTS_CHECKED_HYPOTHESES_UNVERIFIED",
+      "validation_warnings": [
+        "CLAIM_SUPPORT_REQUIRES_HUMAN_REVIEW",
+        "CONTEXT_INCOMPLETE_DO_NOT_INFER_ABSENCE"
+      ],
+      "processing_time_ms": 889.602,
+      "token_usage": null,
+      "estimated_cost": null
+    },
+    "cross_service": {
+      "analysis_status": "INSUFFICIENT_EVIDENCE",
+      "suspected_root_cause": null,
+      "suspected_root_cause_service": null,
+      "affected_services": [],
+      "observations": [
+        {
+          "event_id": "79cc972b2c3c49bc911a80e5493b0196",
+          "service_name": "user",
+          "kind": "status",
+          "value": "200"
+        },
+        {
+          "event_id": "a4dd9dbbabaf448d95db682a1988c2f5",
+          "service_name": "product",
+          "kind": "status",
+          "value": "503"
+        },
+        {
+          "event_id": "a4ab0c75b27f4590a8959f4d92eef48a",
+          "service_name": "order",
+          "kind": "status",
+          "value": "502"
+        },
+        {
+          "event_id": "e38fe847b11d45128048e903ea4f275c",
+          "service_name": "order",
+          "kind": "status",
+          "value": "502"
+        },
+        {
+          "event_id": "fe4cc6935f814c4e95ad9b8c66349361",
+          "service_name": "order",
+          "kind": "status",
+          "value": "502"
+        }
+      ],
+      "hypotheses": [],
+      "evidence": [
+        {
+          "event_id": "79cc972b2c3c49bc911a80e5493b0196",
+          "service_name": "user",
+          "observation": {
+            "event_id": "79cc972b2c3c49bc911a80e5493b0196",
+            "service_name": "user",
+            "kind": "status",
+            "value": "200"
+          },
+          "supports_claim": "Observed HTTP status"
+        },
+        {
+          "event_id": "a4dd9dbbabaf448d95db682a1988c2f5",
+          "service_name": "product",
+          "observation": {
+            "event_id": "a4dd9dbbabaf448d95db682a1988c2f5",
+            "service_name": "product",
+            "kind": "status",
+            "value": "503"
+          },
+          "supports_claim": "Observed HTTP status"
+        },
+        {
+          "event_id": "a4ab0c75b27f4590a8959f4d92eef48a",
+          "service_name": "order",
+          "observation": {
+            "event_id": "a4ab0c75b27f4590a8959f4d92eef48a",
+            "service_name": "order",
+            "kind": "status",
+            "value": "502"
+          },
+          "supports_claim": "Observed HTTP status"
+        },
+        {
+          "event_id": "e38fe847b11d45128048e903ea4f275c",
+          "service_name": "order",
+          "observation": {
+            "event_id": "e38fe847b11d45128048e903ea4f275c",
+            "service_name": "order",
+            "kind": "status",
+            "value": "502"
+          },
+          "supports_claim": "Observed HTTP status"
+        },
+        {
+          "event_id": "fe4cc6935f814c4e95ad9b8c66349361",
+          "service_name": "order",
+          "observation": {
+            "event_id": "fe4cc6935f814c4e95ad9b8c66349361",
+            "service_name": "order",
+            "kind": "status",
+            "value": "502"
+          },
+          "supports_claim": "Observed HTTP status"
+        }
+      ],
+      "missing_information": [
+        "Validated parent span links and upstream diagnostics"
+      ],
+      "recommended_checks": [
+        "Inspect the referenced request completions and upstream spans"
+      ],
+      "suggested_remediations": [],
+      "limitations": [
+        "Deterministic mock output for contract verification"
+      ],
+      "analysis_id": "9a4f3cc80dfb46ff98cd829f1c04548d",
+      "trace_id": "09b71700f5dca84ec31f133b92b2ba91",
+      "analysis_mode": "cross_service",
+      "selected_service": null,
+      "model_name": "mock-rca-v1",
+      "configured_model": "mock-rca-v1",
+      "provider": "mock",
+      "prompt_version": "rca-evidence-v1",
+      "analysis_config_id": "rca-v1",
+      "context_completeness": "PARTIAL",
+      "input_event_ids": [
+        "79cc972b2c3c49bc911a80e5493b0196",
+        "a4dd9dbbabaf448d95db682a1988c2f5",
+        "a4ab0c75b27f4590a8959f4d92eef48a",
+        "e38fe847b11d45128048e903ea4f275c",
+        "fe4cc6935f814c4e95ad9b8c66349361"
+      ],
+      "omitted_event_ids": [],
+      "omitted_event_count": 0,
+      "redacted_event_count": 0,
+      "validation_status": "FACTS_CHECKED_HYPOTHESES_UNVERIFIED",
+      "validation_warnings": [
+        "CLAIM_SUPPORT_REQUIRES_HUMAN_REVIEW",
+        "CONTEXT_INCOMPLETE_DO_NOT_INFER_ABSENCE"
+      ],
+      "processing_time_ms": 67.961,
+      "token_usage": null,
+      "estimated_cost": null
+    }
+  },
+  "detection_status": {
+    "error": {
+      "code": "NOT_READY_FOR_SCORING",
+      "trace_store_configured": true,
+      "blockers": [
+        "MICROSERVICES_PREPROCESSING_NOT_VALIDATED",
+        "SUPPORT_PROTOCOL_UNAVAILABLE"
+      ]
+    }
+  },
+  "research_audit": {
+    "research_path": "C:\\Users\\Admin\\Downloads\\MeCoLog-v1.0.0\\tuanmartin-MeCoLog-8c446ac",
+    "protocol_sha256": "308e29ba2c48ff92c4ea3230206c99194daeb1e85a5832088c5b635c8285c63b",
+    "verified_unique_files": 63,
+    "original_python_files": [
+      "Drain.py",
+      "config.py",
+      "dataloader.py",
+      "losses.py",
+      "meta_test.py",
+      "meta_train.py",
+      "model.py",
+      "parse_log.py",
+      "parse_thunderbird.py"
+    ],
+    "checkpoint_sha256": "713d1ec5a4c34d9a091abea9dc2430c0e9500a9255e0bbc7307a6edfa053c5f0",
+    "vocabulary_sha256": "087874c66d0fabaeb2ab52cd36d05d6720389f3dc033834f90dac50e1c928e3d",
+    "sbert_revision": "b404353e5a0ef9cdf6a4500baa81aaec875d4db0",
+    "method": "opaque hashing of protected data; no label parsing or model load"
+  }
+}

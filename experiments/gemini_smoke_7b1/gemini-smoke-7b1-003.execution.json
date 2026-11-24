@@ -1,0 +1,94 @@
+{
+  "approval_id": "gemini-smoke-7b1-003",
+  "activation": {
+    "expires_at_utc": "2026-11-24T17:05:40.5007554+00:00",
+    "approval_id": "gemini-smoke-7b1-003",
+    "prompt_sha256": "1b28c9aa3273ec1e5157a5b8c31cd6dcc82320ede6b2791a28bdab4dd0a6f2a8",
+    "canonical_schema_sha256": "725c6357f787126c18015e52b3df351259b60de2aa49e973b7769487a7365989",
+    "trace_id": "8cc314768cf9c12e300243a20669ad28",
+    "activated_at_utc": "2026-11-24T16:35:40.5007554+00:00",
+    "minimum_interval_seconds": 10,
+    "freeze_index_sha256": "6f4e45bdbf11a6a26c6ec5210377366795208020d35066a2be5dc1b81fd36b49",
+    "model": "gemini-3.1-flash-lite",
+    "quota_observed_at_utc": "2026-11-24T16:33:29.3872218+00:00",
+    "image_id": "sha256:c40033666786d26e30c6814b55328e1eda46ab24d9859168025a5693f30873b4"
+  },
+  "attempts": [
+    {
+      "mode": "single_service",
+      "started_at_utc": "2026-11-24T16:37:59.471993+00:00",
+      "status": "FAILED",
+      "input_sha256": "13ff08ad42f900dab039c9dfc2966f752e11419cabd449ac19e0ea8a08a7cc81",
+      "http_status": 502,
+      "latency_ms": 1717.698,
+      "error": {
+        "code": "PROVIDER_ERROR"
+      }
+    }
+  ],
+  "context": {
+    "single_service": {
+      "http_status": 200,
+      "events": 3,
+      "completeness": "UNKNOWN",
+      "hash": "13ff08ad42f900dab039c9dfc2966f752e11419cabd449ac19e0ea8a08a7cc81"
+    },
+    "cross_service": {
+      "http_status": 200,
+      "events": 5,
+      "completeness": "PARTIAL",
+      "hash": "835872dc3932a8c49dfbaee3927e2b59f013d5dc220a51aa3ea7bd91ae19febf"
+    }
+  },
+  "prompt_sha256": "1b28c9aa3273ec1e5157a5b8c31cd6dcc82320ede6b2791a28bdab4dd0a6f2a8",
+  "started_at_utc": "2026-11-24T16:37:56.254914+00:00",
+  "runtime_identity": [
+    "8c8a65e30b1c6c8a4f847dd078307d1f35cb7fdc5b49d61859f24db66449a299",
+    "sha256:c40033666786d26e30c6814b55328e1eda46ab24d9859168025a5693f30873b4",
+    "2026-11-24T16:35:42.05171189Z",
+    "0",
+    "true"
+  ],
+  "preflight_integrity": [
+    8,
+    190,
+    95,
+    88,
+    63
+  ],
+  "provider_diagnostics": [
+    {
+      "attempt_id": "26da11423bea4331a8b854aa3d073df1",
+      "exception_class": "ServerError",
+      "sanitized_error_message": "Upstream reported a server error",
+      "failure_stage": "upstream_response",
+      "upstream_http_status": 503,
+      "provider_error_code": "UNAVAILABLE",
+      "category": "PROVIDER_UPSTREAM_ERROR",
+      "requested_model": "gemini-3.1-flash-lite",
+      "timestamp_utc": "2026-11-24T16:38:01.175839+00:00",
+      "duration_ms": 1149.303,
+      "receipt_status": "CONFIRMED",
+      "retryable": true
+    }
+  ],
+  "runtime_calls_consumed": 1,
+  "cleanup": {
+    "status": "PASS",
+    "container": "exited",
+    "port": "connection_refused"
+  },
+  "integrity_postflight": [
+    8,
+    190,
+    95,
+    88,
+    63
+  ],
+  "status": "FAILED_SMOKE",
+  "closed_at_utc": "2026-11-24T16:38:09.622393+00:00",
+  "openai_calls": 0,
+  "evaluation_calls": 0,
+  "estimated_free_tier_usd": 0,
+  "actual_invoice_usd": null
+}

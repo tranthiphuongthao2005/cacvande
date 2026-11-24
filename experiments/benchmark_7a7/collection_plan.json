@@ -1,0 +1,104 @@
+{
+  "version": "7A.7-v1",
+  "cohort_id": "7a7-evaluation-candidates-v1",
+  "locked_at": "2026-11-24T13:27:15.991266+00:00",
+  "status": "COLLECTION_PLAN_LOCKED_ONLY",
+  "max_posts": 10,
+  "retries": 0,
+  "project_operator": "local-project-operator",
+  "slots": [
+    {
+      "repetition_id": "normal-a-r1",
+      "campaign_id": "7a7-normal-a-r1",
+      "configuration_id": "normal-a",
+      "output_directory": "experiments/benchmark_7a7/runs/normal-a-r1",
+      "expected_mechanism": "normal"
+    },
+    {
+      "repetition_id": "normal-a-r2",
+      "campaign_id": "7a7-normal-a-r2",
+      "configuration_id": "normal-a",
+      "output_directory": "experiments/benchmark_7a7/runs/normal-a-r2",
+      "expected_mechanism": "normal"
+    },
+    {
+      "repetition_id": "processing-a-r1",
+      "campaign_id": "7a7-processing-a-r1",
+      "configuration_id": "processing-a",
+      "output_directory": "experiments/benchmark_7a7/runs/processing-a-r1",
+      "expected_mechanism": "processing_failure"
+    },
+    {
+      "repetition_id": "processing-a-r2",
+      "campaign_id": "7a7-processing-a-r2",
+      "configuration_id": "processing-a",
+      "output_directory": "experiments/benchmark_7a7/runs/processing-a-r2",
+      "expected_mechanism": "processing_failure"
+    },
+    {
+      "repetition_id": "timeout-a-r1",
+      "campaign_id": "7a7-timeout-a-r1",
+      "configuration_id": "timeout-a",
+      "output_directory": "experiments/benchmark_7a7/runs/timeout-a-r1",
+      "expected_mechanism": "dependency_timeout"
+    },
+    {
+      "repetition_id": "timeout-a-r2",
+      "campaign_id": "7a7-timeout-a-r2",
+      "configuration_id": "timeout-a",
+      "output_directory": "experiments/benchmark_7a7/runs/timeout-a-r2",
+      "expected_mechanism": "dependency_timeout"
+    },
+    {
+      "repetition_id": "database-a-r1",
+      "campaign_id": "7a7-database-a-r1",
+      "configuration_id": "database-a",
+      "output_directory": "experiments/benchmark_7a7/runs/database-a-r1",
+      "expected_mechanism": "database_connection_failure"
+    },
+    {
+      "repetition_id": "database-a-r2",
+      "campaign_id": "7a7-database-a-r2",
+      "configuration_id": "database-a",
+      "output_directory": "experiments/benchmark_7a7/runs/database-a-r2",
+      "expected_mechanism": "database_connection_failure"
+    },
+    {
+      "repetition_id": "cascade-a-r1",
+      "campaign_id": "7a7-cascade-a-r1",
+      "configuration_id": "cascade-a",
+      "output_directory": "experiments/benchmark_7a7/runs/cascade-a-r1",
+      "expected_mechanism": "dependency_unavailable"
+    },
+    {
+      "repetition_id": "cascade-a-r2",
+      "campaign_id": "7a7-cascade-a-r2",
+      "configuration_id": "cascade-a",
+      "output_directory": "experiments/benchmark_7a7/runs/cascade-a-r2",
+      "expected_mechanism": "dependency_unavailable"
+    }
+  ],
+  "eligibility": "New isolated run/trace/event IDs, matched receipt and valid Order projection, independent grouping and human verified ground truth required before blind eligibility",
+  "exclusions": "Any historical/exposed run, mismatch, duplicate, missing receipt or invalid pairing; preserve failed attempts",
+  "snapshot_policy": "420 seconds after response; Order projection; retain bounded completeness; labels separate",
+  "grouping_policy": "One candidate group per configuration; repetitions are executions; dependency unavailable shares historical Cascade/Retry family",
+  "split": "EVALUATION_CANDIDATE; exclude all development, acceptance and historical runs",
+  "planned_api_calls_later": 20,
+  "fingerprints": {
+    "compose.yaml": "75d63d6c4b2ede7ecb902a603345c6dc77a5d5d5f38f8b57c3a7fe771ef84d22",
+    "compose.logging.yaml": "8d254f2efacabad940ff24d2059b35cd03156e55cf9e7ec780cb98e4be0f4f04",
+    "compose.context.yaml": "f998bb234fea781e71778c1ecdbab1683b3b2e54dc7503a97e47da0dc0b50de9",
+    "compose.timeout-a.yaml": "f7639903e01c54c135aaf9d9f8fd7e6cbfc813bc7588a928098657dbf1548a25",
+    "compose.faults.yaml": "ace6adbaec65c07d578f4fc2049a65c61b286b338fc5ac9090d2d43dec8efb08",
+    "compose.accounting.yaml": "2f8d1edf8bf1c36eb4d3d9b7bf4aa35ae56060193b30810b10e1ae6c31f7a64e",
+    "app/api.py": "aa5dacfef0fc176b66def0c90cb38dc9695f3b2856f132b0260196ca796d60e3",
+    "app/storage.py": "75b0ca97dbe8435e4e000aab179d6ddff2111bbf516eb4f682c60b2c730806f5",
+    "tools/fault_adapters_7a6c.py": "6a4890d59885708dca3db9b1eda1f508b882ad888e6dcf94292a85f82791ee8a",
+    "tools/smoke_producer_accounting.py": "54e39b4b005406e674087a3a88ea49cd604114e54fe1756592d294e79698db55",
+    "tools/collect_benchmark_7a6c.py": "ef193579c0fce4d5a746d93b6de194a7960f538029e77d3b8d4e5f7dbb36ee27",
+    "tools/collection_gate_7a6b.py": "187e88380d06f09880fe5f71dc2c4c57c438bd6f19be900ca300d815f2ded2c9",
+    "tools/collection_readiness_7a6a.py": "68c8191cdda8013af99550838d109cd36da18b4070d8813b73d43652c26b73e1",
+    "tools/collect_benchmark_7a7.py": "0526d52c04b13efdf65e5576c03982b1030c1a7eb91045a953e43e57689f5aad",
+    "experiments/ground_truth.json": "3dea69d9aa54e1759c356a83e6da0a81818694a24e13a5660d70c35bd286b8a7"
+  }
+}

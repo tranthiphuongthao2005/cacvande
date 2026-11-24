@@ -1,0 +1,1 @@
+{"family":"database","fault_type":"database","label":1,"observed_error":"database_unavailable","observed_status":503,"product_delay_base":null,"provenance":"lab-injection+http+docker-events-v1","run_id":"f898768d23f94a6ca46e75b84ea5e2aa","scenario_id":"database","timestamp":"2026-11-22T17:39:14.992938+00:00","trace_id":"30556dee690306bed1b21431c5914775"}

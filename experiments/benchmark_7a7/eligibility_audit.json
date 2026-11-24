@@ -1,0 +1,64 @@
+{
+  "benchmark_locked": false,
+  "accepted_for_llm": 0,
+  "status_counts": {
+    "TECHNICALLY_VALID": 10
+  },
+  "verified_independent_groups": 0,
+  "verified_ground_truth": 0,
+  "blind_eligible": 0,
+  "reason": "Independent configuration and human review required",
+  "historical_identity_check": "PASS",
+  "run_rows": [
+    {
+      "repetition_id": "normal-a-r1",
+      "status": "TECHNICALLY_VALID",
+      "blind_eligible": false
+    },
+    {
+      "repetition_id": "normal-a-r2",
+      "status": "TECHNICALLY_VALID",
+      "blind_eligible": false
+    },
+    {
+      "repetition_id": "processing-a-r1",
+      "status": "TECHNICALLY_VALID",
+      "blind_eligible": false
+    },
+    {
+      "repetition_id": "processing-a-r2",
+      "status": "TECHNICALLY_VALID",
+      "blind_eligible": false
+    },
+    {
+      "repetition_id": "timeout-a-r1",
+      "status": "TECHNICALLY_VALID",
+      "blind_eligible": false
+    },
+    {
+      "repetition_id": "timeout-a-r2",
+      "status": "TECHNICALLY_VALID",
+      "blind_eligible": false
+    },
+    {
+      "repetition_id": "database-a-r1",
+      "status": "TECHNICALLY_VALID",
+      "blind_eligible": false
+    },
+    {
+      "repetition_id": "database-a-r2",
+      "status": "TECHNICALLY_VALID",
+      "blind_eligible": false
+    },
+    {
+      "repetition_id": "cascade-a-r1",
+      "status": "TECHNICALLY_VALID",
+      "blind_eligible": false
+    },
+    {
+      "repetition_id": "cascade-a-r2",
+      "status": "TECHNICALLY_VALID",
+      "blind_eligible": false
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+services:
+  product-service:
+    environment:
+      UPSTREAM_TIMEOUT: "2.0"
+  order-service:
+    environment:
+      UPSTREAM_TIMEOUT: "2.0"

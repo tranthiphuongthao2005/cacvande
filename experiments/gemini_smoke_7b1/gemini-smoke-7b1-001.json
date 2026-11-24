@@ -1,0 +1,118 @@
+{
+  "approval_id": "gemini-smoke-7b1-001",
+  "operator_id": "local-project-operator",
+  "decision_source": "USER_OPERATOR_DECLARATION",
+  "observed_at_utc": "2026-11-24T15:33:58.302842+00:00",
+  "timestamp_basis": "First local verification after receipt of operator declaration; message send timestamp unavailable",
+  "expires_at_utc": "2026-11-25T15:33:58.302842+00:00",
+  "provider": "gemini",
+  "project": "D? ?n Gemini 2",
+  "model": "gemini-3.1-flash-lite",
+  "billing_tier_operator_declaration": "Free Tier",
+  "maximum_generation_calls": 2,
+  "single_service_calls": 1,
+  "cross_service_calls": 1,
+  "retry": 0,
+  "maximum_cost_usd": 0,
+  "quota_evidence": {
+    "source": "Operator declaration transcribing Google AI Studio Rate Limits",
+    "project": "D? ?n Gemini 2",
+    "model": "gemini-3.1-flash-lite",
+    "billing_tier": "Free Tier",
+    "rpm": {
+      "used": 0,
+      "limit": 15
+    },
+    "tpm": {
+      "used": 0,
+      "limit": 250000
+    },
+    "rpd": {
+      "used": 0,
+      "limit": 500
+    },
+    "operator_observed_at_utc": null,
+    "image_available": false,
+    "recorded_at_utc": "2026-11-24T15:47:09.317117+00:00"
+  },
+  "quota_status": "OPERATOR_ATTESTED",
+  "freeze_index_sha256": "6f4e45bdbf11a6a26c6ec5210377366795208020d35066a2be5dc1b81fd36b49",
+  "trace_id": "8cc314768cf9c12e300243a20669ad28",
+  "inputs": {
+    "single_service": {
+      "path": "experiments/benchmark_7a5/accept_7a6d2_cascade_a/context-single_service.json",
+      "sha256": "29ef12cb8091af65a12fa63941b7ea6f7102ec1ba6a33759ffff30b0e4fa22fc",
+      "projected_payload_sha256": "13ff08ad42f900dab039c9dfc2966f752e11419cabd449ac19e0ea8a08a7cc81",
+      "trace_id": "8cc314768cf9c12e300243a20669ad28",
+      "events": 3,
+      "completeness": "UNKNOWN"
+    },
+    "cross_service": {
+      "path": "experiments/benchmark_7a5/accept_7a6d2_cascade_a/context-cross_service.json",
+      "sha256": "30589d4fefb4eeadcae509dcb179544f5a1dccc140990ffa0370d190aa519233",
+      "projected_payload_sha256": "835872dc3932a8c49dfbaee3927e2b59f013d5dc220a51aa3ea7bd91ae19febf",
+      "trace_id": "8cc314768cf9c12e300243a20669ad28",
+      "events": 5,
+      "completeness": "PARTIAL"
+    }
+  },
+  "integrity": {
+    "frozen": 8,
+    "cohort": 190,
+    "acceptance": 95,
+    "historical": {
+      "benchmark_7a1_pilot_seed124": 33,
+      "benchmark_7a2_verification": 9,
+      "benchmark_7a3_smoke": 4,
+      "benchmark_7a3b_smoke": 4,
+      "benchmark_7a4_batch01": 6,
+      "benchmark_7a4_batch02": 7,
+      "benchmark_7a4_batch03": 7,
+      "processing_a_development_pilot": 18
+    },
+    "mecolog": 63
+  },
+  "runtime_config": {
+    "LLM_GEMINI_SMOKE_APPROVAL_ID": "gemini-smoke-7b1-001",
+    "LLM_GEMINI_SMOKE_TRACE_ID": "8cc314768cf9c12e300243a20669ad28",
+    "LLM_GEMINI_SMOKE_EXPIRES_UTC": "2026-11-24T16:19:32.1608087+00:00",
+    "LLM_GEMINI_FREE_TIER_CONFIRMED": "1"
+  },
+  "execution_status": "BLOCKED_CONTEXT_PREFLIGHT",
+  "blocking_reasons": [
+    "CONTEXT_SINGLE_SERVICE_HTTP_504"
+  ],
+  "execution_ledger": {
+    "generation_attempts": [],
+    "gemini_calls": 0,
+    "openai_calls": 0,
+    "evaluation_calls": 0,
+    "cost_usd": 0
+  },
+  "local_context_preflight": {
+    "single_service": {
+      "http_status": 200,
+      "projected_payload_hash_match": true
+    },
+    "cross_service": {
+      "http_status": 200,
+      "projected_payload_hash_match": true
+    }
+  },
+  "runtime_approval_validity_minutes": 30,
+  "minimum_interval_seconds": 10,
+  "runtime_preflight": {
+    "key_present": true,
+    "sdk": "1.68.0",
+    "provider_configured": "gemini",
+    "model_configured": "gemini-3.1-flash-lite",
+    "external_enabled": false,
+    "call_cap": 0,
+    "validation_retries": 0,
+    "health_http": 200,
+    "ready_http": 503,
+    "codex_shell_key_present": false
+  },
+  "approval_reuse_allowed": false,
+  "execution_record": "gemini-smoke-7b1-001.execution.json"
+}

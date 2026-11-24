@@ -1,0 +1,43 @@
+{
+  "approval_id": "gemini-smoke-7b1-001",
+  "activation": {
+    "minimum_interval_seconds": 10,
+    "expires_at_utc": "2026-11-24T16:19:32.1608087+00:00",
+    "trace_id": "8cc314768cf9c12e300243a20669ad28",
+    "model": "gemini-3.1-flash-lite",
+    "approval_id": "gemini-smoke-7b1-001",
+    "activated_at_utc": "2026-11-24T15:49:32.1608087+00:00"
+  },
+  "closed_at_utc": "2026-11-24T15:52:47.365502+00:00",
+  "status": "BLOCKED_CONTEXT_PREFLIGHT",
+  "context_preflight": {
+    "mode": "single_service",
+    "http_status": 504
+  },
+  "runtime_identity": {
+    "container_id": "95c3673db0c3d5fe5fefa06ec10a87cfe057e082d8f36896d1ecf8a155ef6232",
+    "restart_count_before_preflight": 0
+  },
+  "cleanup": {
+    "external_path_closed": true,
+    "method": "Stopped llm-service",
+    "container_state": "exited",
+    "ready_http": null,
+    "disabled_config_restored": false
+  },
+  "integrity_postflight": {
+    "frozen": 8,
+    "cohort": 190,
+    "acceptance": 95,
+    "historical": 88,
+    "mecolog": 63
+  },
+  "execution_ledger": {
+    "generation_attempts": [],
+    "gemini_calls": 0,
+    "openai_calls": 0,
+    "evaluation_calls": 0,
+    "cost_usd": 0
+  },
+  "results": {}
+}

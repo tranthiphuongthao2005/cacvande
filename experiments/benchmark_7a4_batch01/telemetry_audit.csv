@@ -1,0 +1,2 @@
+﻿run_id,trace_id,scenario,http_status,transport_handoff,events,docker_events,es_events,fault_activation_observed,status
+1d3140d225414983ac361d14ed978220,96a68fa080ebbc19e71aedcc5bc2fd48,cascade,502,UNCONFIRMED,5,5,5,True,TECHNICALLY_VALID

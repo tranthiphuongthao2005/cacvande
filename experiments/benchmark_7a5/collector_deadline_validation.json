@@ -1,0 +1,39 @@
+{
+  "version": "7A.5E-v1",
+  "live_status": "LIVE_NOT_AUTHORIZED",
+  "preflight_seconds": 120,
+  "activation_end_offset_seconds": 300,
+  "post_timeout_seconds": 12,
+  "capture_seconds_after_response": 120,
+  "snapshot_cutoff_seconds_after_response": 420,
+  "snapshot_read_grace_seconds": 30,
+  "cleanup_seconds": 30,
+  "overall_safety_seconds": 792,
+  "fake_clock_validated": true,
+  "pending_template_rejected": true,
+  "business_posts": 0,
+  "reviewer_packets": {
+    "sufficient_for_review": 5,
+    "missing_evidence": 2,
+    "verified": 0
+  },
+  "blind_eligible": 0,
+  "pytest": {
+    "passed": 107,
+    "warnings": 3,
+    "seconds": 52.4,
+    "targeted_passed": 26
+  },
+  "checksums": {
+    "normal_a_smoke": 15,
+    "batches": [
+      17,
+      20,
+      21
+    ],
+    "pilot": 33,
+    "review_7a2": 9,
+    "prior_smoke_each": 4,
+    "mecolog": 63
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "version": "7A.5B-v1",
+  "implemented_status_semantics": "FIXTURE_VERIFIED includes implemented test path; statuses are exclusive",
+  "protocol_changed": false,
+  "independence_verified": 0,
+  "slots": [
+    {
+      "id": "normal-a",
+      "fault_family": "Normal",
+      "status": "FIXTURE_VERIFIED",
+      "implementation": "Order creates single-item order with faults disabled",
+      "blocking_reason": null,
+      "expected_evidence": "201 and persisted row",
+      "verification": "API + PostgreSQL regression",
+      "risk": "No live or cross-campaign independence verified",
+      "live_verified": false
+    },
+    {
+      "id": "normal-b",
+      "fault_family": "Normal",
+      "status": "DESIGN_BLOCKED",
+      "implementation": "Different healthy path requires genuine workload feature; order has one product_id",
+      "blocking_reason": "Different healthy path requires genuine workload feature; order has one product_id",
+      "expected_evidence": "Healthy alternate dependency path",
+      "verification": "Inspect schema; no fixture claim",
+      "risk": "No live or cross-campaign independence verified",
+      "live_verified": false
+    },
+    {
+      "id": "unavailable-a",
+      "fault_family": "Service Unavailable",
+      "status": "DESIGN_BLOCKED",
+      "implementation": "Direct Product lacks Order; Order to Product 503 is same chain as cascade-a",
+      "blocking_reason": "Direct Product lacks Order; Order to Product 503 is same chain as cascade-a",
+      "expected_evidence": "Order SERVER, Product 503 and Order 502 reproduced as engineering evidence",
+      "verification": "Order MockTransport plus existing cascade PostgreSQL fixture",
+      "risk": "Shared failure family and campaign can confound comparison",
+      "live_verified": false
+    },
+    {
+      "id": "unavailable-b",
+      "fault_family": "Service Unavailable",
+      "status": "DESIGN_BLOCKED",
+      "implementation": "Need separate taxonomy or causal topology from Cascade",
+      "blocking_reason": "Need separate taxonomy or causal topology from Cascade",
+      "expected_evidence": "Independent fault and propagation evidence",
+      "verification": "Operator review before protocol revision",
+      "risk": "Shared failure family and campaign can confound comparison",
+      "live_verified": false
+    },
+    {
+      "id": "processing-a",
+      "fault_family": "Processing Failure",
+      "status": "FIXTURE_VERIFIED",
+      "implementation": "Existing after dependency lookup before create",
+      "blocking_reason": null,
+      "expected_evidence": "Order 500, no INSERT, upstream calls completed",
+      "verification": "API fault fixture and PostgreSQL regression",
+      "risk": "No live or cross-campaign independence verified",
+      "live_verified": false
+    },
+    {
+      "id": "processing-b",
+      "fault_family": "Processing Failure",
+      "status": "FIXTURE_VERIFIED",
+      "implementation": "Lab-only hook after payload validation and before dependency lookup",
+      "blocking_reason": null,
+      "expected_evidence": "Order 500, stage log, no lookup or INSERT",
+      "verification": "API MockTransport and memory repository",
+      "risk": "No live or cross-campaign independence verified",
+      "live_verified": false
+    },
+    {
+      "id": "retry-a",
+      "fault_family": "Retry Exhaustion",
+      "status": "FIXTURE_VERIFIED",
+      "implementation": "Product HTTP 503 through three attempts",
+      "blocking_reason": null,
+      "expected_evidence": "Three ordered spans, HTTP 503, final dependency_unavailable",
+      "verification": "MockTransport plus PostgreSQL regression",
+      "risk": "Shared failure family and campaign can confound comparison",
+      "live_verified": false
+    },
+    {
+      "id": "retry-b",
+      "fault_family": "Retry Exhaustion",
+      "status": "FIXTURE_VERIFIED",
+      "implementation": "Product ConnectError through three attempts; no Docker activation adapter",
+      "blocking_reason": null,
+      "expected_evidence": "Three ordered attempt spans with no HTTP status and final dependency_unavailable",
+      "verification": "MockTransport only",
+      "risk": "Shared failure family and campaign can confound comparison",
+      "live_verified": false
+    },
+    {
+      "id": "cascade-a",
+      "fault_family": "Cascade",
+      "status": "FIXTURE_VERIFIED",
+      "implementation": "Product 503 propagates to Order",
+      "blocking_reason": null,
+      "expected_evidence": "Product 503 followed by Order 502 with dependency evidence",
+      "verification": "PostgreSQL regression",
+      "risk": "Shared failure family and campaign can confound comparison",
+      "live_verified": false
+    },
+    {
+      "id": "cascade-b",
+      "fault_family": "Cascade",
+      "status": "FIXTURE_VERIFIED",
+      "implementation": "User GET 503 propagates to Order, no Product call",
+      "blocking_reason": null,
+      "expected_evidence": "User 503 with Order SERVER and User CLIENT",
+      "verification": "PostgreSQL integration fixture",
+      "risk": "Shared failure family and campaign can confound comparison",
+      "live_verified": false
+    },
+    {
+      "id": "timeout-a",
+      "fault_family": "Timeout",
+      "status": "FIXTURE_VERIFIED",
+      "implementation": "Product delay crosses caller deadline",
+      "blocking_reason": null,
+      "expected_evidence": "Order 504 and Product attempt",
+      "verification": "PostgreSQL regression",
+      "risk": "No live or cross-campaign independence verified",
+      "live_verified": false
+    },
+    {
+      "id": "timeout-b",
+      "fault_family": "Timeout",
+      "status": "FIXTURE_VERIFIED",
+      "implementation": "User GET delay crosses caller deadline; no Product call",
+      "blocking_reason": null,
+      "expected_evidence": "Order 504 and User attempt",
+      "verification": "PostgreSQL integration fixture",
+      "risk": "No live or cross-campaign independence verified",
+      "live_verified": false
+    },
+    {
+      "id": "database-a",
+      "fault_family": "Database Failure",
+      "status": "FIXTURE_VERIFIED",
+      "implementation": "Order request DSN is unreachable while DB startup DSN works",
+      "blocking_reason": null,
+      "expected_evidence": "Order 503, connection failure",
+      "verification": "PostgreSQL regression",
+      "risk": "No live or cross-campaign independence verified",
+      "live_verified": false
+    },
+    {
+      "id": "database-b",
+      "fault_family": "Database Failure",
+      "status": "DESIGN_BLOCKED",
+      "implementation": "Requires isolated test role and SQLSTATE evidence; no lab hook added",
+      "blocking_reason": "Requires isolated test role and SQLSTATE evidence; no lab hook added",
+      "expected_evidence": "Healthy reachable server and authentication failure",
+      "verification": "Future isolated DB fixture",
+      "risk": "No live or cross-campaign independence verified",
+      "live_verified": false
+    }
+  ]
+}

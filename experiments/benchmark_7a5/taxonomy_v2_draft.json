@@ -1,0 +1,64 @@
+{
+  "version": "7A.5D-taxonomy-v2",
+  "status": "DRAFT",
+  "mechanisms": [
+    "normal_no_fault",
+    "dependency_unavailable",
+    "dependency_timeout",
+    "database_connection_failure",
+    "processing_failure",
+    "other_unknown"
+  ],
+  "handling": [
+    "local",
+    "propagated",
+    "retry_exhausted",
+    "unknown"
+  ],
+  "handling_multilabel": true,
+  "legacy_mapping": {
+    "Normal": {
+      "mechanism": "normal_no_fault",
+      "handling": []
+    },
+    "Service Unavailable": {
+      "mechanism": "dependency_unavailable",
+      "handling": [
+        "local",
+        "propagated"
+      ]
+    },
+    "Cascade": {
+      "mechanism": "dependency_unavailable",
+      "handling": [
+        "propagated"
+      ]
+    },
+    "Retry Exhaustion": {
+      "mechanism": "dependency_unavailable",
+      "handling": [
+        "retry_exhausted",
+        "propagated"
+      ]
+    },
+    "Timeout": {
+      "mechanism": "dependency_timeout",
+      "handling": [
+        "propagated"
+      ]
+    },
+    "Database Failure": {
+      "mechanism": "database_connection_failure",
+      "handling": [
+        "local"
+      ]
+    },
+    "Processing Failure": {
+      "mechanism": "processing_failure",
+      "handling": [
+        "local"
+      ]
+    }
+  },
+  "historical_relabeling": false
+}

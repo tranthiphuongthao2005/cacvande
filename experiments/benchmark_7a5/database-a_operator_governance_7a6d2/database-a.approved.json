@@ -1,0 +1,91 @@
+{
+  "cohort": "DEVELOPMENT_ACCEPTANCE",
+  "blind_eligible": false,
+  "approvals": {
+    "taxonomy": {
+      "decision_source": "OPERATOR",
+      "authority": "OPERATOR",
+      "operator_id": "local-project-operator",
+      "actual_approval_status": "APPROVED",
+      "evidence": {
+        "path": "taxonomy.json",
+        "sha256": "8a8fecd7e50e46bc865345c977e04e9c53b3d487250b5fe39a7c243184aa1de5"
+      },
+      "candidate_sha256": "dfbda2f68ea5ddd2b245cbc62c28dea8fdcbe1ffa68ebc981e478ac6e6088893",
+      "provenance_source": "USER_OPERATOR_DECLARATION"
+    },
+    "protocol": {
+      "decision_source": "OPERATOR",
+      "authority": "OPERATOR",
+      "operator_id": "local-project-operator",
+      "actual_approval_status": "APPROVED",
+      "evidence": {
+        "path": "protocol.json",
+        "sha256": "5b28810899a26df15a286183223a9fb165defbe788900d2371077e82af6b85d0"
+      },
+      "candidate_sha256": "d2dd2f5c9a36c71cbe648e1555824e4c4c88b1d7d80680101ac44e7f5d0999c6",
+      "provenance_source": "USER_OPERATOR_DECLARATION"
+    }
+  },
+  "collection_batches": {
+    "database-a": {
+      "decision_source": "OPERATOR",
+      "authority": "OPERATOR",
+      "operator_id": "local-project-operator",
+      "actual_approval_status": "APPROVED",
+      "evidence": {
+        "path": "batch.json",
+        "sha256": "70675f43acfc5730721529f98580f080404cac7d788452807fe780e75ef81fee"
+      },
+      "configuration_id": "database-a",
+      "proposal_sha256": "d49efdcebb233423229cd3fa8237d3fb3b03b5f142b14baad4ca693e05528b12",
+      "maximum_business_posts": 1,
+      "retries": 0,
+      "campaign_id": "database-a-development-acceptance",
+      "approval_id": "7119ccc4e8484e988b61fd4ad7d9536a",
+      "expires_at": "2026-11-24T15:41:07.074990+00:00",
+      "overall_seconds": 792,
+      "cohort": "DEVELOPMENT_ACCEPTANCE",
+      "blind_eligible": false,
+      "output_directory": "experiments/benchmark_7a5/accept_7a6d2_database_a",
+      "rollback": "Restore baseline Compose and verify fault/scope cleared; preserve evidence on failure",
+      "provenance_source": "USER_OPERATOR_DECLARATION"
+    }
+  },
+  "fault_adapters": {
+    "database-a": {
+      "decision_source": "OPERATOR",
+      "authority": "OPERATOR",
+      "operator_id": "local-project-operator",
+      "actual_approval_status": "APPROVED",
+      "evidence": {
+        "path": "adapter.json",
+        "sha256": "ee75e2053b3987ca14401a03c5c0627604275fe9140256fb806b49f3bffac5f5"
+      },
+      "configuration_id": "database-a",
+      "proposal_sha256": "d49efdcebb233423229cd3fa8237d3fb3b03b5f142b14baad4ca693e05528b12",
+      "maximum_business_posts": 1,
+      "retries": 0,
+      "provenance_source": "USER_OPERATOR_DECLARATION"
+    }
+  },
+  "grouping_and_capture_policy": {
+    "decision_source": "OPERATOR",
+    "authority": "OPERATOR",
+    "operator_id": "local-project-operator",
+    "actual_approval_status": "APPROVED",
+    "evidence": {
+      "path": "capture_completeness.json",
+      "sha256": "870decc85c847bec78d19170697aa9e4fbb0518039a983dbd7df13af4e255201"
+    },
+    "configuration_id": "database-a",
+    "proposal_sha256": "d49efdcebb233423229cd3fa8237d3fb3b03b5f142b14baad4ca693e05528b12",
+    "maximum_business_posts": 1,
+    "retries": 0,
+    "grouping_evidence": {
+      "path": "grouping.json",
+      "sha256": "2ca4b9dabc5b2e2ec04d8ecbf66163e85da84fa38039b9144d8106f89707e0cd"
+    },
+    "provenance_source": "USER_OPERATOR_DECLARATION"
+  }
+}

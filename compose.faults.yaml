@@ -1,0 +1,10 @@
+services:
+  product-service:
+    environment:
+      LAB_ENABLED: "1"
+      LAB_FAULT: "${PRODUCT_LAB_FAULT:-}"
+  order-service:
+    environment:
+      LAB_ENABLED: "1"
+      LAB_FAULT: "${ORDER_LAB_FAULT:-}"
+      UPSTREAM_ATTEMPTS: "${LAB_ATTEMPTS:-2}"

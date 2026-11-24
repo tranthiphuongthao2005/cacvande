@@ -1,0 +1,6 @@
+services:
+  context-service:
+    environment:
+      CONTEXT_PRODUCER_RECEIPT_DIR: /producer-receipts
+    volumes:
+      - "${PRODUCER_RECEIPTS_DIR:-./experiments/benchmark_7a3b_smoke/receipts}:/producer-receipts:ro"

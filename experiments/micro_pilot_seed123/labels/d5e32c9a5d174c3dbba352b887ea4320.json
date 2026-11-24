@@ -1,0 +1,1 @@
+{"family":"processing","fault_type":"processing","label":1,"observed_error":"order_processing_error","observed_status":500,"product_delay_base":null,"provenance":"lab-injection+http+docker-events-v1","run_id":"d5e32c9a5d174c3dbba352b887ea4320","scenario_id":"processing","timestamp":"2026-11-22T17:39:52.847690+00:00","trace_id":"ccdbd01c49bf10234473b578fc0c49a4"}

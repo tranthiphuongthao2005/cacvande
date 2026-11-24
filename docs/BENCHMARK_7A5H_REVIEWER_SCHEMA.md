@@ -1,0 +1,9 @@
+# Reviewer schema và bàn giao 7A.5H
+
+Handoff mới nằm trong experiments/benchmark_7a5/processing_a_reviewer_handoff_7a5h. Dossier dẫn xuất liên kết SHA-256 của dossier gốc, manifest bundle, activation, HTTP response, telemetry, accounting, receipt, snapshots và postflight. supporting_evidence.event_ids chứa đúng 4 ID trong Cross đã đối chiếu. evidence_sufficient_for_candidate_review cho phép reviewer xem xét bằng chứng có phạm vi. reviewer_status NEEDS_REVIEW và verification_status UNVERIFIED giữ nguyên. Không chỉnh file gốc.
+
+Dossier canonical SHA-256 b1fc2627a641555a8b6ddd786db010359c132bcca3f0bece4dc1b070af078221. review_form.json là trạng thái chờ. reviewer_decision_template.json dùng đúng các field importer yêu cầu và để trống danh tính, thời gian, quyết định và lý do. Reviewer điền định danh thực đã đăng ký qua allowlist, timestamp có timezone, VERIFIED/REJECTED/INCONCLUSIVE, justification và event:<ID> thực sự đã xem. Giữ dossier:<digest> đã điền. VERIFIED cần ít nhất một event. Yêu cầu thêm evidence ghi ticket riêng và giữ NEEDS_REVIEW.
+
+Operator xác nhận reviewer độc lập với mọi người tạo hoặc phê duyệt fault campaign, đối chiếu định danh thực với reviewer_id trong registry riêng và ghi kiểm tra xung đột lợi ích. Importer xác thực quyền từng run và HMAC, không tự biết quan hệ độc lập. Key và allowlist lưu ngoài repo. Reviewer ký và nhập bằng tools.import_review_7a3 theo HUMAN_REVIEW_WORKFLOW.md, dùng đường dẫn output mới. Lưu receipt, người xét bất đồng, lý do và timestamp. Không cấp danh tính, chữ ký hoặc verdict trong đợt này.
+
+Giới hạn cần reviewer cân nhắc gồm handoff chưa xác minh, Docker raw replay thiếu, không có audit giao dịch chứng minh không INSERT và stage dựa trên hook. Dossier chỉ cho ground-truth review, tách khỏi inference. Kể cả khi nhãn pilot được xác minh sau này, pilot vẫn thuộc development.

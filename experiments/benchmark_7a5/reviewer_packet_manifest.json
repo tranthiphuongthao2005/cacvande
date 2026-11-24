@@ -1,0 +1,213 @@
+{
+  "version": "7A.5D-v1",
+  "status": "DRAFT_REVIEW_QUEUE",
+  "items": [
+    {
+      "run_id": "1d3140d225414983ac361d14ed978220",
+      "dossier": {
+        "path": "experiments/benchmark_7a4_batch01/labels/dossier.json",
+        "sha256": "04df09af52d42e94687cb407a3145cd6d5503b1cb1864524f88f60bcd46b2046"
+      },
+      "form": {
+        "path": "experiments/benchmark_7a4_batch01/labels/reviewer_form.json",
+        "sha256": "e1743bbfa22da663f31a3ff91c46f0915873596556f2310bae9ba593510f77c6"
+      },
+      "status": "NEEDS_REVIEW",
+      "review_scope": "GROUND_TRUTH_REVIEW_ONLY",
+      "evidence_status": "SUFFICIENT_FOR_REVIEW",
+      "supporting_artifacts": [
+        {
+          "path": "experiments/benchmark_7a4_batch01/activation.json",
+          "sha256": "81c3f0155b3a96434a5d1fb415ad9b7e447873dd3da103234e96dc4ad0e675af"
+        },
+        {
+          "path": "experiments/benchmark_7a4_batch01/telemetry.json",
+          "sha256": "a9b629f932593a08bc00f0a98069667f7f1c331ffbddba5199f3de0fadbd0141"
+        }
+      ],
+      "limitations": "Independent review and delivery ACK",
+      "candidate_supplement": {
+        "authorship": "SYSTEM_PREPARED_NOT_REVIEWED",
+        "mechanism": "dependency_unavailable",
+        "service": "product",
+        "handling": [
+          "propagated"
+        ],
+        "basis": "Runtime Product unavailable and correlated 503, dependency failure, and Order 502; single attempt",
+        "event_ids": [
+          "31de6ad6001b4a559020138c281a1ae4",
+          "ac6544ba66c44280b9a3767a2edc6ef6",
+          "6138c473efa04ababc438fd6dbb60f20"
+        ]
+      }
+    },
+    {
+      "run_id": "2ffef988d50840d5b59495263fd42c7d",
+      "dossier": {
+        "path": "experiments/benchmark_7a4_batch02/labels/dossier.json",
+        "sha256": "ee909a9d7170aedcf971dad67fdcd17741ac68cdce422d2aa2fd56322156ba68"
+      },
+      "form": {
+        "path": "experiments/benchmark_7a4_batch02/labels/reviewer_form.json",
+        "sha256": "4c1791cf6d472b6bec4fdc0889c6b1e5a42a24e81caf55fe5ef4bb0012f5dd3e"
+      },
+      "status": "NEEDS_REVIEW",
+      "review_scope": "GROUND_TRUTH_REVIEW_ONLY",
+      "evidence_status": "SUFFICIENT_FOR_REVIEW",
+      "supporting_artifacts": [
+        {
+          "path": "experiments/benchmark_7a4_batch02/activation.json",
+          "sha256": "1914a10ba8fcd860c5c884f7782f7f656dee8e5315f576121c0c6ea87efd592c"
+        },
+        {
+          "path": "experiments/benchmark_7a4_batch02/telemetry.json",
+          "sha256": "7ba9b50ab1d92f0e8cd35ba6941bda16851c6d561b69d2fcf8eadfefbbc750e1"
+        }
+      ],
+      "limitations": "INDEPENDENT_REVIEW; FILEBEAT_PER_EVENT_ACK"
+    },
+    {
+      "run_id": "a3d1d1c17b614690a9154d7931161e8f",
+      "dossier": {
+        "path": "experiments/benchmark_7a4_batch03/labels/dossier.json",
+        "sha256": "0390649c702399bcc280f104a38ac27a3d2b426e5db5d3124ffefe8017ff6cc7"
+      },
+      "form": {
+        "path": "experiments/benchmark_7a4_batch03/labels/reviewer_form.json",
+        "sha256": "b1939875fcb88891f3623a75fcd565cd4adce072a0f5c3c7f41b0ef15a4fea1d"
+      },
+      "status": "NEEDS_REVIEW",
+      "review_scope": "GROUND_TRUTH_REVIEW_ONLY",
+      "evidence_status": "SUFFICIENT_FOR_REVIEW",
+      "supporting_artifacts": [
+        {
+          "path": "experiments/benchmark_7a4_batch03/activation.json",
+          "sha256": "5f05873064ea04f96734008ad8f6769d648b50c046913d985dadfb994810db38"
+        },
+        {
+          "path": "experiments/benchmark_7a4_batch03/telemetry.json",
+          "sha256": "36fc6e1da957771575cf37fcc43d0580c762c1e1af66f119bcb45a931df7621c"
+        }
+      ],
+      "limitations": "INDEPENDENT_REVIEW; FILEBEAT_PER_EVENT_ACK"
+    },
+    {
+      "run_id": "1ce2bc12787e429e9627e3949f35d7e0",
+      "dossier": {
+        "path": "experiments/benchmark_7a2_verification/dossiers/1ce2bc12787e429e9627e3949f35d7e0.json",
+        "sha256": "0c00a3709517a7748506f8b98d16bd568b0686472206b27596a5d06e7d915de4"
+      },
+      "form": {
+        "path": "experiments/benchmark_7a2_verification/review_forms/1ce2bc12787e429e9627e3949f35d7e0.json",
+        "sha256": "b52a530a2a00e0d3a7cff603735431f4d0403cb7c72281204638dfe400a708b7"
+      },
+      "status": "NEEDS_REVIEW",
+      "review_scope": "GROUND_TRUTH_REVIEW_ONLY",
+      "evidence_status": "SUFFICIENT_FOR_REVIEW",
+      "supporting_artifacts": [
+        {
+          "path": "experiments/benchmark_7a1_pilot_seed124/runs/1ce2bc12787e429e9627e3949f35d7e0.json",
+          "sha256": "8d87393243b9bf04c8561e9604e5512d9bacb6d6d3a7329763047629b3961a9c"
+        },
+        {
+          "path": "experiments/benchmark_7a1_pilot_seed124/telemetry/1ce2bc12787e429e9627e3949f35d7e0.json",
+          "sha256": "09b53d8ce7a4021f09ddbd3d0dc874e26e152661d398f929a31c97f09abb5297"
+        },
+        {
+          "path": "experiments/benchmark_7a1_pilot_seed124/collector_receipts/labels/1ce2bc12787e429e9627e3949f35d7e0.json",
+          "sha256": "c80c22761be6ec1869d5c82803253d7f7dbceeb645b42ffc3ca1830f3116f12e"
+        }
+      ],
+      "limitations": "INDEPENDENT_REVIEW; SOURCE_SEAL_AND_INGEST_ACK"
+    },
+    {
+      "run_id": "4f37659b37694381bc2e61666632e079",
+      "dossier": {
+        "path": "experiments/benchmark_7a2_verification/dossiers/4f37659b37694381bc2e61666632e079.json",
+        "sha256": "dbc5ee981bf38c8500fa550522bb7d8ce7a373e34a21ca5d1a09ebb48c74774a"
+      },
+      "form": {
+        "path": "experiments/benchmark_7a2_verification/review_forms/4f37659b37694381bc2e61666632e079.json",
+        "sha256": "e637389999d06562178e16e06cf2a41c098cfb3fcfc40f9069ee84d8180e426d"
+      },
+      "status": "NEEDS_REVIEW",
+      "review_scope": "GROUND_TRUTH_REVIEW_ONLY",
+      "evidence_status": "MISSING_EVIDENCE",
+      "supporting_artifacts": [
+        {
+          "path": "experiments/benchmark_7a1_pilot_seed124/runs/4f37659b37694381bc2e61666632e079.json",
+          "sha256": "db8405f4f41c85e965bbfb29e3f6e7b7d43792d85985bfab0249fde531e8a216"
+        },
+        {
+          "path": "experiments/benchmark_7a1_pilot_seed124/telemetry/4f37659b37694381bc2e61666632e079.json",
+          "sha256": "905bf98d7a4926160381c7c635912767ea943c7491322926bc9f866f8a5c43e5"
+        },
+        {
+          "path": "experiments/benchmark_7a1_pilot_seed124/collector_receipts/labels/4f37659b37694381bc2e61666632e079.json",
+          "sha256": "ffcf61cc186b2093d92c211f3103dcdd464ceaa5e55a5cba31cb582a2a152323"
+        }
+      ],
+      "limitations": "INDEPENDENT_REVIEW; SOURCE_SEAL_AND_INGEST_ACK; INDEPENDENT_FAULT_ACTIVATION_RECORD",
+      "missing": "Independent per-run runtime activation record; saved config, HTTP and labels are not independent readback"
+    },
+    {
+      "run_id": "70c9a115abfe487eacd82453dfd47aaa",
+      "dossier": {
+        "path": "experiments/benchmark_7a2_verification/dossiers/70c9a115abfe487eacd82453dfd47aaa.json",
+        "sha256": "ed180c8a2d65f1746dac96bf27abe809227f0a4334ab7ecdf08e63f5b58b4367"
+      },
+      "form": {
+        "path": "experiments/benchmark_7a2_verification/review_forms/70c9a115abfe487eacd82453dfd47aaa.json",
+        "sha256": "985d939629ae04bef4da19efaa7d45ac4f7a2a6653213a3fe797e0ffd3b55dc9"
+      },
+      "status": "NEEDS_REVIEW",
+      "review_scope": "GROUND_TRUTH_REVIEW_ONLY",
+      "evidence_status": "MISSING_EVIDENCE",
+      "supporting_artifacts": [
+        {
+          "path": "experiments/benchmark_7a1_pilot_seed124/runs/70c9a115abfe487eacd82453dfd47aaa.json",
+          "sha256": "4caab3608f3b5dfaf360608faf96ebd3327b68599a15204cab0b87fb074d3376"
+        },
+        {
+          "path": "experiments/benchmark_7a1_pilot_seed124/telemetry/70c9a115abfe487eacd82453dfd47aaa.json",
+          "sha256": "55b776a237d37fe38c7f0d015334560a01e6c19eef53aacae7bdd1ec03601d5f"
+        },
+        {
+          "path": "experiments/benchmark_7a1_pilot_seed124/collector_receipts/labels/70c9a115abfe487eacd82453dfd47aaa.json",
+          "sha256": "2200bd8179b1a9c04addf5575f1cc5d48bf47dade91f75edaddb3b4f1bd05496"
+        }
+      ],
+      "limitations": "INDEPENDENT_REVIEW; SOURCE_SEAL_AND_INGEST_ACK; INDEPENDENT_FAULT_ACTIVATION_RECORD",
+      "missing": "Independent per-run runtime activation record; saved config, HTTP and labels are not independent readback"
+    },
+    {
+      "run_id": "ce765c2fae7d44d8ac14372ac4941203",
+      "dossier": {
+        "path": "experiments/benchmark_7a2_verification/dossiers/ce765c2fae7d44d8ac14372ac4941203.json",
+        "sha256": "77c8ec1e49f35fd319f40ac09ef827859d2bbcf8dc019fbd32ddc5bf803314c2"
+      },
+      "form": {
+        "path": "experiments/benchmark_7a2_verification/review_forms/ce765c2fae7d44d8ac14372ac4941203.json",
+        "sha256": "b865c222992ca7091609f3229af158205b4b931e01014966f35044f83b866a38"
+      },
+      "status": "NEEDS_REVIEW",
+      "review_scope": "GROUND_TRUTH_REVIEW_ONLY",
+      "evidence_status": "SUFFICIENT_FOR_REVIEW",
+      "supporting_artifacts": [
+        {
+          "path": "experiments/benchmark_7a1_pilot_seed124/runs/ce765c2fae7d44d8ac14372ac4941203.json",
+          "sha256": "e7b315ec715fc1eb2980e1a57e249b1c11a5b19a63eb6974a698e524735cf154"
+        },
+        {
+          "path": "experiments/benchmark_7a1_pilot_seed124/telemetry/ce765c2fae7d44d8ac14372ac4941203.json",
+          "sha256": "6e41c949f860dd8fd41f0e26bd44055f4fd139b49c3eacbabc1316e754e7309d"
+        },
+        {
+          "path": "experiments/benchmark_7a1_pilot_seed124/collector_receipts/labels/ce765c2fae7d44d8ac14372ac4941203.json",
+          "sha256": "a053c307573b7e6c04a3fe6376ed1d38846b970b76524eb237c3825fb74d2a97"
+        }
+      ],
+      "limitations": "INDEPENDENT_REVIEW; SOURCE_SEAL_AND_INGEST_ACK"
+    }
+  ]
+}

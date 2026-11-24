@@ -1,0 +1,23 @@
+{
+  "version": "7A.5E-v1",
+  "status": "LIVE_NOT_AUTHORIZED",
+  "campaign_id": "processing-a-development-pilot",
+  "configuration_id": "processing-a",
+  "cohort": "DEVELOPMENT_PILOT",
+  "blind_eligible": false,
+  "maximum_business_posts": 1,
+  "post_retries": 0,
+  "expected_http_status": 500,
+  "expected_error": "order_processing_error",
+  "expected_fault_scope": {
+    "service": "order",
+    "fault": "processing"
+  },
+  "fault_location": "after successful User and Product lookup, before repository create",
+  "expected_order_log": "order_processing_failed",
+  "expected_order_client_spans": 2,
+  "expected_root_server_spans": 1,
+  "source_contract": "experiments/ground_truth.json",
+  "reviewer_status": "NEEDS_REVIEW",
+  "live_execution_attempted": false
+}

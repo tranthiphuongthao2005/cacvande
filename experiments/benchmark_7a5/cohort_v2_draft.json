@@ -1,0 +1,319 @@
+{
+  "version": "7A.5D-cohort-v2",
+  "status": "DRAFT",
+  "independent_verified": 0,
+  "collection_authorized": false,
+  "engineering_paths_available": 9,
+  "slots_excluded_or_blocked": 5,
+  "budget_pairs_ceiling": 17,
+  "slots": [
+    {
+      "id": "normal-a",
+      "status": "PATH_VERIFIED",
+      "mechanism": "normal_no_fault",
+      "handling": [],
+      "group_hint": "normal-a"
+    },
+    {
+      "id": "normal-b",
+      "status": "DESIGN_BLOCKED",
+      "mechanism": "normal_no_fault",
+      "handling": [],
+      "group_hint": "normal-b"
+    },
+    {
+      "id": "unavailable-a",
+      "status": "OUT_OF_SCOPE",
+      "mechanism": "dependency_unavailable",
+      "handling": [
+        "local",
+        "propagated"
+      ],
+      "group_hint": "product-http-503-shared"
+    },
+    {
+      "id": "unavailable-b",
+      "status": "DUPLICATE_OR_DESIGN_BLOCKED",
+      "mechanism": "dependency_unavailable",
+      "handling": [
+        "local",
+        "propagated"
+      ],
+      "group_hint": "product-http-503-shared"
+    },
+    {
+      "id": "cascade-a",
+      "status": "FIXTURE_PATH",
+      "mechanism": "dependency_unavailable",
+      "handling": [
+        "propagated"
+      ],
+      "group_hint": "product-http-503-shared"
+    },
+    {
+      "id": "cascade-b",
+      "status": "FIXTURE_PATH",
+      "mechanism": "dependency_unavailable",
+      "handling": [
+        "propagated"
+      ],
+      "group_hint": "cascade-b"
+    },
+    {
+      "id": "retry-a",
+      "status": "FIXTURE_PATH",
+      "mechanism": "dependency_unavailable",
+      "handling": [
+        "retry_exhausted",
+        "propagated"
+      ],
+      "group_hint": "product-http-503-shared"
+    },
+    {
+      "id": "retry-b",
+      "status": "ADAPTER_BLOCKED",
+      "mechanism": "dependency_unavailable",
+      "handling": [
+        "retry_exhausted",
+        "propagated"
+      ],
+      "group_hint": "retry-b"
+    },
+    {
+      "id": "timeout-a",
+      "status": "FIXTURE_PATH",
+      "mechanism": "dependency_timeout",
+      "handling": [
+        "propagated"
+      ],
+      "group_hint": "timeout-a"
+    },
+    {
+      "id": "timeout-b",
+      "status": "FIXTURE_PATH",
+      "mechanism": "dependency_timeout",
+      "handling": [
+        "propagated"
+      ],
+      "group_hint": "timeout-b"
+    },
+    {
+      "id": "database-a",
+      "status": "FIXTURE_PATH",
+      "mechanism": "database_connection_failure",
+      "handling": [
+        "local"
+      ],
+      "group_hint": "database-a"
+    },
+    {
+      "id": "database-b",
+      "status": "DESIGN_BLOCKED",
+      "mechanism": "database_connection_failure",
+      "handling": [
+        "local"
+      ],
+      "group_hint": "database-b"
+    },
+    {
+      "id": "processing-a",
+      "status": "FIXTURE_PATH",
+      "mechanism": "processing_failure",
+      "handling": [
+        "local"
+      ],
+      "group_hint": "processing-a"
+    },
+    {
+      "id": "processing-b",
+      "status": "FIXTURE_PATH",
+      "mechanism": "processing_failure",
+      "handling": [
+        "local"
+      ],
+      "group_hint": "processing-b"
+    }
+  ],
+  "batches": [
+    {
+      "configuration": "normal-a",
+      "request_cap": 1,
+      "extra_post_retries": 0,
+      "work_seconds": 420,
+      "cleanup_seconds": 30,
+      "steps": [
+        "preflight",
+        "activation evidence",
+        "producer accounting",
+        "Docker/ES payload reconciliation",
+        "seal and receipt",
+        "Single/Cross snapshots",
+        "rollback",
+        "postflight",
+        "checksums",
+        "separate reviewer dossier"
+      ],
+      "authorization": "PENDING"
+    },
+    {
+      "configuration": "cascade-a",
+      "request_cap": 2,
+      "extra_post_retries": 0,
+      "work_seconds": 420,
+      "cleanup_seconds": 30,
+      "steps": [
+        "preflight",
+        "activation evidence",
+        "producer accounting",
+        "Docker/ES payload reconciliation",
+        "seal and receipt",
+        "Single/Cross snapshots",
+        "rollback",
+        "postflight",
+        "checksums",
+        "separate reviewer dossier"
+      ],
+      "authorization": "PENDING"
+    },
+    {
+      "configuration": "cascade-b",
+      "request_cap": 2,
+      "extra_post_retries": 0,
+      "work_seconds": 420,
+      "cleanup_seconds": 30,
+      "steps": [
+        "preflight",
+        "activation evidence",
+        "producer accounting",
+        "Docker/ES payload reconciliation",
+        "seal and receipt",
+        "Single/Cross snapshots",
+        "rollback",
+        "postflight",
+        "checksums",
+        "separate reviewer dossier"
+      ],
+      "authorization": "PENDING"
+    },
+    {
+      "configuration": "processing-a",
+      "request_cap": 2,
+      "extra_post_retries": 0,
+      "work_seconds": 420,
+      "cleanup_seconds": 30,
+      "steps": [
+        "preflight",
+        "activation evidence",
+        "producer accounting",
+        "Docker/ES payload reconciliation",
+        "seal and receipt",
+        "Single/Cross snapshots",
+        "rollback",
+        "postflight",
+        "checksums",
+        "separate reviewer dossier"
+      ],
+      "authorization": "PENDING"
+    },
+    {
+      "configuration": "processing-b",
+      "request_cap": 2,
+      "extra_post_retries": 0,
+      "work_seconds": 420,
+      "cleanup_seconds": 30,
+      "steps": [
+        "preflight",
+        "activation evidence",
+        "producer accounting",
+        "Docker/ES payload reconciliation",
+        "seal and receipt",
+        "Single/Cross snapshots",
+        "rollback",
+        "postflight",
+        "checksums",
+        "separate reviewer dossier"
+      ],
+      "authorization": "PENDING"
+    },
+    {
+      "configuration": "retry-a",
+      "request_cap": 2,
+      "extra_post_retries": 0,
+      "work_seconds": 420,
+      "cleanup_seconds": 30,
+      "steps": [
+        "preflight",
+        "activation evidence",
+        "producer accounting",
+        "Docker/ES payload reconciliation",
+        "seal and receipt",
+        "Single/Cross snapshots",
+        "rollback",
+        "postflight",
+        "checksums",
+        "separate reviewer dossier"
+      ],
+      "authorization": "PENDING"
+    },
+    {
+      "configuration": "timeout-a",
+      "request_cap": 2,
+      "extra_post_retries": 0,
+      "work_seconds": 420,
+      "cleanup_seconds": 30,
+      "steps": [
+        "preflight",
+        "activation evidence",
+        "producer accounting",
+        "Docker/ES payload reconciliation",
+        "seal and receipt",
+        "Single/Cross snapshots",
+        "rollback",
+        "postflight",
+        "checksums",
+        "separate reviewer dossier"
+      ],
+      "authorization": "PENDING"
+    },
+    {
+      "configuration": "timeout-b",
+      "request_cap": 2,
+      "extra_post_retries": 0,
+      "work_seconds": 420,
+      "cleanup_seconds": 30,
+      "steps": [
+        "preflight",
+        "activation evidence",
+        "producer accounting",
+        "Docker/ES payload reconciliation",
+        "seal and receipt",
+        "Single/Cross snapshots",
+        "rollback",
+        "postflight",
+        "checksums",
+        "separate reviewer dossier"
+      ],
+      "authorization": "PENDING"
+    },
+    {
+      "configuration": "database-a",
+      "request_cap": 2,
+      "extra_post_retries": 0,
+      "work_seconds": 420,
+      "cleanup_seconds": 30,
+      "steps": [
+        "preflight",
+        "activation evidence",
+        "producer accounting",
+        "Docker/ES payload reconciliation",
+        "seal and receipt",
+        "Single/Cross snapshots",
+        "rollback",
+        "postflight",
+        "checksums",
+        "separate reviewer dossier"
+      ],
+      "authorization": "PENDING"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"family":"product-unavailable","fault_type":"unavailable","label":1,"observed_error":"service_unavailable","observed_status":503,"product_delay_base":null,"provenance":"lab-injection+http+docker-events-v1","run_id":"b5f8421bf9da4d978fd0f18445ca3e7d","scenario_id":"unavailable","timestamp":"2026-11-22T17:38:24.725191+00:00","trace_id":"6b14d92990f227741da97fb40f76813f"}

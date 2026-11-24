@@ -1,0 +1,146 @@
+{
+  "version": "7A.5A-v1",
+  "status": "NOT_AUTHORIZED",
+  "batches": [
+    {
+      "priority": 1,
+      "family": "Normal",
+      "config_ids": [
+        "normal-a",
+        "normal-b"
+      ],
+      "cap_target_requests": 4,
+      "cap_setup_requests": 8,
+      "extra_target_retries": 0,
+      "preflight": "Operator approval, baseline readiness, free disk/RAM and scoped lab project",
+      "resource_snapshot": "Before and after record images/compose hashes, CPU, RAM, disk and container states; redact secrets",
+      "activation": "Read back runtime flags and check planned mechanism-specific evidence",
+      "telemetry": "Producer accounting, closed seal, Docker, ES receipt and missing/duplicate/late event checks",
+      "dossier": "Separate ground truth and reviewer form",
+      "snapshots": "Cross v2 and exact Order projection with provenance and checksum",
+      "rollback": "Finally restore baseline, no volume removal",
+      "postflight": "Verify restored state and hashes; stop batch on discrepancy",
+      "quality_gate": "Only approved runnable IDs; technical reconcile and pair, independent review before eligibility"
+    },
+    {
+      "priority": 2,
+      "family": "Service Unavailable",
+      "config_ids": [
+        "unavailable-a",
+        "unavailable-b"
+      ],
+      "cap_target_requests": 4,
+      "cap_setup_requests": 8,
+      "extra_target_retries": 0,
+      "preflight": "Operator approval, baseline readiness, free disk/RAM and scoped lab project",
+      "resource_snapshot": "Before and after record images/compose hashes, CPU, RAM, disk and container states; redact secrets",
+      "activation": "Read back runtime flags and check planned mechanism-specific evidence",
+      "telemetry": "Producer accounting, closed seal, Docker, ES receipt and missing/duplicate/late event checks",
+      "dossier": "Separate ground truth and reviewer form",
+      "snapshots": "Cross v2 and exact Order projection with provenance and checksum",
+      "rollback": "Finally restore baseline, no volume removal",
+      "postflight": "Verify restored state and hashes; stop batch on discrepancy",
+      "quality_gate": "Only approved runnable IDs; technical reconcile and pair, independent review before eligibility"
+    },
+    {
+      "priority": 3,
+      "family": "Processing Failure",
+      "config_ids": [
+        "processing-a",
+        "processing-b"
+      ],
+      "cap_target_requests": 4,
+      "cap_setup_requests": 8,
+      "extra_target_retries": 0,
+      "preflight": "Operator approval, baseline readiness, free disk/RAM and scoped lab project",
+      "resource_snapshot": "Before and after record images/compose hashes, CPU, RAM, disk and container states; redact secrets",
+      "activation": "Read back runtime flags and check planned mechanism-specific evidence",
+      "telemetry": "Producer accounting, closed seal, Docker, ES receipt and missing/duplicate/late event checks",
+      "dossier": "Separate ground truth and reviewer form",
+      "snapshots": "Cross v2 and exact Order projection with provenance and checksum",
+      "rollback": "Finally restore baseline, no volume removal",
+      "postflight": "Verify restored state and hashes; stop batch on discrepancy",
+      "quality_gate": "Only approved runnable IDs; technical reconcile and pair, independent review before eligibility"
+    },
+    {
+      "priority": 4,
+      "family": "Retry Exhaustion",
+      "config_ids": [
+        "retry-a",
+        "retry-b"
+      ],
+      "cap_target_requests": 4,
+      "cap_setup_requests": 8,
+      "extra_target_retries": 0,
+      "preflight": "Operator approval, baseline readiness, free disk/RAM and scoped lab project",
+      "resource_snapshot": "Before and after record images/compose hashes, CPU, RAM, disk and container states; redact secrets",
+      "activation": "Read back runtime flags and check planned mechanism-specific evidence",
+      "telemetry": "Producer accounting, closed seal, Docker, ES receipt and missing/duplicate/late event checks",
+      "dossier": "Separate ground truth and reviewer form",
+      "snapshots": "Cross v2 and exact Order projection with provenance and checksum",
+      "rollback": "Finally restore baseline, no volume removal",
+      "postflight": "Verify restored state and hashes; stop batch on discrepancy",
+      "quality_gate": "Only approved runnable IDs; technical reconcile and pair, independent review before eligibility"
+    },
+    {
+      "priority": 5,
+      "family": "Cascade",
+      "config_ids": [
+        "cascade-a",
+        "cascade-b"
+      ],
+      "cap_target_requests": 4,
+      "cap_setup_requests": 8,
+      "extra_target_retries": 0,
+      "preflight": "Operator approval, baseline readiness, free disk/RAM and scoped lab project",
+      "resource_snapshot": "Before and after record images/compose hashes, CPU, RAM, disk and container states; redact secrets",
+      "activation": "Read back runtime flags and check planned mechanism-specific evidence",
+      "telemetry": "Producer accounting, closed seal, Docker, ES receipt and missing/duplicate/late event checks",
+      "dossier": "Separate ground truth and reviewer form",
+      "snapshots": "Cross v2 and exact Order projection with provenance and checksum",
+      "rollback": "Finally restore baseline, no volume removal",
+      "postflight": "Verify restored state and hashes; stop batch on discrepancy",
+      "quality_gate": "Only approved runnable IDs; technical reconcile and pair, independent review before eligibility"
+    },
+    {
+      "priority": 6,
+      "family": "Timeout",
+      "config_ids": [
+        "timeout-a",
+        "timeout-b"
+      ],
+      "cap_target_requests": 4,
+      "cap_setup_requests": 8,
+      "extra_target_retries": 0,
+      "preflight": "Operator approval, baseline readiness, free disk/RAM and scoped lab project",
+      "resource_snapshot": "Before and after record images/compose hashes, CPU, RAM, disk and container states; redact secrets",
+      "activation": "Read back runtime flags and check planned mechanism-specific evidence",
+      "telemetry": "Producer accounting, closed seal, Docker, ES receipt and missing/duplicate/late event checks",
+      "dossier": "Separate ground truth and reviewer form",
+      "snapshots": "Cross v2 and exact Order projection with provenance and checksum",
+      "rollback": "Finally restore baseline, no volume removal",
+      "postflight": "Verify restored state and hashes; stop batch on discrepancy",
+      "quality_gate": "Only approved runnable IDs; technical reconcile and pair, independent review before eligibility"
+    },
+    {
+      "priority": 7,
+      "family": "Database Failure",
+      "config_ids": [
+        "database-a",
+        "database-b"
+      ],
+      "cap_target_requests": 4,
+      "cap_setup_requests": 8,
+      "extra_target_retries": 0,
+      "preflight": "Operator approval, baseline readiness, free disk/RAM and scoped lab project",
+      "resource_snapshot": "Before and after record images/compose hashes, CPU, RAM, disk and container states; redact secrets",
+      "activation": "Read back runtime flags and check planned mechanism-specific evidence",
+      "telemetry": "Producer accounting, closed seal, Docker, ES receipt and missing/duplicate/late event checks",
+      "dossier": "Separate ground truth and reviewer form",
+      "snapshots": "Cross v2 and exact Order projection with provenance and checksum",
+      "rollback": "Finally restore baseline, no volume removal",
+      "postflight": "Verify restored state and hashes; stop batch on discrepancy",
+      "quality_gate": "Only approved runnable IDs; technical reconcile and pair, independent review before eligibility"
+    }
+  ]
+}

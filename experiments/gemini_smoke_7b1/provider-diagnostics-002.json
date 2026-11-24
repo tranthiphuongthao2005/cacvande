@@ -1,0 +1,54 @@
+{
+  "approval_id": "gemini-smoke-7b1-002",
+  "historical_status": "FAILED_SMOKE",
+  "historical_root_cause": "ROOT_CAUSE_UNDETERMINED",
+  "status": "DIAGNOSTICS_READY_ROOT_CAUSE_UNDETERMINED",
+  "historical_observation": {
+    "context_preflight": "PASS",
+    "mode": "single_service",
+    "public_http_status": 502,
+    "public_error_code": "PROVIDER_ERROR",
+    "duration_ms": 3050.665,
+    "runtime_attempts": 1,
+    "google_receipt": "UNKNOWN",
+    "cross_service": "NOT_ATTEMPTED",
+    "results_empty": true,
+    "exception_class": null,
+    "upstream_http_status": null,
+    "provider_error_code": null,
+    "container_log_lines": 8,
+    "container_log_tracebacks": 0,
+    "container_log_provider_errors": 0,
+    "original_adapter_branches": [
+      "GeminiProvider.generate: APIError other than 429, 408 or 504",
+      "GeminiProvider.generate: HTTPError or ValueError after timeout handling"
+    ]
+  },
+  "historical_artifact_sha256": {
+    "gemini-smoke-7b1-002.json": "276874bdd11e48b654b6c27d179b3b7d8f3a23e7f3b17be8ddb6110d608d220c",
+    "gemini-smoke-7b1-002.activation.json": "2f45cf91c6b179e02834fb609234423b77f8a03c4eb1fcf1f884f22ffc45852b",
+    "gemini-smoke-7b1-002.execution.json": "789e6deee32ee764a04f4a9cc362bb9a4cbfbfb22a372f4bcbcffc2f29792227",
+    "gemini-smoke-7b1-002.results.json": "e3566b3a06430868d71e9287dfd6c6c520a3da027aabea01951d407ee131dc2f"
+  },
+  "offline_runtime": {
+    "image": "thesis-log-anomaly-llm:7b1r-offline",
+    "google_genai": "1.68.0",
+    "network": "none",
+    "external_enabled": false,
+    "call_cap": 0,
+    "health_http": 200,
+    "ready_http": 503,
+    "ready_code": "PROVIDER_NOT_CONFIGURED",
+    "historical_llm_container": "exited",
+    "autoscale_demo": "exited"
+  },
+  "integrity": {
+    "frozen": 8,
+    "cohort": 190,
+    "acceptance": 95,
+    "historical": 88,
+    "mecolog": 63
+  },
+  "regression": {"passed": 145, "failed": 0, "skipped": 10, "warnings": 1},
+  "phase_calls": {"gemini": 0, "openai": 0, "evaluation": 0, "cost_usd": 0}
+}

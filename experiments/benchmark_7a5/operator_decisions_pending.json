@@ -1,0 +1,15 @@
+{
+  "version": "7A.5D-v1",
+  "status": "PENDING",
+  "decisions": [
+    "Approve mechanism/handling taxonomy and strata",
+    "Approve protocol v2, partial scoring and unknown cases",
+    "Approve reviewer assignments, secure access and adjudication",
+    "Approve independence grouping and cohort budget",
+    "Approve live adapters and per-batch request caps",
+    "Approve snapshot cutoff versus collector work budget and bounded incomplete captures policy",
+    "Approve pinned model, decoding, token preflight and cost ceiling"
+  ],
+  "collection_authorized": false,
+  "provider_authorized": false
+}

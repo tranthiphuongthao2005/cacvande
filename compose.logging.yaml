@@ -1,0 +1,116 @@
+services:
+  user-service:
+    environment:
+      APP_LOG_PATH: /var/log/thesis/user.jsonl
+    volumes: [user-logs:/var/log/thesis]
+    depends_on:
+      logging-files: {condition: service_completed_successfully}
+  product-service:
+    environment:
+      APP_LOG_PATH: /var/log/thesis/product.jsonl
+      UPSTREAM_TIMEOUT: "2.0"
+    volumes: [product-logs:/var/log/thesis]
+    depends_on:
+      logging-files: {condition: service_completed_successfully}
+  order-service:
+    environment:
+      APP_LOG_PATH: /var/log/thesis/order.jsonl
+      UPSTREAM_TIMEOUT: "2.0"
+    volumes: [order-logs:/var/log/thesis]
+    depends_on:
+      logging-files: {condition: service_completed_successfully}
+  logging-files:
+    image: python:3.11-slim
+    network_mode: none
+    entrypoint: ["python", "-c", "import os; paths=('/logs/user','/logs/product','/logs/order','/registry'); [(os.chown(p,10001,10001),os.chmod(p,0o750)) for p in paths]"]
+    volumes:
+      - user-logs:/logs/user
+      - product-logs:/logs/product
+      - order-logs:/logs/order
+      - beat-registry:/registry
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.19.25
+    environment:
+      discovery.type: single-node
+      xpack.security.enabled: "true"
+      xpack.security.autoconfiguration.enabled: "false"
+      xpack.security.http.ssl.enabled: "false"
+      xpack.ml.enabled: "false"
+      xpack.security.enrollment.enabled: "false"
+      ES_JAVA_OPTS: "-Xms384m -Xmx384m"
+      ELASTIC_PASSWORD: "${ELASTIC_PASSWORD:?set in .env.elk}"
+    mem_limit: 1152m
+    networks: [logging]
+    ports: ["127.0.0.1:9200:9200"]
+    volumes: [elastic-data:/usr/share/elasticsearch/data]
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS -u elastic:$$ELASTIC_PASSWORD 'http://localhost:9200/_cluster/health?wait_for_status=yellow&timeout=3s' >/dev/null"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 20s
+  logging-setup:
+    image: python:3.11-slim
+    entrypoint: ["python", "-B", "/setup/bootstrap.py"]
+    environment:
+      ELASTIC_PASSWORD: "${ELASTIC_PASSWORD:?set in .env.elk}"
+      KIBANA_SYSTEM_PASSWORD: "${KIBANA_SYSTEM_PASSWORD:?set in .env.elk}"
+      FILEBEAT_WRITER_PASSWORD: "${FILEBEAT_WRITER_PASSWORD:?set in .env.elk}"
+    volumes: ["./logging/bootstrap.py:/setup/bootstrap.py:ro"]
+    networks: [logging]
+    depends_on:
+      elasticsearch: {condition: service_healthy}
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.19.25
+    environment:
+      ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
+      ELASTICSEARCH_USERNAME: kibana_system
+      ELASTICSEARCH_PASSWORD: "${KIBANA_SYSTEM_PASSWORD:?set in .env.elk}"
+      XPACK_SECURITY_ENCRYPTIONKEY: "${KIBANA_SECURITY_KEY:?set in .env.elk}"
+      XPACK_ENCRYPTEDSAVEDOBJECTS_ENCRYPTIONKEY: "${KIBANA_OBJECTS_KEY:?set in .env.elk}"
+      XPACK_REPORTING_ENCRYPTIONKEY: "${KIBANA_REPORTING_KEY:?set in .env.elk}"
+      NODE_OPTIONS: "--max-old-space-size=512"
+      TELEMETRY_ENABLED: "false"
+    mem_limit: 896m
+    networks: [logging]
+    ports: ["127.0.0.1:5601:5601"]
+    depends_on:
+      logging-setup: {condition: service_completed_successfully}
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:5601/api/status >/dev/null"]
+      interval: 8s
+      timeout: 5s
+      retries: 25
+      start_period: 30s
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:8.19.25
+    user: "10001:10001"
+    command: ["-e", "--strict.perms=false"]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    mem_limit: 160m
+    environment:
+      FILEBEAT_WRITER_PASSWORD: "${FILEBEAT_WRITER_PASSWORD:?set in .env.elk}"
+    networks: [logging]
+    depends_on:
+      logging-files: {condition: service_completed_successfully}
+      logging-setup: {condition: service_completed_successfully}
+    volumes:
+      - ./logging/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - beat-registry:/usr/share/filebeat/data
+      - user-logs:/logs/user:ro
+      - product-logs:/logs/product:ro
+      - order-logs:/logs/order:ro
+    healthcheck:
+      test: ["CMD", "filebeat", "test", "output", "--strict.perms=false"]
+      interval: 15s
+      timeout: 8s
+      retries: 10
+networks:
+  logging:
+volumes:
+  user-logs:
+  product-logs:
+  order-logs:
+  beat-registry:
+  elastic-data:

@@ -1,0 +1,26 @@
+
+{
+  "schema_version": "7A.5E-pilot-approval-v1",
+  "status": "APPROVED",
+  "operator": "local-project-operator",
+  "campaign_id": "processing-a-development-pilot",
+  "configuration_id": "processing-a",
+  "maximum_business_posts": 1,
+  "output_directory": "experiments/benchmark_7a5/processing_a_development_pilot",
+  "fault_scope": {
+    "service": "order",
+    "fault": "processing"
+  },
+  "rollback_plan": "restore-baseline-compose-without-fault-or-accounting-overlays-and-verify-readiness",
+  "decisions": {
+    "taxonomy_v2": "APPROVED",
+    "evaluation_rubric": "APPROVED",
+    "primary_outcome": "APPROVED",
+    "abstention_handling": "APPROVED",
+    "completeness_policy": "APPROVED",
+    "cohort_size_ceiling": "APPROVED",
+    "configuration_grouping": "APPROVED",
+    "reviewer_assignment": "APPROVED",
+    "provider_budget": "APPROVED"
+  }
+}
