@@ -1,0 +1,5 @@
+tuanmartin-MeCoLog-8c446ac/**/*.zip filter=lfs diff=lfs merge=lfs -text
+tuanmartin-MeCoLog-8c446ac/**/*.pt filter=lfs diff=lfs merge=lfs -text
+tuanmartin-MeCoLog-8c446ac/**/*.pth filter=lfs diff=lfs merge=lfs -text
+tuanmartin-MeCoLog-8c446ac/**/*.safetensors filter=lfs diff=lfs merge=lfs -text
+tuanmartin-MeCoLog-8c446ac/**/*.npz filter=lfs diff=lfs merge=lfs -text

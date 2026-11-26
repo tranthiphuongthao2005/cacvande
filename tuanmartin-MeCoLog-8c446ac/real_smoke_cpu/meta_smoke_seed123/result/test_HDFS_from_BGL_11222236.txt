@@ -1,0 +1,21 @@
+Namespace(pretrained_log_name='BGL', load_path='checkpoints\\meta_11222236_BGL_1_8_1e-05_smoke10-latest.pt', log_name='HDFS', num_layers=1, param_dim=8, window_size=50, support_size=4, support_include_anomaly=True, episodes=1, query_size=0, disable_params=False, disable_rope=False, batch_size=8, seed=123, viz_samples=1000, viz=0, report_cuda_memory=False, csv_path='result/experiments.csv', slide_window=0, method='MeCoLog-smoke', query_min_abnormal_normal_ratio=0.0)
+loading pretrained model checkpoints\meta_11222236_BGL_1_8_1e-05_smoke10-latest.pt
+loading result: <All keys matched successfully>
+Source train normals/anoms: 104/100
+Target test normals/anoms: 26/26
+Support normals/anoms (last episode): 2/2
+Query normals/anoms (last episode): 24/24
+Support normal/abnormal (CSV): 2/2
+Query normal/abnormal in eval set (CSV): 24/24
+Episodes: 1
+Number of support samples (last episode): 4
+Number of scored query samples: 48
+Train loss (mean score): 0.000000
+Best threshold: 0.000000
+Training time (s): 2.057593
+Testing time (s): 0.669960
+Precision: 1.000000
+Recall: 0.375000
+F1: 0.545455
+AUC: 0.486111
+PR-AUC: 0.659916

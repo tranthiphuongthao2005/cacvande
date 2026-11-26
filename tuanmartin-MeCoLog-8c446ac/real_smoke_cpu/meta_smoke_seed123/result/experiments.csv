@@ -1,0 +1,2 @@
+name,source_domain,target_domain,num_layers,param_dim,window_size,slide_window,method,support_size,disable_params,n_support_test,n_query_test,n_test,support_normal,support_abnormal,query_normal,query_abnormal,train_loss,training_time_sec,testing_time_sec,auc,pr_auc,f1,precision,recall,best_threshold,load_path
+11222236,BGL,HDFS,1,8,50,,MeCoLog-smoke,4,0,4,48,52,2,2,24,24,0.000000,2.057593,0.669960,0.486111,0.659916,0.545455,1.000000,0.375000,0.000000,checkpoints\meta_11222236_BGL_1_8_1e-05_smoke10-latest.pt

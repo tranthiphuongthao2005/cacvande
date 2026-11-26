@@ -1,0 +1,106 @@
+{
+  "status": "locked_before_final_inference",
+  "methods": [
+    "single",
+    "length_two"
+  ],
+  "support_seeds": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009,
+    1010,
+    1011,
+    1012,
+    1013,
+    1014,
+    1015,
+    1016,
+    1017,
+    1018,
+    1019
+  ],
+  "rng": "numpy.default_rng(PCG64); Normal then Anomaly permutations",
+  "support_pool_order": "locked NPZ/manifest order; first 10 of each permuted class",
+  "shots_per_class": 10,
+  "window": 50,
+  "threshold": 0,
+  "anomaly_if": "score > 0",
+  "checkpoint": "baseline100_seed123\\checkpoints\\meta_11222247_BGL_1_8_1e-05_baseline100-latest.pt",
+  "checkpoint_sha256": "713d1ec5a4c34d9a091abea9dc2430c0e9500a9255e0bbc7307a6edfa053c5f0",
+  "architecture": {
+    "layers": 1,
+    "heads": 8,
+    "dim": 768,
+    "key_vocab_size": 12,
+    "char_vocab_size": 42,
+    "max_params": 8,
+    "max_chars": 16
+  },
+  "checkpoint_tensors": 32,
+  "strict_load": "<All keys matched successfully>",
+  "runtime": {
+    "torch": "2.7.1+cpu",
+    "numpy": "1.26.4",
+    "device": "cpu",
+    "threads": 2
+  },
+  "boundary": 4,
+  "boundary_origin": "development diagnostics; adopted before final evaluation",
+  "minimum_anomaly_cluster_size": 2,
+  "fallback": "one prototype from all anomaly support",
+  "formula": "normalize each embedding; normalize each support mean; max anomaly cosine minus normal cosine",
+  "query_length_used_for_prototype_selection": false,
+  "clustering": false,
+  "protocol_sha256": "d9ec243095d23faea6abaac540d13e73c49e67a95820da21ad6aecd49505efe7",
+  "vocabulary_sha256": "087874c66d0fabaeb2ab52cd36d05d6720389f3dc033834f90dac50e1c928e3d",
+  "sbert_revision": "b404353e5a0ef9cdf6a4500baa81aaec875d4db0",
+  "feature_manifest_sha256": "f0c20eddb9136416da46204897eb35be8823bf42e5af1b5f60c3039bd45af421",
+  "model_source_sha256": "a7f04fb5e9f1d32fdafd693c557f01360991e865bcc3a0da8e84af1e7784cb6d",
+  "frozen_scorer_sha256": "d62eee7d925f372d4b639af726cb2749a14d5308e63ed6832624389ab975b0cc",
+  "final_metadata": {
+    "final_support": {
+      "count": 40,
+      "raw_lines": 635,
+      "lineage_sha256": "bfe8c3c15ef660322f5d9ba5005221d9871dc2d5724ed1d7f18cbacfea2074f4",
+      "feature_path": "hdfs_locked_features_seed123\\hdfs_final_support.npz",
+      "feature_sha256": "f8249c307e71c9c422a5306eb5e0180f15533e41829b0d3266134216a3e479a1",
+      "locked_label_counts": {
+        "Normal": 20,
+        "Anomaly": 20
+      }
+    },
+    "final_query": {
+      "count": 200,
+      "raw_lines": 3368,
+      "lineage_sha256": "33d4e711ec32228f7b88a91fd203bb9b5ba0e2c80da5a67579d71fba3dfaeedb",
+      "feature_path": "hdfs_locked_features_seed123\\hdfs_final_query.npz",
+      "feature_sha256": "d3675e585467ebe2dc31d12a32e03d3fa550177f6672b2449e5377e998887c12"
+    },
+    "integrity": "all four pools disjoint; final archive bytes hashed only"
+  },
+  "final_reporting": {
+    "paired": true,
+    "all_seeds": true,
+    "query_fixed": true,
+    "metrics": [
+      "binary_precision",
+      "binary_recall",
+      "binary_f1",
+      "macro_f1",
+      "roc_auc",
+      "average_precision",
+      "fpr",
+      "confusion_matrix"
+    ],
+    "report_fallback": true,
+    "select_best_seed": false
+  },
+  "lock_sha256": "308e29ba2c48ff92c4ea3230206c99194daeb1e85a5832088c5b635c8285c63b"
+}

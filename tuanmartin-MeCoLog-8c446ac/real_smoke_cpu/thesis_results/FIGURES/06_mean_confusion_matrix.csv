@@ -1,0 +1,9 @@
+﻿method,true_label,predicted_label,mean_count
+single,0,0,97.35
+single,0,1,2.65
+single,1,0,51.0
+single,1,1,49.0
+length_two,0,0,65.85
+length_two,0,1,34.15
+length_two,1,0,13.25
+length_two,1,1,86.75

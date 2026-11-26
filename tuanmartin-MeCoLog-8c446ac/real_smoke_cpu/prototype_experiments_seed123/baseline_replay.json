@@ -1,0 +1,12 @@
+{
+  "runs": 60,
+  "predictions": 12000,
+  "max_score_error": 1.487884521145233e-08,
+  "strict_load": "<All keys matched successfully>",
+  "tensors": 32,
+  "checkpoint_sha256": "713d1ec5a4c34d9a091abea9dc2430c0e9500a9255e0bbc7307a6edfa053c5f0",
+  "query_sha256": "b609f0b9f04e79fdc1d0cac51ff0237d52999c62f5fca73a30a2a7bd2658c5d3",
+  "vocabulary_sha256": "087874c66d0fabaeb2ab52cd36d05d6720389f3dc033834f90dac50e1c928e3d",
+  "protocol_sha256": "d9ec243095d23faea6abaac540d13e73c49e67a95820da21ad6aecd49505efe7",
+  "prediction_mismatches": 0
+}

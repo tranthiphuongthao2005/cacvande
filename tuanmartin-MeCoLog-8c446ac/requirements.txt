@@ -1,0 +1,12 @@
+# Windows x64 / Python 3.11. Pins selected for this reproduction environment.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.7.1+cpu
+numpy==1.26.4
+pandas==2.2.3
+scikit-learn==1.6.1
+tqdm==4.67.1
+regex==2024.11.6
+matplotlib==3.10.3
+# Frozen template embedding stage described in the paper.
+sentence-transformers==4.1.0
+transformers==4.51.3

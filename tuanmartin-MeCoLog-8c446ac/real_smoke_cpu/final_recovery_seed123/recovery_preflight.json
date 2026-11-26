@@ -1,0 +1,69 @@
+{
+  "status": "preflight_passed_before_final_npz_load",
+  "lock_sha256": "308e29ba2c48ff92c4ea3230206c99194daeb1e85a5832088c5b635c8285c63b",
+  "lock_file_sha256": "2fb528295d4c3c7182d90b9a23b3f6c04432ca412b169850287f49b6e0a4a58d",
+  "protocol_document_sha256": "f5eb9d9a74f8a99b799136c28d01cc93522fcea7eb50311b50c3fbb20bdee15d",
+  "checkpoint_sha256": "713d1ec5a4c34d9a091abea9dc2430c0e9500a9255e0bbc7307a6edfa053c5f0",
+  "frozen_scorer_sha256": "d62eee7d925f372d4b639af726cb2749a14d5308e63ed6832624389ab975b0cc",
+  "runner_sha256": "88a5a173ffb7aa4aaa9fb1b11a55d8176f99330988cf40063ecb7870cfd22770",
+  "original_and_protected_files_sha256": {
+    "config.py": "67021163b53e4f7bbc8f5db3e96fcc76708e1f4d4df6d7d568bfab61b6b95630",
+    "dataloader.py": "774f486a830cbd15f8c159fe2eec5af61e5f32d7ae9cff646c79a78c6be3d50a",
+    "Drain.py": "34d4b73e4cdb9507221621714e4de7d69d35188976b4ad6fbfb5efbfff966dad",
+    "losses.py": "7174c3fccda0d2050d2aeb0dd11acac24b337e3c56f8df55f929bebffe7a5709",
+    "meta_test.py": "96946c5ee241b26d96b90a2160268a99ec50d224f9136b2859547d861b3c26da",
+    "meta_train.py": "64b7dbd942535f33c827908c330e9d546acf300229f9884f58df15b7a15ecca4",
+    "model.py": "a7f04fb5e9f1d32fdafd693c557f01360991e865bcc3a0da8e84af1e7784cb6d",
+    "parse_log.py": "8d8bddf26ecab886f77af5bae33ed04d6e14cd0929244b84f7d4c29cc601a0da",
+    "parse_thunderbird.py": "15395fe7d8594b059e575a1690679b42eff71ede8c728764a8d048f5a82559b7",
+    "real_smoke_cpu\\preprocessed_data\\BGL_testing.npz": "5c85f3b319613d58cd83114dd69688e268bf89f09ca8ed09e388a02e10c15316",
+    "real_smoke_cpu\\preprocessed_data\\BGL_training.npz": "743fe2c864bd2d711e38cc8b4357c9b0601a2dd6a4dcb8601e112ca60daabff3",
+    "real_smoke_cpu\\preprocessed_data\\HDFS_testing.npz": "d9795b27b2f5abc385615b128f0996e361977925552f278a158e2c8e5590c753",
+    "real_smoke_cpu\\preprocessed_data\\HDFS_training.npz": "adf3e468b95d5ae8f39efa6184dd50ac5832abb573454d4d59433b3ca89e1374",
+    "real_smoke_cpu\\baseline100_seed123\\checkpoints\\meta_11222247_BGL_1_8_1e-05_baseline100-latest.pt": "713d1ec5a4c34d9a091abea9dc2430c0e9500a9255e0bbc7307a6edfa053c5f0"
+  },
+  "final_metadata": {
+    "final_support": {
+      "count": 40,
+      "raw_lines": 635,
+      "lineage_sha256": "bfe8c3c15ef660322f5d9ba5005221d9871dc2d5724ed1d7f18cbacfea2074f4",
+      "feature_path": "hdfs_locked_features_seed123\\hdfs_final_support.npz",
+      "feature_sha256": "f8249c307e71c9c422a5306eb5e0180f15533e41829b0d3266134216a3e479a1",
+      "locked_label_counts": {
+        "Normal": 20,
+        "Anomaly": 20
+      }
+    },
+    "final_query": {
+      "count": 200,
+      "raw_lines": 3368,
+      "lineage_sha256": "33d4e711ec32228f7b88a91fd203bb9b5ba0e2c80da5a67579d71fba3dfaeedb",
+      "feature_path": "hdfs_locked_features_seed123\\hdfs_final_query.npz",
+      "feature_sha256": "d3675e585467ebe2dc31d12a32e03d3fa550177f6672b2449e5377e998887c12"
+    },
+    "integrity": "all four pools disjoint; final archive bytes hashed only"
+  },
+  "strict_load": "<All keys matched successfully>",
+  "tensor_count": 32,
+  "runtime": {
+    "torch": "2.7.1+cpu",
+    "numpy": "1.26.4",
+    "device": "cpu",
+    "threads": 2
+  },
+  "output_existed_at_preflight": false,
+  "recovery_of": "final_evaluation_locked_seed123",
+  "reason": "NumPy JSON serialization failure",
+  "independent_final_test": false,
+  "original_runner_sha256": "88a5a173ffb7aa4aaa9fb1b11a55d8176f99330988cf40063ecb7870cfd22770",
+  "incident_artifacts_sha256": {
+    "final_protocol_verification.json": "6162ccc294d2b8dfaf1f4f7757904e8aa3987ea7201558911eb37c79e8514134",
+    "FINAL_REPORT.md": "3933ad8e367ca14df36094dc1e4da4797577a96ecffdf319deb7cef7a6b0106d",
+    "final_support_seeds.json": "baf32b9ff150d511f6e4f934765e1d7f4e1334da85f0c1dd99990fa996d9663c",
+    "incident.json": "c771ec6bd8ef80963f608f84505a6bfd6060825ae24ab6991140f876d47421a4",
+    "RUN.md": "38f6a91f7e26664d8204d35d9975f584ee240e619a265f270417c39e099a4824"
+  },
+  "recovery_wrapper_sha256": "40a6d02bf1593784428f5c20666d15cd9ca8dd063bf00eb0f37a5dd17755b59a",
+  "automatic_retry": false,
+  "serialization_fixture_passed": true
+}

@@ -1,0 +1,40 @@
+{
+  "runs": 40,
+  "queries_scored": 8000,
+  "max_score_difference": 0.0,
+  "score_replay_tolerance": 2e-06,
+  "prediction_or_metric_mismatches": 0,
+  "weights_unchanged": true,
+  "final_query_labels_accessed": false,
+  "final_npz_arrays_loaded": false,
+  "simulation_assumption": "conditional TPR/FPR fixed at development seed means",
+  "prevalence_simulation": {
+    "single": {
+      "mean_tpr": 0.36150000000000004,
+      "mean_fpr": 0.1375,
+      "fallbacks": null,
+      "expected_precision_by_prevalence": {
+        "0.5": 0.7244488977955912,
+        "0.1": 0.22607879924953098,
+        "0.01": 0.025869471876341782,
+        "0.001": 0.002624814847085476
+      },
+      "expected_false_positives_per_10000_normal": 1375.0
+    },
+    "length_two": {
+      "mean_tpr": 0.6215000000000002,
+      "mean_fpr": 0.16999999999999998,
+      "fallbacks": 0,
+      "expected_precision_by_prevalence": {
+        "0.5": 0.7852179406190778,
+        "0.1": 0.2888682314664188,
+        "0.01": 0.0356129845572014,
+        "0.001": 0.0036461984787461554
+      },
+      "expected_false_positives_per_10000_normal": 1699.9999999999998
+    }
+  },
+  "seconds": 2.976301599992439,
+  "peak_working_set_mib": 603.88,
+  "lock_sha256": "308e29ba2c48ff92c4ea3230206c99194daeb1e85a5832088c5b635c8285c63b"
+}

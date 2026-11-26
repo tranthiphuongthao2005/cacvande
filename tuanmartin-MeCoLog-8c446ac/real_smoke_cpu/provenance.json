@@ -1,0 +1,138 @@
+{
+  "sbert_revision": "b404353e5a0ef9cdf6a4500baa81aaec875d4db0",
+  "total_bytes": 510296481,
+  "elapsed_seconds": 22.547894000075758,
+  "files": [
+    {
+      "path": "archives\\BGL.zip",
+      "url": "https://zenodo.org/api/records/8196385/files/BGL.zip/content",
+      "bytes": 57489019,
+      "checksum": "md5:4452953c470f2d95fcb32d5f6e733f7a",
+      "seconds": 0.082640599925071,
+      "cache_hit": true,
+      "commands": []
+    },
+    {
+      "path": "archives\\HDFS_v1.zip",
+      "url": "https://zenodo.org/api/records/8196385/files/HDFS_v1.zip/content",
+      "bytes": 186645559,
+      "checksum": "md5:76a24b4d9a6164d543fb275f89773260",
+      "seconds": 22.54476620000787,
+      "cache_hit": false,
+      "commands": [
+        [
+          "curl.exe",
+          "--fail",
+          "--silent",
+          "--show-error",
+          "--location",
+          "--max-time",
+          "1800",
+          "--speed-limit",
+          "10000",
+          "--speed-time",
+          "40",
+          "--retry",
+          "2",
+          "--range",
+          "179793960-186645558",
+          "--max-filesize",
+          "6851599",
+          "--output",
+          "C:\\Users\\Admin\\Downloads\\MeCoLog-v1.0.0\\tuanmartin-MeCoLog-8c446ac\\real_smoke_cpu\\archives\\HDFS_v1.zip.partial.179793960",
+          "https://zenodo.org/api/records/8196385/files/HDFS_v1.zip/content"
+        ]
+      ]
+    },
+    {
+      "path": "sbert\\model.safetensors",
+      "url": "https://huggingface.co/sentence-transformers/distilbert-base-nli-mean-tokens/resolve/b404353e5a0ef9cdf6a4500baa81aaec875d4db0/model.safetensors",
+      "bytes": 265462608,
+      "checksum": "sha256:3d58b7cb2697fad5b606046557e98380a868824a4d8a508bd04e97b2fb1559b8",
+      "seconds": 0.18087080004625022,
+      "cache_hit": true,
+      "commands": []
+    },
+    {
+      "path": "sbert\\1_Pooling\\config.json",
+      "url": "https://huggingface.co/sentence-transformers/distilbert-base-nli-mean-tokens/resolve/b404353e5a0ef9cdf6a4500baa81aaec875d4db0/1_Pooling/config.json",
+      "bytes": 190,
+      "checksum": "git-sha1:4e09f293dfe90bba49f87cfe7996271f07be2666",
+      "seconds": 0.001002900069579482,
+      "cache_hit": true,
+      "commands": []
+    },
+    {
+      "path": "sbert\\config.json",
+      "url": "https://huggingface.co/sentence-transformers/distilbert-base-nli-mean-tokens/resolve/b404353e5a0ef9cdf6a4500baa81aaec875d4db0/config.json",
+      "bytes": 550,
+      "checksum": "git-sha1:e6268961aa07e5315a77000a6f1f7a45f34ab6eb",
+      "seconds": 0.00037700007669627666,
+      "cache_hit": true,
+      "commands": []
+    },
+    {
+      "path": "sbert\\config_sentence_transformers.json",
+      "url": "https://huggingface.co/sentence-transformers/distilbert-base-nli-mean-tokens/resolve/b404353e5a0ef9cdf6a4500baa81aaec875d4db0/config_sentence_transformers.json",
+      "bytes": 122,
+      "checksum": "git-sha1:b974b349cb2d419ada11181750a733ff82f291ad",
+      "seconds": 0.0003060000017285347,
+      "cache_hit": true,
+      "commands": []
+    },
+    {
+      "path": "sbert\\modules.json",
+      "url": "https://huggingface.co/sentence-transformers/distilbert-base-nli-mean-tokens/resolve/b404353e5a0ef9cdf6a4500baa81aaec875d4db0/modules.json",
+      "bytes": 229,
+      "checksum": "git-sha1:f7640f94e81bb7f4f04daf1668850b38763a13d9",
+      "seconds": 0.00031240005046129227,
+      "cache_hit": true,
+      "commands": []
+    },
+    {
+      "path": "sbert\\sentence_bert_config.json",
+      "url": "https://huggingface.co/sentence-transformers/distilbert-base-nli-mean-tokens/resolve/b404353e5a0ef9cdf6a4500baa81aaec875d4db0/sentence_bert_config.json",
+      "bytes": 53,
+      "checksum": "git-sha1:5fd10429389515d3e5cccdeda08cae5fea1ae82e",
+      "seconds": 0.0003591999411582947,
+      "cache_hit": true,
+      "commands": []
+    },
+    {
+      "path": "sbert\\special_tokens_map.json",
+      "url": "https://huggingface.co/sentence-transformers/distilbert-base-nli-mean-tokens/resolve/b404353e5a0ef9cdf6a4500baa81aaec875d4db0/special_tokens_map.json",
+      "bytes": 112,
+      "checksum": "git-sha1:e7b0375001f109a6b8873d756ad4f7bbb15fbaa5",
+      "seconds": 0.00039820000529289246,
+      "cache_hit": true,
+      "commands": []
+    },
+    {
+      "path": "sbert\\tokenizer.json",
+      "url": "https://huggingface.co/sentence-transformers/distilbert-base-nli-mean-tokens/resolve/b404353e5a0ef9cdf6a4500baa81aaec875d4db0/tokenizer.json",
+      "bytes": 466081,
+      "checksum": "git-sha1:40c4a0f6c414c8218190234bbce9bf4cc04fa3ac",
+      "seconds": 0.0014024002011865377,
+      "cache_hit": true,
+      "commands": []
+    },
+    {
+      "path": "sbert\\tokenizer_config.json",
+      "url": "https://huggingface.co/sentence-transformers/distilbert-base-nli-mean-tokens/resolve/b404353e5a0ef9cdf6a4500baa81aaec875d4db0/tokenizer_config.json",
+      "bytes": 450,
+      "checksum": "git-sha1:51d7e16c00984f649bd3fb82dafc438ef7251ffb",
+      "seconds": 0.00041069998405873775,
+      "cache_hit": true,
+      "commands": []
+    },
+    {
+      "path": "sbert\\vocab.txt",
+      "url": "https://huggingface.co/sentence-transformers/distilbert-base-nli-mean-tokens/resolve/b404353e5a0ef9cdf6a4500baa81aaec875d4db0/vocab.txt",
+      "bytes": 231508,
+      "checksum": "git-sha1:fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "seconds": 0.0009183001238852739,
+      "cache_hit": true,
+      "commands": []
+    }
+  ]
+}

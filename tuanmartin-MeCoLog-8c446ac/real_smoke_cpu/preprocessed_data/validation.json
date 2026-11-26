@@ -1,0 +1,385 @@
+{
+  "vocabulary_sha256": "087874c66d0fabaeb2ab52cd36d05d6720389f3dc033834f90dac50e1c928e3d",
+  "splits": {
+    "BGL_training.npz": {
+      "fields": {
+        "x": {
+          "shape": [
+            204,
+            20,
+            768
+          ],
+          "dtype": "float32"
+        },
+        "y": {
+          "shape": [
+            204,
+            2
+          ],
+          "dtype": "uint8"
+        },
+        "p_key": {
+          "shape": [
+            204,
+            20,
+            8
+          ],
+          "dtype": "int64"
+        },
+        "p_type": {
+          "shape": [
+            204,
+            20,
+            8
+          ],
+          "dtype": "int64"
+        },
+        "p_val": {
+          "shape": [
+            204,
+            20,
+            8,
+            16
+          ],
+          "dtype": "int64"
+        },
+        "p_num": {
+          "shape": [
+            204,
+            20,
+            8
+          ],
+          "dtype": "float32"
+        },
+        "key_vocab_size": {
+          "shape": [],
+          "dtype": "int64"
+        },
+        "char_vocab_size": {
+          "shape": [],
+          "dtype": "int64"
+        },
+        "max_params": {
+          "shape": [],
+          "dtype": "int64"
+        },
+        "max_chars": {
+          "shape": [],
+          "dtype": "int64"
+        }
+      },
+      "class_counts": {
+        "Normal": 104,
+        "Anomaly": 100
+      },
+      "padding_slots": 0,
+      "slots": 4080,
+      "padding_ratio": 0.0,
+      "long_sequences": 0,
+      "events_beyond_window": 0,
+      "line_assignments": 4080,
+      "bytes": 338529
+    },
+    "BGL_testing.npz": {
+      "fields": {
+        "x": {
+          "shape": [
+            52,
+            20,
+            768
+          ],
+          "dtype": "float32"
+        },
+        "y": {
+          "shape": [
+            52,
+            2
+          ],
+          "dtype": "uint8"
+        },
+        "p_key": {
+          "shape": [
+            52,
+            20,
+            8
+          ],
+          "dtype": "int64"
+        },
+        "p_type": {
+          "shape": [
+            52,
+            20,
+            8
+          ],
+          "dtype": "int64"
+        },
+        "p_val": {
+          "shape": [
+            52,
+            20,
+            8,
+            16
+          ],
+          "dtype": "int64"
+        },
+        "p_num": {
+          "shape": [
+            52,
+            20,
+            8
+          ],
+          "dtype": "float32"
+        },
+        "key_vocab_size": {
+          "shape": [],
+          "dtype": "int64"
+        },
+        "char_vocab_size": {
+          "shape": [],
+          "dtype": "int64"
+        },
+        "max_params": {
+          "shape": [],
+          "dtype": "int64"
+        },
+        "max_chars": {
+          "shape": [],
+          "dtype": "int64"
+        }
+      },
+      "class_counts": {
+        "Normal": 38,
+        "Anomaly": 14
+      },
+      "padding_slots": 0,
+      "slots": 1040,
+      "padding_ratio": 0.0,
+      "long_sequences": 0,
+      "events_beyond_window": 0,
+      "line_assignments": 1040,
+      "bytes": 74519
+    },
+    "HDFS_training.npz": {
+      "fields": {
+        "x": {
+          "shape": [
+            204,
+            50,
+            768
+          ],
+          "dtype": "float32"
+        },
+        "y": {
+          "shape": [
+            204,
+            2
+          ],
+          "dtype": "uint8"
+        },
+        "p_key": {
+          "shape": [
+            204,
+            50,
+            8
+          ],
+          "dtype": "int64"
+        },
+        "p_type": {
+          "shape": [
+            204,
+            50,
+            8
+          ],
+          "dtype": "int64"
+        },
+        "p_val": {
+          "shape": [
+            204,
+            50,
+            8,
+            16
+          ],
+          "dtype": "int64"
+        },
+        "p_num": {
+          "shape": [
+            204,
+            50,
+            8
+          ],
+          "dtype": "float32"
+        },
+        "key_vocab_size": {
+          "shape": [],
+          "dtype": "int64"
+        },
+        "char_vocab_size": {
+          "shape": [],
+          "dtype": "int64"
+        },
+        "max_params": {
+          "shape": [],
+          "dtype": "int64"
+        },
+        "max_chars": {
+          "shape": [],
+          "dtype": "int64"
+        }
+      },
+      "class_counts": {
+        "Normal": 102,
+        "Anomaly": 102
+      },
+      "padding_slots": 6466,
+      "slots": 10200,
+      "padding_ratio": 0.633921568627451,
+      "long_sequences": 1,
+      "events_beyond_window": 228,
+      "line_assignments": 3962,
+      "bytes": 4474800
+    },
+    "HDFS_testing.npz": {
+      "fields": {
+        "x": {
+          "shape": [
+            52,
+            50,
+            768
+          ],
+          "dtype": "float32"
+        },
+        "y": {
+          "shape": [
+            52,
+            2
+          ],
+          "dtype": "uint8"
+        },
+        "p_key": {
+          "shape": [
+            52,
+            50,
+            8
+          ],
+          "dtype": "int64"
+        },
+        "p_type": {
+          "shape": [
+            52,
+            50,
+            8
+          ],
+          "dtype": "int64"
+        },
+        "p_val": {
+          "shape": [
+            52,
+            50,
+            8,
+            16
+          ],
+          "dtype": "int64"
+        },
+        "p_num": {
+          "shape": [
+            52,
+            50,
+            8
+          ],
+          "dtype": "float32"
+        },
+        "key_vocab_size": {
+          "shape": [],
+          "dtype": "int64"
+        },
+        "char_vocab_size": {
+          "shape": [],
+          "dtype": "int64"
+        },
+        "max_params": {
+          "shape": [],
+          "dtype": "int64"
+        },
+        "max_chars": {
+          "shape": [],
+          "dtype": "int64"
+        }
+      },
+      "class_counts": {
+        "Normal": 26,
+        "Anomaly": 26
+      },
+      "padding_slots": 1712,
+      "slots": 2600,
+      "padding_ratio": 0.6584615384615384,
+      "long_sequences": 0,
+      "events_beyond_window": 0,
+      "line_assignments": 888,
+      "bytes": 1072458
+    }
+  },
+  "drain": {
+    "BGL": {
+      "unique_raw_lines": 5120,
+      "templates": 13
+    },
+    "HDFS": {
+      "unique_raw_lines": 4850,
+      "templates": 23
+    }
+  },
+  "forward": {
+    "BGL": {
+      "shape": [
+        6,
+        768
+      ],
+      "finite": true,
+      "apcl": 0.36475324630737305,
+      "temperature": 0.07,
+      "seconds": 0.07180829998105764,
+      "support": [
+        "BGL:16801",
+        "BGL:16821",
+        "BGL:15361",
+        "BGL:15381"
+      ],
+      "query": [
+        "BGL:16841",
+        "BGL:15401"
+      ]
+    },
+    "HDFS": {
+      "shape": [
+        6,
+        768
+      ],
+      "finite": true,
+      "apcl": 9.12917423248291,
+      "temperature": 0.07,
+      "seconds": 0.05498060001991689,
+      "support": [
+        "blk_-7325519371355914333",
+        "blk_-2291721293465550024",
+        "blk_-2513371168865366730",
+        "blk_-3487025161855295465"
+      ],
+      "query": [
+        "blk_-983590879942915923",
+        "blk_8093790278658399543"
+      ]
+    }
+  },
+  "hdfs_raw_lines_scanned": 11175629,
+  "unique_templates_and_sbert_embeddings": 36,
+  "padding_probe": {
+    "bgl_max_cls_difference_20_to_50": 0.5428711771965027,
+    "empty_event_parameter_l2": 332.9564514160156
+  },
+  "seed": 123,
+  "device": "cpu",
+  "threads": 2,
+  "sbert_revision": "b404353e5a0ef9cdf6a4500baa81aaec875d4db0",
+  "elapsed_seconds": 38.918811899842694,
+  "peak_working_set_mib": 347.7
+}
