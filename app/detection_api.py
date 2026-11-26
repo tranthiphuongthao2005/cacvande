@@ -1,9 +1,11 @@
 """Loopback service for trace materialization and explicit scoring readiness."""
 
+import asyncio
 import json
 import logging
 import os
 from contextlib import asynccontextmanager
+from functools import partial
 from time import perf_counter
 from typing import Literal
 
@@ -14,10 +16,15 @@ from fastapi.responses import JSONResponse
 
 from app.contracts import DetectionSession, StrictRecord, TraceId
 from app.context_store import ContextStore
-from app.rule_detection import DetectionResult, detect, result
+from app.hybrid_detection import (
+    ROUTER_VERSION, FallbackReason, HybridResult, HybridRouter, Mode, ModelReadiness,
+    SnapshotFailure, read_snapshot,
+)
+from app.rule_detection import RULE_VERSION, DetectionResult, detect, result
 from app.trace_store import TraceStore, valid_trace
 
 logger = logging.getLogger("uvicorn.error")
+HYBRID_TIMEOUT_SECONDS = 10
 
 
 class TraceRequest(StrictRecord):
@@ -31,11 +38,29 @@ class InvalidRuleRequest(StrictRecord):
     error: Detail
 
 
+class HybridRequest(TraceRequest):
+    mode: Mode = "AUTO"
+
+
+class DetectionCapabilities(StrictRecord):
+    rule_based_available: bool
+    auto_available: bool
+    mecolog_available: bool
+    mecolog_block_reason: FallbackReason | None
+    model_readiness: ModelReadiness
+    supported_modes: tuple[Mode, ...] = ("AUTO", "RULE_BASED", "MECOLOG_ONLY")
+    rule_version: str = RULE_VERSION
+    router_version: str = ROUTER_VERSION
+
+
 def failure(status, code, **context):
     return JSONResponse(status_code=status, content={"error": {"code": code, **context}})
 
 
 def create_app(trace_store=None, approved_runtime=None, *, rule_store=None):
+    # The legacy session scorer cannot consume a validated shared snapshot.
+    router = HybridRouter()
+
     @asynccontextmanager
     async def lifespan(app):
         app.state.rule_store = rule_store
@@ -136,17 +161,11 @@ def create_app(trace_store=None, approved_runtime=None, *, rule_store=None):
             return result(query.trace_id, started, "DETECTION_ERROR", diagnostics=[code])
 
         def evaluate():
-            if app.state.rule_store is None:
-                return finish(503, "TRACE_STORE_NOT_CONFIGURED")
             try:
-                snapshot = app.state.rule_store.snapshot(query.trace_id)
-                if snapshot.timed_out:
-                    return finish(504, "INCOMPLETE_SEARCH")
+                snapshot = read_snapshot(app.state.rule_store, query.trace_id)
                 return detect(query.trace_id, snapshot, started)
-            except httpx.TimeoutException:
-                return finish(504, "ELASTICSEARCH_TIMEOUT")
-            except httpx.HTTPError:
-                return finish(503, "TRACE_STORE_UNAVAILABLE")
+            except SnapshotFailure as exc:
+                return finish(exc.status, exc.code)
             except (KeyError, TypeError, ValueError, AttributeError):
                 return finish(502, "INVALID_SEARCH_RESPONSE")
 
@@ -159,6 +178,48 @@ def create_app(trace_store=None, approved_runtime=None, *, rule_store=None):
             "rule_version": detection.rule_version,
             "latency_ms": detection.latency_ms,
             "diagnostics": detection.diagnostics,
+        }))
+        return detection
+
+    @app.get("/detect/capabilities", response_model=DetectionCapabilities)
+    def detection_capabilities():
+        blocker = router.blocker()
+        rule_based = app.state.rule_store is not None
+        return DetectionCapabilities(
+            rule_based_available=rule_based, auto_available=rule_based or blocker is None,
+            mecolog_available=blocker is None, mecolog_block_reason=blocker,
+            model_readiness=router.readiness,
+        )
+
+    @app.post(
+        "/detect/hybrid", response_model=HybridResult,
+        responses={
+            422: {"model": InvalidRuleRequest | HybridResult, "description": "Invalid request or model input"},
+            500: {"model": HybridResult, "description": "Rule execution error"},
+            502: {"model": HybridResult, "description": "Invalid search response"},
+            503: {"model": HybridResult, "description": "Scoring or trace store unavailable"},
+            504: {"model": HybridResult, "description": "Detection deadline or backend timeout"},
+        },
+    )
+    async def detect_hybrid(query: HybridRequest, response: Response):
+        """Route one trace through the selected detection mode."""
+        started = perf_counter()
+        if not valid_trace(query.trace_id):
+            return failure(422, "INVALID_TRACE_ID")
+        load = partial(read_snapshot, app.state.rule_store)
+        work = asyncio.get_running_loop().run_in_executor(None, router.route, query.trace_id, query.mode,
+                                                         load, started)
+        try:
+            status, detection = await asyncio.wait_for(work, HYBRID_TIMEOUT_SECONDS)
+        except TimeoutError:
+            status, detection = router.deadline(query.trace_id, query.mode, started)
+        response.status_code = status
+        logger.info(json.dumps({
+            "event": "hybrid_detection_completed", "detection_id": detection.detection_id,
+            "trace_id": detection.trace_id, "requested_mode": detection.requested_mode,
+            "executed_mode": detection.executed_mode, "fallback_reason": detection.fallback_reason,
+            "detection_status": detection.detection_status, "latency_ms": detection.latency_ms,
+            "router_version": ROUTER_VERSION, "diagnostics": detection.diagnostics,
         }))
         return detection
 

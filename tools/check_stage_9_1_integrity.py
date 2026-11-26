@@ -33,6 +33,8 @@ STAGE_FILES = {
     "app/detection_api.py", "app/rule_detection.py", "services/detection/Dockerfile",
     "tests/test_rule_detection.py", "tools/check_stage_9_1_integrity.py",
     "docs/STAGE_9_1_SCOPED_INTEGRITY.md", "docs/STAGE_9_1_RULE_BASED_DETECTION.md",
+    "app/hybrid_detection.py", "tests/test_hybrid_detection.py", "tests/test_hybrid_api.py",
+    "docs/STAGE_9_2_HYBRID_DETECTION_ROUTER.md",
 }
 
 
