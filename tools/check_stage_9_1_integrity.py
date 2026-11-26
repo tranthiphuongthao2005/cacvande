@@ -35,6 +35,10 @@ STAGE_FILES = {
     "docs/STAGE_9_1_SCOPED_INTEGRITY.md", "docs/STAGE_9_1_RULE_BASED_DETECTION.md",
     "app/hybrid_detection.py", "tests/test_hybrid_detection.py", "tests/test_hybrid_api.py",
     "docs/STAGE_9_2_HYBRID_DETECTION_ROUTER.md",
+    "app/monitoring_client.py", "app/monitoring_config.py", "app/monitoring_models.py",
+    "app/monitoring_store.py", "app/monitoring_worker.py",
+    "tests/test_monitoring_worker.py", "tests/test_monitoring_store.py", "tests/test_monitoring_integration.py",
+    "compose.monitoring.yaml", "services/monitoring/Dockerfile", "docs/STAGE_9_3_AUTOMATIC_LOG_MONITORING.md",
 }
 
 
