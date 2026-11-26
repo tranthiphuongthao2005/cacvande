@@ -1,0 +1,17 @@
+{
+  "status": "PREPARATION_ONLY",
+  "known": [
+    "LLM_SOURCE_DIGEST_MISMATCH",
+    "HISTORICAL_SCOPE_UNRESOLVED",
+    "FULL_LLM_BENCHMARK_INTEGRITY_FAIL"
+  ],
+  "additional": [
+    "Live build, n8n import/execution, Elasticsearch/producer evidence and PostgreSQL suite await separate approval",
+    "Host memory headroom insufficient in read-only samples",
+    "PIT handoff and event identity are not absolute TRACE_COMPLETE proof",
+    "Alias cases E2E-06/07 share E2E-05 mechanism",
+    "Malformed evidence injection needs separate approved fixture; no real provider",
+    "n8n payload retention disabled; real widget/node evidence must be sanitized and gaps reported",
+    "Filebeat uses event timestamp so exact ingestion timestamp is unavailable"
+  ]
+}

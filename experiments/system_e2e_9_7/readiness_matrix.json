@@ -1,0 +1,60 @@
+{
+  "phase": "9.7B",
+  "status": "NOT_EXECUTED",
+  "checks": [
+    {
+      "target": "PostgreSQL x3",
+      "liveness": "Compose running",
+      "dependency": "pg_isready health",
+      "functional": "Business /ready plus isolated suite"
+    },
+    {
+      "target": "User/Product/Order",
+      "liveness": "/health",
+      "dependency": "/ready",
+      "functional": "E2E-01 seed and Order outcome"
+    },
+    {
+      "target": "Elasticsearch/Filebeat",
+      "liveness": "Compose running",
+      "dependency": "healthy/shard baseline; logging-setup completed",
+      "functional": "Match producer and Filebeat-indexed event IDs; normal pipeline"
+    },
+    {
+      "target": "Detection",
+      "liveness": "/health",
+      "dependency": "capabilities configured; legacy /ready is 503 NOT_READY_FOR_SCORING",
+      "functional": "AUTO Rule-based with observed trace"
+    },
+    {
+      "target": "Context",
+      "liveness": "/health",
+      "dependency": "/ready proves PIT open/close",
+      "functional": "Eligible or explicitly authorized synthetic verification context"
+    },
+    {
+      "target": "Monitoring/Context Integration",
+      "liveness": "Compose running",
+      "dependency": "status ready; initialized SQLite/ES/API",
+      "functional": "Observed normal detection and stage-specific isolated fixtures"
+    },
+    {
+      "target": "Workflow dispatcher",
+      "liveness": "Compose running",
+      "dependency": "SQLite migration and n8n readiness",
+      "functional": "Bind exact approved snapshot through published production webhook"
+    },
+    {
+      "target": "n8n/Mock Analysis",
+      "liveness": "/healthz/readiness and internal /health",
+      "dependency": "isolated workflow published",
+      "functional": "Genuine execution ID and sanitized node outcomes"
+    },
+    {
+      "target": "Incident",
+      "liveness": "/health",
+      "dependency": "/ready and authenticated read; no-token 401",
+      "functional": "Incident opened and revised for approved eligible case"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+services:
+  user-db:
+    environment:
+      POSTGRES_PASSWORD: "${STAGE97_USER_DB_PASSWORD:?set isolated user DB password}"
+  product-db:
+    environment:
+      POSTGRES_PASSWORD: "${STAGE97_PRODUCT_DB_PASSWORD:?set isolated product DB password}"
+  order-db:
+    environment:
+      POSTGRES_PASSWORD: "${STAGE97_ORDER_DB_PASSWORD:?set isolated order DB password}"
+  user-service:
+    ports: !override ["127.0.0.1:19011:8000"]
+    environment:
+      DATABASE_URL: "postgresql://user_app:${STAGE97_USER_DB_PASSWORD:?set isolated user DB password}@user-db:5432/users"
+  product-service:
+    ports: !override ["127.0.0.1:19012:8000"]
+    environment:
+      DATABASE_URL: "postgresql://product_app:${STAGE97_PRODUCT_DB_PASSWORD:?set isolated product DB password}@product-db:5432/products"
+      LAB_ENABLED: "${STAGE97_PRODUCT_LAB_ENABLED:-0}"
+      LAB_FAULT: "${STAGE97_PRODUCT_FAULT:-}"
+  order-service:
+    ports: !override ["127.0.0.1:19013:8000"]
+    environment:
+      DATABASE_URL: "postgresql://order_app:${STAGE97_ORDER_DB_PASSWORD:?set isolated order DB password}@order-db:5432/orders"
+      LAB_ENABLED: "${STAGE97_ORDER_LAB_ENABLED:-0}"
+      LAB_FAULT: "${STAGE97_ORDER_FAULT:-}"
+  detection-service:
+    ports: !override ["127.0.0.1:19014:8000"]
+  context-service:
+    ports: !override ["127.0.0.1:19015:8000"]
+  incident-management:
+    ports: !override ["127.0.0.1:19017:8000"]
+  elasticsearch:
+    ports: !override ["127.0.0.1:19297:9200"]
+  kibana:
+    profiles: [observability-ui]
+    ports: !reset []
+  monitoring-worker:
+    environment:
+      MONITORING_ES_URL: http://elasticsearch:9200
+      MONITORING_DETECTION_URL: http://detection-service:8000
+      MONITORING_ES_INDEX: thesis-logs-*
+      MONITORING_START_POLICY: START_FROM_NOW
+      MONITORING_LOOKBACK_SECONDS: "0"
+  context-integration:
+    environment:
+      CONTEXT_INTEGRATION_URL: http://context-service:8000
+      CONTEXT_INTEGRATION_NAMESPACE: thesis-e2e-stage97
+  stage97-pg-tests:
+    profiles: [postgres-tests]
+    build:
+      context: .
+      dockerfile: services/stage97-pg-tests/Dockerfile
+    environment:
+      TEST_PG_ADMIN_URL: "postgresql://user_app:${STAGE97_USER_DB_PASSWORD:?set isolated user DB password}@user-db:5432/users"
+    networks: [default]
+networks:
+  default:
+    internal: true
+  logging:
+    internal: true

@@ -1,0 +1,10 @@
+**
+!requirements.txt
+!pytest.ini
+!app/
+!app/api.py
+!app/storage.py
+!app/telemetry.py
+!app/producer_accounting.py
+!tests/
+!tests/test_integration.py

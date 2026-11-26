@@ -1,0 +1,55 @@
+{
+  "status": "TEMPLATE_NOT_EXECUTED",
+  "unit": "ms unless otherwise specified",
+  "measurements": {
+    "business_latency": "Host monotonic POST elapsed",
+    "ingestion_observation": "Host monotonic POST start to first observed indexed hit; includes poll interval, not exact ingest latency",
+    "monitoring": "Worker first seen to Detection persistence using Docker VM timestamps and trace lineage",
+    "hybrid": "Detection latency_ms measured internally",
+    "context": "Context attempt retrieval_ms measured internally",
+    "workflow": "Workflow WEBHOOK attempt latency_ms",
+    "mock_analysis": "Workflow ANALYSIS attempt latency_ms",
+    "incident_creation": "Detection persisted_at to Incident created_at using validated shared clock",
+    "end_to_end": "Host monotonic request start to first observed durable incident revision; includes observation interval",
+    "queue_wait": "Durable source created/ready to claim/dispatched timestamp only after clock validation",
+    "resources": "CPU %, bytes memory, and SQLite page_count*page_size; ELK metrics from isolated nodes stats only"
+  },
+  "summary": [
+    "sample_count",
+    "min",
+    "median",
+    "mean",
+    "max",
+    "p95 only with enough samples"
+  ],
+  "detection": {
+    "unit": "one eligible business trace",
+    "unscorable": [
+      "INSUFFICIENT_DATA",
+      "DETECTION_ERROR"
+    ],
+    "metrics": [
+      "coverage",
+      "TP",
+      "TN",
+      "FP",
+      "FN",
+      "precision",
+      "recall",
+      "F1",
+      "FPR",
+      "FNR"
+    ],
+    "exclude": [
+      "infrastructure",
+      "replay",
+      "synthetic smoke",
+      "duplicate mechanism aliases"
+    ],
+    "never": [
+      "ROC-AUC from binary rule outcome",
+      "MeCoLog Microservices generalization",
+      "LLM accuracy or real-provider latency from mock"
+    ]
+  }
+}

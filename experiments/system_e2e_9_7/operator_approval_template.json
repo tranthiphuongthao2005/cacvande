@@ -1,0 +1,21 @@
+{
+  "template_status": "NOT_APPROVED",
+  "approved": false,
+  "approval_id": "PLACEHOLDER",
+  "operator": "PLACEHOLDER",
+  "project": "thesis-e2e-stage97",
+  "worktree": "REPLACE_WITH_ABSOLUTE_STAGE97_WORKTREE",
+  "phase": "9.7B",
+  "test_plan_sha256": "REPLACE_WITH_FROZEN_SHA256",
+  "expires_at": "2000-01-01T00:00:00Z",
+  "actions": [],
+  "max_order_requests": 1,
+  "workflow_published_verified": false,
+  "synthetic_probe_allowed": false,
+  "case_id": null,
+  "normal_case_passed": false,
+  "normal_acceptance_path": null,
+  "normal_acceptance_sha256": null,
+  "max_activation_seconds": null,
+  "rollback_observer": null
+}

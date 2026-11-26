@@ -54,6 +54,15 @@ STAGE_FILES = {
     "compose.incident-management.yaml", "services/incident/Dockerfile", "services/incident-management/Dockerfile",
     "tests/test_incident_management.py", "tests/test_incident_integration.py",
     "docs/STAGE_9_6_INCIDENT_MANAGEMENT.md", "docs/INCIDENT_API_CONTRACT.md",
+    "compose.e2e-stage97.yaml", "tools/stage97.ps1", "tools/stage97_preflight.py", "tools/stage97_runtime.py",
+    "services/stage97-pg-tests/Dockerfile", "services/stage97-pg-tests/Dockerfile.dockerignore",
+    "tests/test_stage97_preflight.py", "docs/STAGE_9_7_E2E_TEST_PLAN.md", "docs/STAGE_9_7_RUNTIME_SETUP.md",
+    "docs/STAGE_9_7_READINESS.md",
+    "experiments/system_e2e_9_7/stage97.env.example", "experiments/system_e2e_9_7/test_plan.json",
+    "experiments/system_e2e_9_7/test_plan.sha256", "experiments/system_e2e_9_7/environment_manifest.json",
+    "experiments/system_e2e_9_7/readiness_matrix.json", "experiments/system_e2e_9_7/fault_execution_plan.json",
+    "experiments/system_e2e_9_7/operator_approval_template.json", "experiments/system_e2e_9_7/test_case_manifest.json",
+    "experiments/system_e2e_9_7/metrics_schema.json", "experiments/system_e2e_9_7/limitations.json",
 }
 
 

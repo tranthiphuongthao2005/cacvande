@@ -1,0 +1,31 @@
+{
+  "status": "READ_ONLY_PREFLIGHT_AND_STATIC_CONFIGURATION",
+  "project": "thesis-e2e-stage97",
+  "baseline": "a7418d08d70b824e939b5c85c6b2b6a4df0e772f",
+  "docker_server": "29.2.1",
+  "compose": "5.0.2",
+  "host_logical_cpu": 12,
+  "docker_cpu": 4,
+  "docker_vm_memory_bytes": 6215151616,
+  "host_visible_memory_kib": 8048712,
+  "host_free_memory_kib_samples": [
+    413060,
+    648576
+  ],
+  "system_drive_free_bytes": 60500578304,
+  "existing_running_project": "thesis-log-anomaly",
+  "resource_blocker": "Free physical RAM 403 to 633 MiB; recheck with 2 GiB host planning floor before approved build/start.",
+  "stage97_project_objects_observed": 0,
+  "prospective_port_collisions_observed": 0,
+  "images_cached": [
+    "postgres:16-alpine",
+    "python:3.11-slim",
+    "docker.elastic.co/elasticsearch/elasticsearch:8.19.25",
+    "docker.elastic.co/beats/filebeat:8.19.25",
+    "docker.n8n.io/n8nio/n8n:2.48.7"
+  ],
+  "started_services": 0,
+  "builds": 0,
+  "fault_activations": 0,
+  "external_llm_calls": 0
+}

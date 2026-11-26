@@ -1,0 +1,50 @@
+{
+  "status": "NOT_EXECUTED",
+  "phase": "9.7C_ONLY",
+  "maximum_requests_per_case": 1,
+  "setup_writes": "One User and one Product fixture before activation; never retry Order POST.",
+  "max_activation_seconds": 90,
+  "requirements": [
+    "Separate operator approval bound to project, case, deadline and plan hash",
+    "Hash-bound E2E-01 PASS evidence",
+    "Healthy baseline and inactive fault flags",
+    "Operator rollback observer with independent timer",
+    "Stop campaign on rollback failure"
+  ],
+  "cases": {
+    "E2E-02": {
+      "service": "order-service",
+      "fault": "processing",
+      "expected_http": 500,
+      "notes": "After both lookups. Do not use processing_before_lookup because current ingest allowlist excludes the stage field."
+    },
+    "E2E-03": {
+      "service": "product-service",
+      "fault": "delay",
+      "expected_http": 504,
+      "notes": "Inherited 2.0s caller and 2.25s Product delay, two attempts."
+    },
+    "E2E-04": {
+      "service": "order-service",
+      "fault": "database",
+      "expected_http": 503,
+      "notes": "Request DSN failure; startup DSN and database process remain healthy."
+    },
+    "E2E-05": {
+      "service": "product-service",
+      "fault": "unavailable",
+      "expected_http": 502,
+      "notes": "One mechanism shared by unavailable/retry/cascade claims; R07 evidence conditional on coherent sequence."
+    },
+    "E2E-06": {
+      "status": "COVERED_BY_E2E-05"
+    },
+    "E2E-07": {
+      "status": "COVERED_BY_E2E-05"
+    },
+    "E2E-12": {
+      "status": "BLOCKED_PENDING_APPROVED_MALFORMED_FIXTURE"
+    }
+  },
+  "rollback": "Recreate only the target without overrides, verify flags absent for Order and Product, target /ready and baseline DB connectivity. Persist rollback status even if Order request fails."
+}
