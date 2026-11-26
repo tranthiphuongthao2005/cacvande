@@ -39,6 +39,11 @@ STAGE_FILES = {
     "app/monitoring_store.py", "app/monitoring_worker.py",
     "tests/test_monitoring_worker.py", "tests/test_monitoring_store.py", "tests/test_monitoring_integration.py",
     "compose.monitoring.yaml", "services/monitoring/Dockerfile", "docs/STAGE_9_3_AUTOMATIC_LOG_MONITORING.md",
+    "app/context_integration.py", "app/context_integration_client.py", "app/context_integration_models.py",
+    "app/context_integration_store.py", "tests/test_context_integration.py",
+    "tests/test_context_integration_store.py", "tests/test_context_integration_pipeline.py",
+    "compose.context-integration.yaml", "services/context-integration/Dockerfile",
+    "docs/STAGE_9_4_CONTEXT_INTEGRATION.md",
 }
 
 
