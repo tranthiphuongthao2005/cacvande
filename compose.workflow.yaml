@@ -1,0 +1,70 @@
+x-stage95-build: &stage95-build
+  context: .
+  dockerfile: services/workflow-dispatcher/Dockerfile
+x-stage95-environment: &stage95-environment
+  WORKFLOW_STORAGE_PATH: /data/monitoring.sqlite
+  WORKFLOW_WEBHOOK_TOKEN: "${WORKFLOW_WEBHOOK_TOKEN:-}"
+  WORKFLOW_ANALYSIS_PROVIDER: mock
+  WORKFLOW_EXTERNAL_ALLOWED: "false"
+  WORKFLOW_TIMEOUT_SECONDS: "${WORKFLOW_TIMEOUT_SECONDS:-25}"
+  WORKFLOW_MAX_PAYLOAD_BYTES: "${WORKFLOW_MAX_PAYLOAD_BYTES:-524288}"
+services:
+  workflow-dispatcher:
+    profiles: [workflow-stage95]
+    build: *stage95-build
+    environment:
+      <<: *stage95-environment
+      WORKFLOW_DISPATCH_ENABLED: "${WORKFLOW_DISPATCH_ENABLED:-false}"
+      WORKFLOW_DISPATCH_DRY_RUN: "${WORKFLOW_DISPATCH_DRY_RUN:-false}"
+      WORKFLOW_N8N_URL: http://workflow-n8n:5678
+      WORKFLOW_POLL_INTERVAL_SECONDS: "${WORKFLOW_POLL_INTERVAL_SECONDS:-5}"
+      WORKFLOW_BATCH_SIZE: "${WORKFLOW_BATCH_SIZE:-16}"
+      WORKFLOW_MAX_CONCURRENCY: "${WORKFLOW_MAX_CONCURRENCY:-2}"
+      WORKFLOW_MAX_RETRIES: "${WORKFLOW_MAX_RETRIES:-2}"
+      WORKFLOW_RETRY_BACKOFF_SECONDS: "${WORKFLOW_RETRY_BACKOFF_SECONDS:-10}"
+    networks: [workflow-stage95]
+    volumes: [monitoring-data:/data]
+    read_only: true
+    cap_drop: [ALL]
+    stop_grace_period: 90s
+  mock-analysis:
+    profiles: [workflow-stage95]
+    build: *stage95-build
+    command: ["uvicorn", "app.mock_analysis_api:app", "--host", "0.0.0.0", "--port", "8000", "--no-access-log"]
+    environment: *stage95-environment
+    networks: [workflow-stage95]
+    volumes: [monitoring-data:/data]
+    read_only: true
+    cap_drop: [ALL]
+  workflow-n8n:
+    profiles: [workflow-stage95]
+    image: docker.n8n.io/n8nio/n8n:2.48.7
+    environment:
+      N8N_HOST: localhost
+      N8N_PROTOCOL: http
+      N8N_WEBHOOK_URL: http://127.0.0.1:15678/
+      N8N_SECURE_COOKIE: "false"
+      N8N_ENCRYPTION_KEY: "${WORKFLOW_N8N_ENCRYPTION_KEY:?set isolated WORKFLOW_N8N_ENCRYPTION_KEY}"
+      N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: "true"
+      N8N_DIAGNOSTICS_ENABLED: "false"
+      N8N_PERSONALIZATION_ENABLED: "false"
+      N8N_VERSION_NOTIFICATIONS_ENABLED: "false"
+      N8N_PUBLIC_API_DISABLED: "true"
+      N8N_PAYLOAD_SIZE_MAX: "1"
+      N8N_UNVERIFIED_PACKAGES_ENABLED: "false"
+      EXECUTIONS_DATA_SAVE_ON_ERROR: none
+      EXECUTIONS_DATA_SAVE_ON_SUCCESS: none
+      EXECUTIONS_DATA_SAVE_MANUAL_EXECUTIONS: "false"
+      EXECUTIONS_DATA_SAVE_ON_PROGRESS: "false"
+      EXECUTIONS_TIMEOUT: "45"
+    networks: [workflow-stage95]
+    ports: ["127.0.0.1:15678:5678"]
+    volumes:
+      - stage95-n8n-data:/home/node/.n8n
+      - ./workflows/detection-incident.json:/workflows/detection-incident.json:ro
+volumes:
+  monitoring-data:
+  stage95-n8n-data:
+networks:
+  workflow-stage95:
+    internal: true

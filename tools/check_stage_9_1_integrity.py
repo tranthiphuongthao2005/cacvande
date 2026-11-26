@@ -44,6 +44,11 @@ STAGE_FILES = {
     "tests/test_context_integration_store.py", "tests/test_context_integration_pipeline.py",
     "compose.context-integration.yaml", "services/context-integration/Dockerfile",
     "docs/STAGE_9_4_CONTEXT_INTEGRATION.md",
+    "app/mock_analysis_api.py", "app/workflow_config.py", "app/workflow_dispatcher.py",
+    "app/workflow_models.py", "app/workflow_store.py", "compose.workflow.yaml",
+    "services/workflow-dispatcher/Dockerfile", "workflows/detection-incident.json",
+    "tests/test_workflow_dispatcher.py", "tests/test_workflow_integration.py",
+    "docs/STAGE_9_5_N8N_INTEGRATION.md", "docs/ANALYSIS_SERVICE_INTEGRATION_CONTRACT.md",
 }
 
 

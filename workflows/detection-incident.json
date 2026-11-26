@@ -1,0 +1,142 @@
+{
+  "name": "Thesis Detection Incident (Mock)",
+  "active": false,
+  "nodes": [
+    {
+      "id": "ee1e41d2-b801-4678-9b82-a0c82fac4301",
+      "name": "Detection Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "webhookId": "b892fb74-1aa2-4dc5-b75b-faf3d69b1ad2",
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "detection-incident",
+        "responseMode": "responseNode",
+        "options": {}
+      }
+    },
+    {
+      "id": "ee1e41d2-b801-4678-9b82-a0c82fac4302",
+      "name": "Verify Analyze and Persist Mock",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        270,
+        0
+      ],
+      "retryOnFail": false,
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "method": "POST",
+        "url": "http://mock-analysis:8000/analyze/package",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $json.headers.authorization || '' }}"
+            },
+            {
+              "name": "X-Workflow-Execution-Id",
+              "value": "={{ String($execution.id ?? '') }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.body ?? {}) }}",
+        "options": {
+          "redirect": {
+            "redirect": {
+              "followRedirects": false
+            }
+          },
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true,
+              "responseFormat": "json"
+            }
+          },
+          "timeout": 20000
+        }
+      }
+    },
+    {
+      "id": "ee1e41d2-b801-4678-9b82-a0c82fac4303",
+      "name": "Return Adapter Status",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        540,
+        -80
+      ],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json.body }}",
+        "options": {
+          "responseCode": "={{ $json.statusCode }}"
+        }
+      }
+    },
+    {
+      "id": "ee1e41d2-b801-4678-9b82-a0c82fac4304",
+      "name": "Return Transport Failure",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        540,
+        120
+      ],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { error: { code: 'MOCK_ANALYSIS_TRANSPORT_FAILURE' } } }}",
+        "options": {
+          "responseCode": 502
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Detection Webhook": {
+      "main": [
+        [
+          {
+            "node": "Verify Analyze and Persist Mock",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verify Analyze and Persist Mock": {
+      "main": [
+        [
+          {
+            "node": "Return Adapter Status",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return Transport Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "none",
+    "saveDataSuccessExecution": "none",
+    "saveManualExecutions": false,
+    "saveExecutionProgress": false
+  }
+}
