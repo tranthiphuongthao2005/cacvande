@@ -3,13 +3,11 @@
 import hashlib
 import json
 import os
-import sqlite3
-from contextlib import asynccontextmanager, closing
+from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from hmac import compare_digest
 from threading import BoundedSemaphore
-from time import perf_counter, time
-from uuid import uuid4
+from time import perf_counter
 
 import httpx
 from fastapi import FastAPI, Header
@@ -20,9 +18,9 @@ from pydantic import Field
 from app.contracts import StrictRecord, TraceId
 from app.incident_context import Mode, Service
 from app.llm_analysis import AnalysisRequest, IncidentAnalysis, ModelAnalysis, prepare, validate_model
+from app.scenario_incident_store import Ledger
 from app.trace_store import valid_trace
 
-RETENTION = 7 * 24 * 3600
 KEY_PATTERN = r"^[A-Za-z0-9][A-Za-z0-9_.:-]{7,127}$"
 STATUS_CODES = {"COMPLETED": 200, "INSUFFICIENT_EVIDENCE": 200, "VALIDATION_FAILED": 502,
                 "CONTEXT_UNAVAILABLE": 503, "PROVIDER_UNAVAILABLE": 503, "TIMEOUT": 504,
@@ -39,56 +37,6 @@ class Trigger(StrictRecord):
 
 def error(status, code):
     return JSONResponse(status_code=status, content={"error": {"code": code}})
-
-
-class Ledger:
-    def __init__(self, path):
-        self.path = path
-        with closing(sqlite3.connect(path)) as db, db:
-            db.execute("""CREATE TABLE IF NOT EXISTS incidents (
-                request_digest TEXT PRIMARY KEY, signature TEXT NOT NULL, incident_id TEXT UNIQUE NOT NULL,
-                created REAL NOT NULL, result TEXT, notification TEXT)""")
-
-    def claim(self, key, signature):
-        with closing(sqlite3.connect(self.path)) as db, db:
-            db.execute("BEGIN IMMEDIATE")
-            db.execute("DELETE FROM incidents WHERE created < ?", (time() - RETENTION,))
-            row = db.execute("SELECT signature, incident_id, result FROM incidents WHERE request_digest=?",
-                             (key,)).fetchone()
-            if row:
-                stored, identity, result = row
-                return ("conflict", None) if stored != signature else ("replay", json.loads(result)) if result else (
-                    "pending", identity)
-            identity = uuid4().hex
-            db.execute("INSERT INTO incidents VALUES (?, ?, ?, ?, NULL, NULL)", (key, signature, identity, time()))
-            return "new", identity
-
-    def finish(self, key, result):
-        with closing(sqlite3.connect(self.path)) as db, db:
-            db.execute("BEGIN IMMEDIATE")
-            notification = None
-            if result["analysis_status"] == "COMPLETED":
-                recent = db.execute(
-                    "SELECT 1 FROM incidents WHERE signature=? AND created>=? AND notification IS NOT NULL",
-                    (result["scope_signature"], time() - 3600),
-                ).fetchone()
-                if not recent:
-                    notification = {"type": "local_analysis_review", "incident_id": result["incident_id"],
-                                    "observations": result["report"]["observations"],
-                                    "suspected_cause": result["report"]["suspected_root_cause"],
-                                    "evidence_event_ids": result["report"]["evidence_event_ids"],
-                                    "limitations": result["report"]["limitations"],
-                                    "recommended_checks": result["report"]["recommended_checks"]}
-            result["notification_status"] = "LOCAL_STORED" if notification else "SUPPRESSED"
-            result.pop("scope_signature")
-            db.execute("UPDATE incidents SET result=?, notification=? WHERE request_digest=?",
-                       (json.dumps(result), json.dumps(notification) if notification else None, key))
-
-    def read(self, identity):
-        with closing(sqlite3.connect(self.path)) as db:
-            row = db.execute("SELECT result FROM incidents WHERE incident_id=? AND created>=?",
-                             (identity, time() - RETENTION)).fetchone()
-        return json.loads(row[0]) if row and row[0] else None
 
 
 def classify(response, phase):

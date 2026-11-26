@@ -49,6 +49,11 @@ STAGE_FILES = {
     "services/workflow-dispatcher/Dockerfile", "workflows/detection-incident.json",
     "tests/test_workflow_dispatcher.py", "tests/test_workflow_integration.py",
     "docs/STAGE_9_5_N8N_INTEGRATION.md", "docs/ANALYSIS_SERVICE_INTEGRATION_CONTRACT.md",
+    "app/incident_api.py", "app/incident_config.py", "app/incident_handoff.py", "app/incident_models.py",
+    "app/incident_store.py", "app/incident_workflow.py", "app/scenario_incident_store.py",
+    "compose.incident-management.yaml", "services/incident/Dockerfile", "services/incident-management/Dockerfile",
+    "tests/test_incident_management.py", "tests/test_incident_integration.py",
+    "docs/STAGE_9_6_INCIDENT_MANAGEMENT.md", "docs/INCIDENT_API_CONTRACT.md",
 }
 
 
