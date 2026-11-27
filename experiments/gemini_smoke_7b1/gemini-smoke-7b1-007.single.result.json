@@ -1,0 +1,19 @@
+{
+  "approval_id": "gemini-smoke-7b1-007",
+  "mode": "single_service",
+  "completed_at_utc": "2026-11-26T21:31:49.740366+00:00",
+  "http_status": 502,
+  "status": "FAILED",
+  "response": {
+    "error": {
+      "code": "INVALID_MODEL_OUTPUT"
+    }
+  },
+  "raw_capture": {
+    "status": "SAVED",
+    "path": "experiments/gemini_smoke_7b1/private/gemini-smoke-7b1-007.single_service.raw.txt",
+    "bytes": 2715,
+    "sha256": "4b759176b93bc42253fbf08c908bfaa998571cbceffde5a25896070b9ae3d284"
+  },
+  "diagnostic": null
+}

@@ -1,0 +1,50 @@
+{
+  "approval_id": "gemini-smoke-7b1-008",
+  "status": "FAILED_SMOKE",
+  "single_service": {
+    "attempt": {
+      "approval_id": "gemini-smoke-7b1-008",
+      "mode": "single_service",
+      "started_at_utc": "2026-11-27T04:38:53.65003+07:00",
+      "input_sha256": "35989a664c73031213789d251b3bf8f5ec96ed8b04b483bb326a27ca389f1f59",
+      "status": "STARTED"
+    },
+    "result": {
+      "approval_id": "gemini-smoke-7b1-008",
+      "mode": "single_service",
+      "completed_at_utc": "2026-11-27T04:38:58.72501+07:00",
+      "http_status": 502,
+      "status": "FAILED",
+      "response": {
+        "error": {
+          "code": "INVALID_MODEL_OUTPUT"
+        }
+      },
+      "raw_capture": {
+        "status": "SAVED",
+        "path": "experiments/gemini_smoke_7b1/private/gemini-smoke-7b1-008.single_service.raw.txt",
+        "bytes": 2658,
+        "sha256": "d7d93f7642a6a5c9d92e6ccd89d5ea2a62849e3e9a7297920fec70baed5cf40b"
+      },
+      "diagnostic": {
+        "type": "validation",
+        "reason": "AFFECTED_SERVICE_UNGROUNDED"
+      }
+    }
+  },
+  "cross_service": "NOT_ATTEMPTED",
+  "runtime_calls_consumed": 1,
+  "failure_stage": "EVIDENCE_VALIDATION",
+  "sanitized_validation_reason": "AFFECTED_SERVICE_UNGROUNDED",
+  "raw_capture": {
+    "status": "SAVED",
+    "path": "experiments/gemini_smoke_7b1/private/gemini-smoke-7b1-008.single_service.raw.txt",
+    "bytes": 2658,
+    "sha256": "d7d93f7642a6a5c9d92e6ccd89d5ea2a62849e3e9a7297920fec70baed5cf40b"
+  },
+  "cleanup": {
+    "llm_container": "exited",
+    "independently_verified": true
+  },
+  "closed_at_utc": "2026-11-26T21:39:57.0166641+00:00"
+}

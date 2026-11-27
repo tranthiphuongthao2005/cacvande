@@ -7,7 +7,9 @@
 .env.detection
 .env.context
 .env.llm
+.env.gemini.local
 .env.n8n
 .env.n8n-owner
 experiments/runs/
 experiments/telemetry/
+experiments/gemini_smoke_7b1/private/

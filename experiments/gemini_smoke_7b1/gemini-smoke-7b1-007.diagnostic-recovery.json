@@ -1,0 +1,21 @@
+{
+  "approval_id": "gemini-smoke-7b1-007",
+  "source": "local raw response and sanitized Docker log, inspected after the closed smoke run",
+  "raw_capture_sha256": "4b759176b93bc42253fbf08c908bfaa998571cbceffde5a25896070b9ae3d284",
+  "raw_capture_bytes": 2715,
+  "canonical_schema_valid": true,
+  "observation_value_mismatches": 0,
+  "evidence_observation_value_mismatches": 0,
+  "validation_reason": "SUSPECTED_SERVICE_UNGROUNDED",
+  "analysis_status": "ANALYZED",
+  "suspected_root_cause_service": "product",
+  "in_scope_services": [
+    "order"
+  ],
+  "cited_event_services": [
+    "order",
+    "order"
+  ],
+  "raw_model_text_in_summary": false,
+  "recorded_at_utc": "2026-11-26T21:33:53.8993357+00:00"
+}

@@ -1,0 +1,12 @@
+{
+  "approval_id": "gemini-smoke-7b1-005",
+  "mode": "single_service",
+  "completed_at_utc": "2026-11-26T20:42:50.661156+00:00",
+  "http_status": 502,
+  "status": "FAILED",
+  "response": {
+    "error": {
+      "code": "INVALID_MODEL_OUTPUT"
+    }
+  }
+}

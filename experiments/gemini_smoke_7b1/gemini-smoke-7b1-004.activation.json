@@ -1,0 +1,13 @@
+{
+    "expires_at_utc":  "2026-11-26T03:08:43.7527473+00:00",
+    "approval_id":  "gemini-smoke-7b1-004",
+    "prompt_sha256":  "1b28c9aa3273ec1e5157a5b8c31cd6dcc82320ede6b2791a28bdab4dd0a6f2a8",
+    "canonical_schema_sha256":  "725c6357f787126c18015e52b3df351259b60de2aa49e973b7769487a7365989",
+    "trace_id":  "fbb725cc95d116024e29a4935b86d3c4",
+    "activated_at_utc":  "2026-11-26T02:38:43.7527473+00:00",
+    "minimum_interval_seconds":  10,
+    "freeze_index_sha256":  "6f4e45bdbf11a6a26c6ec5210377366795208020d35066a2be5dc1b81fd36b49",
+    "model":  "gemini-3.1-flash-lite",
+    "quota_observed_at_utc":  "2026-11-26T02:33:43.0000000+00:00",
+    "image_id":  "sha256:92678a797fa7d3a2e152efbfe41d02f07648e95372335c40b297e511026e9cc5"
+}

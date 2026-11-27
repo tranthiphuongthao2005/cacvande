@@ -2,8 +2,10 @@
 
 import json
 import logging
+import os
 from dataclasses import dataclass
 from datetime import datetime, timezone
+from pathlib import Path
 from time import perf_counter
 from uuid import uuid4
 
@@ -28,6 +30,34 @@ class ProviderResult:
     model: str
     usage: dict | None
     status: str = "completed"
+    raw_text: str | None = None
+
+
+RAW_RESPONSE_PATH = Path("/private-response/model-response.txt")
+RAW_RESPONSE_MAX_BYTES = 65536
+
+
+def capture_raw_gemini_response(raw_text, trace_id):
+    """Keep one failed smoke response in container tmpfs; never log its content."""
+    if os.getenv("LLM_GEMINI_RAW_CAPTURE_ENABLED") != "1":
+        return "DISABLED"
+    approval = os.getenv("LLM_GEMINI_SMOKE_APPROVAL_ID", "")
+    if (not approval or os.getenv("LLM_GEMINI_RAW_CAPTURE_APPROVAL_ID") != approval
+            or os.getenv("LLM_GEMINI_SMOKE_TRACE_ID") != trace_id):
+        return "SCOPE_MISMATCH"
+    if not isinstance(raw_text, str) or not raw_text:
+        return "NO_RESPONSE_TEXT"
+    encoded = raw_text.encode("utf-8")
+    if len(encoded) > RAW_RESPONSE_MAX_BYTES:
+        return "TOO_LARGE"
+    try:
+        with RAW_RESPONSE_PATH.open("xb") as stream:
+            stream.write(encoded)
+    except FileExistsError:
+        return "ALREADY_CAPTURED"
+    except OSError:
+        return "WRITE_FAILED"
+    return "SAVED"
 
 
 class OpenAIProvider:
@@ -155,12 +185,18 @@ class GeminiProvider:
 
         if (not response.candidates or response.candidates[0].finish_reason != "STOP"
                 or not response.text):
+            capture_status = capture_raw_gemini_response(response.text, self.trace_id)
+            if capture_status != "DISABLED":
+                GEMINI_DIAGNOSTICS.warning("gemini_raw_capture status=%s", capture_status)
             raise failure(None, "PROVIDER_RESPONSE_PARSE_ERROR", "structured_response",
                           "No complete structured candidate", receipt="CONFIRMED",
                           public_code="PROVIDER_NO_STRUCTURED_RESULT")
         try:
             body = ModelAnalysis.model_validate_json(response.text)
         except ValidationError as exc:
+            capture_status = capture_raw_gemini_response(response.text, self.trace_id)
+            if capture_status != "DISABLED":
+                GEMINI_DIAGNOSTICS.warning("gemini_raw_capture status=%s", capture_status)
             raise failure(exc, "PROVIDER_RESPONSE_PARSE_ERROR", "canonical_validation",
                           "Candidate failed canonical JSON validation", receipt="CONFIRMED",
                           public_code="INVALID_MODEL_OUTPUT") from None
@@ -174,7 +210,8 @@ class GeminiProvider:
                 "total_tokens": usage.total_token_count,
             }.items() if v is not None
         }
-        return ProviderResult(body, response.model_version or self.model, tokens)
+        return ProviderResult(body, response.model_version or self.model, tokens,
+                              raw_text=response.text)
 
     def close(self):
         self.client.close()

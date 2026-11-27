@@ -1,0 +1,34 @@
+{
+  "approval_id": "gemini-smoke-7b1-005",
+  "status": "FAILED_SMOKE",
+  "single_service": {
+    "attempt": {
+      "approval_id": "gemini-smoke-7b1-005",
+      "mode": "single_service",
+      "started_at_utc": "2026-11-27T03:42:46.836008+07:00",
+      "input_sha256": "35989a664c73031213789d251b3bf8f5ec96ed8b04b483bb326a27ca389f1f59",
+      "status": "STARTED"
+    },
+    "result": {
+      "approval_id": "gemini-smoke-7b1-005",
+      "mode": "single_service",
+      "completed_at_utc": "2026-11-27T03:42:50.661156+07:00",
+      "http_status": 502,
+      "status": "FAILED",
+      "response": {
+        "error": {
+          "code": "INVALID_MODEL_OUTPUT"
+        }
+      }
+    }
+  },
+  "cross_service": "NOT_ATTEMPTED",
+  "runtime_calls_consumed": 1,
+  "failure_stage": "MODEL_OUTPUT_VALIDATION",
+  "provider_diagnostics": null,
+  "cleanup": {
+    "llm_container": "exited",
+    "independently_verified": true
+  },
+  "closed_at_utc": "2026-11-26T20:45:02.6961737+00:00"
+}

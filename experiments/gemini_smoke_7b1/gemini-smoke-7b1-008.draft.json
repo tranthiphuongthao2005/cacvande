@@ -1,0 +1,137 @@
+{
+  "provider": "gemini",
+  "project": "Default Gemini Project",
+  "model": "gemini-3.1-flash-lite",
+  "trace_id": "fbb725cc95d116024e29a4935b86d3c4",
+  "inputs": {
+    "single_service": {
+      "path": "experiments/gemini_smoke_7b1/gemini-smoke-7b1-004.single.json",
+      "sha256": "c08f81cebdb9edb5adc756236e4cb48a4e7482db74d612adb31cc9f939cfccf9",
+      "projected_payload_sha256": "35989a664c73031213789d251b3bf8f5ec96ed8b04b483bb326a27ca389f1f59",
+      "events": 3,
+      "completeness": "UNKNOWN",
+      "trace_id": "fbb725cc95d116024e29a4935b86d3c4"
+    },
+    "cross_service": {
+      "path": "experiments/gemini_smoke_7b1/gemini-smoke-7b1-004.cross.json",
+      "sha256": "ceb0d50afd998bc79df6e40e1bd29e2ebd61132f78d6196006a6f0e5ebad5011",
+      "projected_payload_sha256": "685e056a4062459d6b4106a8652b49d059b5321a31df6a768b083d35a39c3b6f",
+      "events": 5,
+      "completeness": "PARTIAL",
+      "trace_id": "fbb725cc95d116024e29a4935b86d3c4"
+    }
+  },
+  "freeze_index_sha256": "6f4e45bdbf11a6a26c6ec5210377366795208020d35066a2be5dc1b81fd36b49",
+  "billing_tier": "Free Tier",
+  "maximum_generation_calls": 2,
+  "single_service_calls": 1,
+  "cross_service_calls": 1,
+  "retry": 0,
+  "maximum_cost_usd": 0,
+  "runtime_approval_validity_minutes": 30,
+  "minimum_interval_seconds": 10,
+  "evaluation_calls": 0,
+  "openai_calls": 0,
+  "quota_budget_check": {
+    "estimated_units_by_mode": {
+      "single_service": 6617,
+      "cross_service": 7127
+    },
+    "estimated_units_total": 13744,
+    "method": "UTF-8 bytes of v3 prompt, prepared payload, default-serialized canonical schema, plus 1200 output tokens per call; planning estimate, not provider countTokens; remaining quota unverified",
+    "fits_reported_limits": true,
+    "remaining_quota_verified": false
+  },
+  "approval_id": "gemini-smoke-7b1-008",
+  "approval_status": "PENDING_FRESH_QUOTA_CONFIRMATION",
+  "operator_id": "local-project-operator",
+  "decision_source": "USER_OPERATOR_DECLARATION",
+  "quota_evidence": {
+    "source": "Prior AI Studio screenshot for 007; fresh operator confirmation required for 008",
+    "project": "Default Gemini Project",
+    "billing_tier": "Free Tier",
+    "model": "gemini-3.1-flash-lite",
+    "rpm": {
+      "used": null,
+      "limit": 15
+    },
+    "tpm": {
+      "used": null,
+      "limit": 250000
+    },
+    "rpd": {
+      "used": null,
+      "limit": 500
+    },
+    "operator_observed_at_utc": null,
+    "recorded_at_utc": null,
+    "reported_90_day_peak": {
+      "rpm": 1,
+      "tpm": 600,
+      "rpd": 2
+    }
+  },
+  "quota_status": "STALE",
+  "fresh_quota_validity_minutes": 30,
+  "image_id": "sha256:4fb3188a4e6a0abe9b360203ca00a13902de7e5d6ae7bfe6f362e916798dd2f1",
+  "image_reference": "thesis-log-anomaly-llm-service:latest",
+  "google_genai_version": "1.68.0",
+  "prompt_version": "rca-evidence-v3",
+  "prompt_sha256": "9448202d93eb242abcecdb693f138a70d723e6b3960afacf99d65c2148009425",
+  "canonical_schema_sha256": "725c6357f787126c18015e52b3df351259b60de2aa49e973b7769487a7365989",
+  "incident_schema_sha256": "1e82caed7da1e7fd1328bc427fb4fe86c7eaa50db966c50d120fd663335edb4a",
+  "generation_configuration": {
+    "response_mime_type": "application/json",
+    "schema_field": "response_json_schema",
+    "max_output_tokens": 1200,
+    "candidate_count": 1,
+    "thinking_level": "MINIMAL",
+    "automatic_function_calling": false,
+    "validation_retries": 0,
+    "sdk_attempts": 1,
+    "timeout_ms": 20000,
+    "api_version": "v1beta"
+  },
+  "execution_ledger": {
+    "generation_attempts": [],
+    "gemini_calls": 0,
+    "openai_calls": 0,
+    "evaluation_calls": 0,
+    "cost_usd": 0
+  },
+  "operator_approval_recorded_at_utc": null,
+  "fallback": 0,
+  "execution_status": "NOT_STARTED",
+  "approval_reuse_allowed": false,
+  "diagnostic_capture": {
+    "mode": "SANITIZED_VALIDATION_OR_PROVIDER_DETAILS",
+    "fields": [
+      "type",
+      "reason",
+      "location",
+      "index",
+      "event_id",
+      "kind",
+      "expected",
+      "actual_safe",
+      "actual_length",
+      "category",
+      "failure_stage",
+      "upstream_http_status",
+      "provider_error_code",
+      "receipt_status",
+      "retryable"
+    ],
+    "destination": "single.result.json or cross.result.json on failure",
+    "raw_model_output_in_result_json": false
+  },
+  "raw_capture": {
+    "mode": "ONE_FAILED_RESPONSE",
+    "max_bytes": 65536,
+    "container_path": "/private-response/model-response.txt",
+    "local_directory": "experiments/gemini_smoke_7b1/private",
+    "output_format": "UTF-8 text",
+    "raw_output_in_logs": false,
+    "overwrite_allowed": false
+  }
+}

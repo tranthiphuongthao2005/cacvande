@@ -1,0 +1,288 @@
+{
+  "approval_id": "gemini-smoke-7b1-009",
+  "status": "PASS",
+  "single_service": {
+    "attempt": {
+      "approval_id": "gemini-smoke-7b1-009",
+      "mode": "single_service",
+      "started_at_utc": "2026-11-27T04:46:08.945699+07:00",
+      "input_sha256": "35989a664c73031213789d251b3bf8f5ec96ed8b04b483bb326a27ca389f1f59",
+      "status": "STARTED"
+    },
+    "result": {
+      "approval_id": "gemini-smoke-7b1-009",
+      "mode": "single_service",
+      "completed_at_utc": "2026-11-27T04:46:12.575817+07:00",
+      "http_status": 200,
+      "status": "PASS",
+      "response": {
+        "analysis_status": "INSUFFICIENT_EVIDENCE",
+        "suspected_root_cause": null,
+        "suspected_root_cause_service": null,
+        "affected_services": [
+          "order"
+        ],
+        "observations": [
+          {
+            "event_id": "9e58b661a30746999354e528e41f0ad0",
+            "service_name": "order",
+            "kind": "dependency_failure",
+            "value": "product"
+          },
+          {
+            "event_id": "4ad20826c1e24a43a1d782217596c700",
+            "service_name": "order",
+            "kind": "dependency_failure",
+            "value": "product"
+          },
+          {
+            "event_id": "9a7d9c202b9a4c6daaf1387e898c0070",
+            "service_name": "order",
+            "kind": "message",
+            "value": "request_completed"
+          },
+          {
+            "event_id": "9a7d9c202b9a4c6daaf1387e898c0070",
+            "service_name": "order",
+            "kind": "status",
+            "value": "502"
+          }
+        ],
+        "hypotheses": [
+          {
+            "text": "The order service failed due to a dependency issue with the product service.",
+            "event_ids": [
+              "9e58b661a30746999354e528e41f0ad0",
+              "4ad20826c1e24a43a1d782217596c700"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "event_id": "9e58b661a30746999354e528e41f0ad0",
+            "service_name": "order",
+            "observation": {
+              "event_id": "9e58b661a30746999354e528e41f0ad0",
+              "service_name": "order",
+              "kind": "dependency_failure",
+              "value": "product"
+            },
+            "supports_claim": "The order service reported a failed attempt to connect to the product service."
+          },
+          {
+            "event_id": "4ad20826c1e24a43a1d782217596c700",
+            "service_name": "order",
+            "observation": {
+              "event_id": "4ad20826c1e24a43a1d782217596c700",
+              "service_name": "order",
+              "kind": "dependency_failure",
+              "value": "product"
+            },
+            "supports_claim": "The order service exhausted retries for the product service."
+          }
+        ],
+        "missing_information": [
+          "No logs or events from the product service itself are present to confirm its internal state or errors."
+        ],
+        "recommended_checks": [
+          "Verify health and status codes for the product service logs during the 2026-11-25T20:12:09 window."
+        ],
+        "suggested_remediations": [
+          "Investigate the product service for potential downtime or latency issues."
+        ],
+        "limitations": [
+          "A dependency failure reported by the order service does not confirm the root cause lies within the product service."
+        ],
+        "analysis_id": "dd33c45ffd924e45b8177de61c9b62b8",
+        "trace_id": "fbb725cc95d116024e29a4935b86d3c4",
+        "analysis_mode": "single_service",
+        "selected_service": "order",
+        "model_name": "gemini-3.1-flash-lite",
+        "configured_model": "gemini-3.1-flash-lite",
+        "provider": "gemini",
+        "provider_response_status": "completed",
+        "prompt_version": "rca-evidence-v4",
+        "analysis_config_id": "rca-v1",
+        "context_completeness": "UNKNOWN",
+        "input_event_ids": [
+          "9e58b661a30746999354e528e41f0ad0",
+          "4ad20826c1e24a43a1d782217596c700",
+          "9a7d9c202b9a4c6daaf1387e898c0070"
+        ],
+        "omitted_event_ids": [],
+        "omitted_event_count": 0,
+        "redacted_event_count": 0,
+        "validation_status": "FACTS_CHECKED_HYPOTHESES_UNVERIFIED",
+        "validation_warnings": [
+          "CLAIM_SUPPORT_REQUIRES_HUMAN_REVIEW",
+          "CONTEXT_INCOMPLETE_DO_NOT_INFER_ABSENCE"
+        ],
+        "processing_time_ms": 3601.116,
+        "token_usage": {
+          "input_tokens": 878,
+          "output_tokens": 941,
+          "total_tokens": 1819
+        },
+        "estimated_cost": null
+      }
+    }
+  },
+  "cross_service": {
+    "attempt": {
+      "approval_id": "gemini-smoke-7b1-009",
+      "mode": "cross_service",
+      "started_at_utc": "2026-11-27T04:46:34.861391+07:00",
+      "input_sha256": "685e056a4062459d6b4106a8652b49d059b5321a31df6a768b083d35a39c3b6f",
+      "status": "STARTED"
+    },
+    "result": {
+      "approval_id": "gemini-smoke-7b1-009",
+      "mode": "cross_service",
+      "completed_at_utc": "2026-11-27T04:46:40.455392+07:00",
+      "http_status": 200,
+      "status": "PASS",
+      "response": {
+        "analysis_status": "ANALYZED",
+        "suspected_root_cause": {
+          "text": "The product service returned a 503 error, causing the order service to experience dependency failures.",
+          "event_ids": [
+            "66669c05b04247368dc1858f7d7014fb",
+            "9e58b661a30746999354e528e41f0ad0",
+            "4ad20826c1e24a43a1d782217596c700"
+          ]
+        },
+        "suspected_root_cause_service": "product",
+        "affected_services": [
+          "product",
+          "order"
+        ],
+        "observations": [
+          {
+            "event_id": "fba9eacdce5a4b5c8adcb618552b5031",
+            "service_name": "user",
+            "kind": "message",
+            "value": "request_completed"
+          },
+          {
+            "event_id": "66669c05b04247368dc1858f7d7014fb",
+            "service_name": "product",
+            "kind": "status",
+            "value": "503"
+          },
+          {
+            "event_id": "9e58b661a30746999354e528e41f0ad0",
+            "service_name": "order",
+            "kind": "dependency_failure",
+            "value": "product"
+          },
+          {
+            "event_id": "4ad20826c1e24a43a1d782217596c700",
+            "service_name": "order",
+            "kind": "dependency_failure",
+            "value": "product"
+          },
+          {
+            "event_id": "9a7d9c202b9a4c6daaf1387e898c0070",
+            "service_name": "order",
+            "kind": "status",
+            "value": "502"
+          }
+        ],
+        "hypotheses": [
+          {
+            "text": "The product service is experiencing capacity or internal health issues causing 503 service unavailable responses.",
+            "event_ids": [
+              "66669c05b04247368dc1858f7d7014fb"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "event_id": "66669c05b04247368dc1858f7d7014fb",
+            "service_name": "product",
+            "observation": {
+              "event_id": "66669c05b04247368dc1858f7d7014fb",
+              "service_name": "product",
+              "kind": "status",
+              "value": "503"
+            },
+            "supports_claim": "Product service unavailable"
+          },
+          {
+            "event_id": "9e58b661a30746999354e528e41f0ad0",
+            "service_name": "order",
+            "observation": {
+              "event_id": "9e58b661a30746999354e528e41f0ad0",
+              "service_name": "order",
+              "kind": "dependency_failure",
+              "value": "product"
+            },
+            "supports_claim": "Order service failed dependency on product"
+          }
+        ],
+        "missing_information": [
+          "Product service logs and internal metrics for span be0507d17e7dcc2e",
+          "Infrastructure health status of the product service cluster"
+        ],
+        "recommended_checks": [
+          "Check product service resource utilization (CPU, memory, thread pool)",
+          "Inspect product service internal error logs for 503 triggers",
+          "Analyze load balancer metrics for product service"
+        ],
+        "suggested_remediations": [
+          "Scale up product service instances if resource saturation is found",
+          "Review circuit breaker configuration in order service to prevent cascaded failures"
+        ],
+        "limitations": [
+          "Incomplete trace information due to partial logging",
+          "Lack of internal product service logs"
+        ],
+        "analysis_id": "6793dd83a8734fe48189c2d5c070e635",
+        "trace_id": "fbb725cc95d116024e29a4935b86d3c4",
+        "analysis_mode": "cross_service",
+        "selected_service": null,
+        "model_name": "gemini-3.1-flash-lite",
+        "configured_model": "gemini-3.1-flash-lite",
+        "provider": "gemini",
+        "provider_response_status": "completed",
+        "prompt_version": "rca-evidence-v4",
+        "analysis_config_id": "rca-v1",
+        "context_completeness": "PARTIAL",
+        "input_event_ids": [
+          "fba9eacdce5a4b5c8adcb618552b5031",
+          "66669c05b04247368dc1858f7d7014fb",
+          "9e58b661a30746999354e528e41f0ad0",
+          "4ad20826c1e24a43a1d782217596c700",
+          "9a7d9c202b9a4c6daaf1387e898c0070"
+        ],
+        "omitted_event_ids": [],
+        "omitted_event_count": 0,
+        "redacted_event_count": 0,
+        "validation_status": "FACTS_CHECKED_HYPOTHESES_UNVERIFIED",
+        "validation_warnings": [
+          "CLAIM_SUPPORT_REQUIRES_HUMAN_REVIEW",
+          "CONTEXT_INCOMPLETE_DO_NOT_INFER_ABSENCE"
+        ],
+        "processing_time_ms": 5557.185,
+        "token_usage": {
+          "input_tokens": 1127,
+          "output_tokens": 1144,
+          "total_tokens": 2271
+        },
+        "estimated_cost": null
+      }
+    }
+  },
+  "runtime_calls_consumed": 2,
+  "provider_usage": {
+    "input_tokens": 2005,
+    "output_tokens": 2085,
+    "total_tokens": 4090
+  },
+  "cleanup": {
+    "llm_container": "exited",
+    "image_id": "sha256:caa7dbafb37230c6ed44e2d04e9f28657ee53c0dd092d15cd29a980522b50808",
+    "independently_verified": true
+  },
+  "closed_at_utc": "2026-11-26T21:47:14.8332638+00:00"
+}

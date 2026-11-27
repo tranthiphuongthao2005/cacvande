@@ -72,7 +72,11 @@ def test_sdk_structured_request_scope_and_two_call_cap(authorized, offline_sdk):
         assert config["responseJsonSchema"]["type"] == "object"
         assert config["maxOutputTokens"] == 1200
         assert config["thinkingConfig"]["thinking_level"] == "MINIMAL"
-        assert body["systemInstruction"]["parts"][0]["text"]
+        instruction = body["systemInstruction"]["parts"][0]["text"]
+        assert '502 becomes\n"502"' in instruction
+        assert "dependency_exhausted" in instruction
+        assert "Set suspected_root_cause_service only when" in instruction
+        assert "List a service in affected_services only if" in instruction
         assert request.url.path.endswith("/models/gemini-3.1-flash-lite:generateContent")
         assert "tools" not in body
         payload = json.loads(body["contents"][0]["parts"][0]["text"])
@@ -123,6 +127,37 @@ def test_sdk_does_not_retry_or_disclose_errors(authorized, offline_sdk, failure,
         response = client.post("/analyze/trace", json={"trace_id": TRACE})
         assert response.json() == {"error": {"code": code}}
     assert len(requests) == 1
+
+
+@pytest.mark.parametrize("failure_stage", ["canonical", "evidence"])
+def test_failed_gemini_response_is_captured_once_when_scoped(
+        authorized, offline_sdk, monkeypatch, tmp_path, failure_stage):
+    import app.llm_provider as provider_module
+
+    path = tmp_path / "model-response.txt"
+    monkeypatch.setattr(provider_module, "RAW_RESPONSE_PATH", path)
+    monkeypatch.setenv("LLM_GEMINI_RAW_CAPTURE_ENABLED", "1")
+    monkeypatch.setenv("LLM_GEMINI_RAW_CAPTURE_APPROVAL_ID", "fixture-only")
+
+    def failed(_request):
+        if failure_stage == "canonical":
+            raw = '{}'
+        else:
+            query = AnalysisRequest(trace_id=TRACE)
+            body = MockProvider().generate(prepare(context(query), query, 7000)).body
+            body["observations"][0]["value"] = "HTTP 200"
+            raw = json.dumps(body)
+        return httpx.Response(200, json={"candidates": [{
+            "finishReason": "STOP", "content": {"parts": [{"text": raw}]},
+        }]})
+
+    offline_sdk(failed)
+    with TestClient(create_app(SimpleNamespace(fetch=context), call_cap=2)) as client:
+        response = client.post("/analyze/trace", json={"trace_id": TRACE})
+    assert response.status_code == 502
+    assert response.json() == {"error": {"code": "INVALID_MODEL_OUTPUT"}}
+    assert path.exists() and len(path.read_bytes()) > 0
+    assert "model-response" not in response.text
 
 
 @pytest.mark.parametrize(("upstream", "provider_status", "message", "category", "public_status", "public_code"), [

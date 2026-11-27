@@ -1,0 +1,7 @@
+{
+  "approval_id": "gemini-smoke-7b1-009",
+  "mode": "cross_service",
+  "started_at_utc": "2026-11-26T21:46:34.861391+00:00",
+  "input_sha256": "685e056a4062459d6b4106a8652b49d059b5321a31df6a768b083d35a39c3b6f",
+  "status": "STARTED"
+}

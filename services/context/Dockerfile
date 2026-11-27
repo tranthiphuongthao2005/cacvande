@@ -2,7 +2,7 @@ FROM python:3.11-slim
 WORKDIR /app
 ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --retries 10 --timeout 120 -r requirements.txt
 COPY app/contracts.py app/trace_store.py app/context_store.py app/incident_context.py app/context_api.py app/telemetry_receipts.py ./app/
 USER 10001:10001
 EXPOSE 8000

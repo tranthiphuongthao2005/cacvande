@@ -1,0 +1,103 @@
+{
+  "elasticsearch_status": "green",
+  "kibana_status": "available",
+  "data_view": "thesis-logs",
+  "service_counts": {
+    "user": 82,
+    "product": 45,
+    "order": 36
+  },
+  "error_5xx_count": 13,
+  "unauthenticated_elasticsearch_status": 401,
+  "scenarios": [
+    {
+      "scenario": "normal",
+      "trace_id": "cf3ffa4b40df9cf49871ef04f77852fc",
+      "observed_http": 201,
+      "docker_app_events": 3,
+      "docker_other_records": 5,
+      "indexed_events": 3,
+      "statuses_by_service": {
+        "user": 200,
+        "product": 200,
+        "order": 201
+      }
+    },
+    {
+      "scenario": "timeout",
+      "trace_id": "10bb92c5b52925d523dd43ff9146f2b6",
+      "observed_http": 504,
+      "docker_app_events": 5,
+      "docker_other_records": 5,
+      "indexed_events": 5,
+      "statuses_by_service": {
+        "user": 200,
+        "order": 504,
+        "product": 200
+      }
+    },
+    {
+      "scenario": "unavailable",
+      "trace_id": "e0bee7f358d6c721c7f821619c9aff96",
+      "observed_http": 503,
+      "docker_app_events": 1,
+      "docker_other_records": 1,
+      "indexed_events": 1,
+      "statuses_by_service": {
+        "product": 503
+      }
+    },
+    {
+      "scenario": "database",
+      "trace_id": "922251650b6d30c772703af67d91dc84",
+      "observed_http": 503,
+      "docker_app_events": 4,
+      "docker_other_records": 5,
+      "indexed_events": 4,
+      "statuses_by_service": {
+        "user": 200,
+        "product": 200,
+        "order": 503
+      }
+    },
+    {
+      "scenario": "processing",
+      "trace_id": "0b764becf432c671f0d5e42999f4a8d0",
+      "observed_http": 500,
+      "docker_app_events": 4,
+      "docker_other_records": 5,
+      "indexed_events": 4,
+      "statuses_by_service": {
+        "user": 200,
+        "product": 200,
+        "order": 500
+      }
+    },
+    {
+      "scenario": "retry",
+      "trace_id": "f532c1a50213059ae3209fd742ffca45",
+      "observed_http": 502,
+      "docker_app_events": 9,
+      "docker_other_records": 9,
+      "indexed_events": 9,
+      "statuses_by_service": {
+        "user": 200,
+        "product": 503,
+        "order": 502
+      }
+    },
+    {
+      "scenario": "cascade",
+      "trace_id": "fbb725cc95d116024e29a4935b86d3c4",
+      "observed_http": 502,
+      "docker_app_events": 5,
+      "docker_other_records": 5,
+      "indexed_events": 5,
+      "statuses_by_service": {
+        "user": 200,
+        "product": 503,
+        "order": 502
+      }
+    }
+  ]
+}

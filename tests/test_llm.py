@@ -1,4 +1,5 @@
 import copy
+import json
 from types import SimpleNamespace
 
 import httpx
@@ -8,7 +9,7 @@ from fastapi.testclient import TestClient
 from app.context_store import Snapshot
 from app.incident_context import build_context
 from app.llm_analysis import AnalysisRequest, prepare, validate_model
-from app.llm_api import create_app
+from app.llm_api import VALIDATION_DIAGNOSTICS, create_app
 from app.llm_provider import MockProvider, ProviderFailure, ProviderResult
 from tools.verify_real_llm import config_ok, main as real_smoke_main
 
@@ -73,6 +74,58 @@ def test_output_schema_and_valid_id_does_not_ground_false_observation():
     assert "CLAIM_SUPPORT_REQUIRES_HUMAN_REVIEW" in validate_model(bad, evidence)[1]
 
 
+def test_dependency_exhausted_is_citable_but_other_messages_are_not():
+    query = AnalysisRequest(trace_id=TRACE)
+    raw = context(query)
+    raw["events"][2]["message"] = "dependency_exhausted"
+    raw["events"][2]["dependency_service"] = "product"
+    prepared = prepare(raw, query, 7000)
+    body = MockProvider().generate(prepared).body
+    dependency = {"event_id": raw["events"][2]["event_id"], "service_name": "order",
+                  "kind": "dependency_failure", "value": "product"}
+    body["observations"].append(dependency)
+    validate_model(body, prepared)
+
+    wrong = copy.deepcopy(body)
+    wrong["observations"][-1]["value"] = "user"
+    with pytest.raises(ValueError, match="contradicts indexed event"):
+        validate_model(wrong, prepared)
+
+    raw["events"][2]["message"] = "request_completed"
+    with pytest.raises(ValueError, match="contradicts indexed event"):
+        validate_model(body, prepare(raw, query, 7000))
+
+
+def test_single_service_cannot_assign_root_cause_to_uncited_dependency():
+    query = AnalysisRequest(trace_id=TRACE, mode="single_service", service_name="order")
+    prepared = prepare(context(query), query, 7000)
+    body = MockProvider().generate(prepared).body
+    body["analysis_status"] = "ANALYZED"
+    body["suspected_root_cause"] = {
+        "text": "Product may have failed", "event_ids": [body["observations"][0]["event_id"]],
+    }
+    body["suspected_root_cause_service"] = "product"
+    with pytest.raises(ValueError, match="Suspected service lacks an in-scope cited event"):
+        validate_model(body, prepared)
+
+    body["analysis_status"] = "INSUFFICIENT_EVIDENCE"
+    body["hypotheses"] = [body["suspected_root_cause"]]
+    body["suspected_root_cause"] = None
+    body["suspected_root_cause_service"] = None
+    validate_model(body, prepared)
+
+
+def test_single_service_cannot_list_dependency_without_direct_observation():
+    query = AnalysisRequest(trace_id=TRACE, mode="single_service", service_name="order")
+    prepared = prepare(context(query), query, 7000)
+    body = MockProvider().generate(prepared).body
+    body["affected_services"] = ["order", "product"]
+    with pytest.raises(ValueError, match="Affected service lacks a grounded observation"):
+        validate_model(body, prepared)
+    body["affected_services"] = ["order"]
+    validate_model(body, prepared)
+
+
 def test_mock_single_cross_pair_and_cached_get():
     with TestClient(create_app(SimpleNamespace(fetch=context), MockProvider())) as client:
         cross = client.post("/analyze/trace", json={"trace_id": TRACE}).json()
@@ -117,6 +170,45 @@ def test_retry_consumes_one_external_budget_unit_each():
         assert client.get("/ready").status_code == 503
         assert client.post("/analyze/trace", json={"trace_id": TRACE}).status_code == 429
     assert provider.attempts == 2
+
+
+@pytest.mark.parametrize(("invalid_body", "reason"), [
+    ("observation", "OBSERVATION_MISMATCH"),
+    ("nested_evidence", "OBSERVATION_MISMATCH"),
+    ("schema", "UNCLASSIFIED"),
+])
+def test_invalid_model_output_logs_only_fixed_reason(caplog, invalid_body, reason):
+    class Invalid(MockProvider):
+        def generate(self, prepared):
+            body = super().generate(prepared).body
+            if invalid_body == "observation":
+                body["observations"][0]["value"] = "private-fixture"
+            elif invalid_body == "nested_evidence":
+                body["evidence"][0]["observation"] = copy.deepcopy(body["evidence"][0]["observation"])
+                body["evidence"][0]["observation"]["value"] = "HTTP 200"
+            else:
+                body = {"secret": "private-fixture"}
+            return ProviderResult(body, "fixture-model", None)
+
+    with TestClient(create_app(SimpleNamespace(fetch=context), Invalid())) as client:
+        response = client.post("/analyze/trace", json={"trace_id": TRACE})
+    assert response.status_code == 502
+    assert response.json() == {"error": {"code": "INVALID_MODEL_OUTPUT"}}
+    records = [record for record in caplog.records if record.name == VALIDATION_DIAGNOSTICS.name]
+    assert len(records) == 1
+    prefix, _, payload = records[0].getMessage().partition(" ")
+    assert prefix == "llm_validation_failure"
+    details = json.loads(payload)
+    assert details["reason"] == reason
+    if invalid_body != "schema":
+        assert (details["location"], details["index"], details["event_id"],
+                details["kind"], details["expected"]) == (
+            "evidence" if invalid_body == "nested_evidence" else "observations",
+            0, context(AnalysisRequest(trace_id=TRACE))["events"][0]["event_id"], "status", "200")
+        assert details["actual_safe"] == ("HTTP 200" if invalid_body == "nested_evidence" else None)
+    else:
+        assert "event_id" not in details
+    assert "private-fixture" not in caplog.text + response.text
 
 
 def test_readiness_without_key_and_context_timeout(monkeypatch):

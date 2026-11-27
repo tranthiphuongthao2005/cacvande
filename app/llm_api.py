@@ -1,6 +1,9 @@
 """Isolated scenario-triggered analysis with fail-closed evidence handling."""
 
+import json
+import logging
 import os
+import re
 from datetime import datetime, timezone
 from collections import OrderedDict
 from contextlib import asynccontextmanager
@@ -13,9 +16,43 @@ from fastapi import FastAPI, Header
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
-from app.llm_analysis import AnalysisRequest, IncidentAnalysis, PROMPT_VERSION, prepare, validate_model
-from app.llm_provider import GeminiProvider, MockProvider, OpenAIProvider, ProviderFailure
-from app.trace_store import valid_trace
+from app.llm_analysis import (AnalysisRequest, IncidentAnalysis, ObservationMismatch,
+                              PROMPT_VERSION, prepare, validate_model)
+from app.llm_provider import (GeminiProvider, MockProvider, OpenAIProvider, ProviderFailure,
+                              capture_raw_gemini_response)
+from app.trace_store import EVENTS, valid_trace
+
+
+VALIDATION_DIAGNOSTICS = logging.getLogger("uvicorn.error").getChild("llm_validation")
+VALIDATION_REASON_CODES = {
+    "Output contains disallowed content": "DISALLOWED_CONTENT",
+    "Unknown or out-of-scope evidence": "OUT_OF_SCOPE_EVIDENCE",
+    "Observation contradicts indexed event fields": "OBSERVATION_MISMATCH",
+    "Evidence fields disagree": "EVIDENCE_MISMATCH",
+    "Affected service lacks a grounded observation": "AFFECTED_SERVICE_UNGROUNDED",
+    "Invalid suspected cause for analysis status": "INVALID_SUSPECTED_CAUSE",
+    "Hypothesis lacks grounded references": "HYPOTHESIS_UNGROUNDED",
+    "Suspected service lacks an in-scope cited event": "SUSPECTED_SERVICE_UNGROUNDED",
+    "Analysis lacks grounded observations": "MISSING_OBSERVATIONS",
+}
+
+
+def validation_diagnostic(exc):
+    details = {"reason": VALIDATION_REASON_CODES.get(str(exc), "UNCLASSIFIED")}
+    if isinstance(exc, ObservationMismatch):
+        actual = exc.actual
+        safe_actual = (actual in EVENTS or actual in {"user", "product", "order"}
+                       or re.fullmatch(r"(?:HTTP )?[1-5][0-9]{2}", actual) is not None)
+        details.update({
+            "location": exc.location,
+            "index": exc.index,
+            "event_id": exc.event_id,
+            "kind": exc.kind,
+            "expected": exc.expected,
+            "actual_safe": actual if safe_actual else None,
+            "actual_length": len(actual),
+        })
+    return details
 
 
 def error(status, code):
@@ -175,8 +212,17 @@ def create_app(context=None, provider=None, *, input_budget=7000, call_cap=1, va
                 try:
                     report, warnings = validate_model(result.body, evidence)
                     break
-                except (ValueError, TypeError):
+                except (ValueError, TypeError) as exc:
                     if attempt == retries:
+                        if runtime.name == "gemini":
+                            capture_status = capture_raw_gemini_response(result.raw_text, query.trace_id)
+                            if capture_status != "DISABLED":
+                                VALIDATION_DIAGNOSTICS.warning(
+                                    "gemini_raw_capture status=%s", capture_status)
+                        VALIDATION_DIAGNOSTICS.warning(
+                            "llm_validation_failure %s",
+                            json.dumps(validation_diagnostic(exc), separators=(",", ":")),
+                        )
                         return error(502, "INVALID_MODEL_OUTPUT")
             if attempt:
                 warnings.append("MODEL_VALIDATION_RETRIED")

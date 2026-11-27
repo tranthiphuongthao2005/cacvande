@@ -1,0 +1,33 @@
+{
+  "status": "PENDING_PROJECT_AND_QUOTA_EVIDENCE",
+  "approval_id": "gemini-smoke-7b1-005",
+  "provider": "gemini",
+  "project": null,
+  "billing_tier": null,
+  "model": "gemini-3.1-flash-lite",
+  "trace_id": "fbb725cc95d116024e29a4935b86d3c4",
+  "maximum_generation_calls": 2,
+  "single_service_calls": 1,
+  "cross_service_calls": 1,
+  "retries": 0,
+  "external_calls_enabled": false,
+  "quota_usage_at_activation": null,
+  "quota_observed_at_utc": null,
+  "inputs": {
+    "single_service": {
+      "path": "experiments/gemini_smoke_7b1/gemini-smoke-7b1-004.single.json",
+      "sha256": "c08f81cebdb9edb5adc756236e4cb48a4e7482db74d612adb31cc9f939cfccf9",
+      "projected_payload_sha256": "35989a664c73031213789d251b3bf8f5ec96ed8b04b483bb326a27ca389f1f59",
+      "events": 3,
+      "completeness": "UNKNOWN"
+    },
+    "cross_service": {
+      "path": "experiments/gemini_smoke_7b1/gemini-smoke-7b1-004.cross.json",
+      "sha256": "ceb0d50afd998bc79df6e40e1bd29e2ebd61132f78d6196006a6f0e5ebad5011",
+      "projected_payload_sha256": "685e056a4062459d6b4106a8652b49d059b5321a31df6a768b083d35a39c3b6f",
+      "events": 5,
+      "completeness": "PARTIAL"
+    }
+  },
+  "prior_attempt": "gemini-smoke-7b1-004.execution.json"
+}
