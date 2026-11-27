@@ -1,0 +1,157 @@
+{
+  "scope": "reporting only; no model or inference",
+  "source_root": "real_smoke_cpu",
+  "final_source": "final_recovery_seed123",
+  "sources_sha256": {
+    "support_stability_1000_1019/summary.json": "b1b05695798aa66fdcc02f1c11abd72d488ffd0c195327a279eaf2b0fa0ee4d5",
+    "controlled_diagnostics_1000_1019/summary.json": "14b6db8d1d7c096553f51c48c8052e23d94a57dcaaa1ee913ef1bac592dc2fb1",
+    "prototype_experiments_seed123/experiment_summary.json": "54c8046c5034fded73f25f6d3ab1dea7c60ae2e724de75ac24ff472ba236e14c",
+    "prototype_experiments_seed123/experiment_runs.csv": "4c5699350f0430562c6ac86bb7d6b0d3525c48af983ce394a52e54c31ee49177",
+    "prototype_experiments_seed123/query_predictions.csv": "e5000f969c076a7fce5831e2bbf1cc3e01e63ee251437b49d20e9494cac40f16",
+    "prototype_experiments_seed123/RUN.md": "7608831b2c17c0f5cc686ea0abd07d42e3927a527233b149299480e439397dea",
+    "pre_final_audit_seed123/frozen_protocol.json": "2fb528295d4c3c7182d90b9a23b3f6c04432ca412b169850287f49b6e0a4a58d",
+    "pre_final_audit_seed123/development_replay.csv": "690077d5fcc67a9a0daad14f7da32a62c155d7b6f6407dcfbdb7286a07097457",
+    "pre_final_audit_seed123/audit_summary.json": "10de4439312d65d57a4ebd92a4baab62c765b0955326e05ee5191e1c3b61eba7",
+    "pre_final_audit_seed123/PROTOCOL.md": "f5eb9d9a74f8a99b799136c28d01cc93522fcea7eb50311b50c3fbb20bdee15d",
+    "final_evaluation_locked_seed123/incident.json": "c771ec6bd8ef80963f608f84505a6bfd6060825ae24ab6991140f876d47421a4",
+    "final_evaluation_locked_seed123/FINAL_REPORT.md": "3933ad8e367ca14df36094dc1e4da4797577a96ecffdf319deb7cef7a6b0106d",
+    "final_recovery_seed123/recovery_manifest.json": "1b336b63c611141dde530ba70653ab6bfb4039a41fd7028e14f3372a205d562b",
+    "final_recovery_seed123/recovery_preflight.json": "a0cfafec14fbd5067f2c897b64073557439d348b17e0ac19004759a9df679b41",
+    "final_recovery_seed123/serialization_fixture_test.json": "e48cd99b7714bd9b36313b2c79f9db3e0e90b99db573090b28f91afd03052e20",
+    "final_recovery_seed123/RECOVERY_REPORT.md": "c2731e79b9c293ff320d852a26ebc847e250c196d7cd7892337b039dfe126102",
+    "final_recovery_seed123/final_summary.json": "a8562168ef6be05e901fa2840abbd7fa850ccd88229357547402e6e889283f69",
+    "final_recovery_seed123/final_runs.csv": "d3eb3060e36693fc90b0af4ed57dcace1f1a19db8f3416d3bacca7c8056b3177",
+    "final_recovery_seed123/final_predictions.csv": "9c8538b5a09db14174f3179da5a6eb423d0ce8af36427729ffe76ebeb5eb16af",
+    "final_recovery_seed123/paired_final_comparison.csv": "06d9bbe51a51a5f250c6c836fe1cacc7650f1e1dcbf905c93328d4cb6293f772",
+    "final_recovery_seed123/final_support_seeds.json": "97e37ba02337e03dfbe059addf454db4bfb4a7d56361d4bce6d14e9558f5dcc5",
+    "final_recovery_seed123/final_length_analysis.json": "6b84539b1aa8b1c53c47cd558cffd8a147fd27d989a6629c84e4028f72527d7f"
+  },
+  "outputs_sha256": {
+    "FIGURE_CAPTIONS.md": "363e5757d9249849d92d044c714e5b6070653d3d0955806a0e61af13365a2aa5",
+    "FIGURES/01_final_binary_f1.csv": "080fd6aab83ca785ecda5a1b6cbf6a77d89825467141ffa2f6ba55c019a440d4",
+    "FIGURES/01_final_binary_f1.png": "3a1ff445a781e4fc082a09fdae3e53183ebd828601c4b3e1f266d1cd1864c716",
+    "FIGURES/02_final_roc_auc.csv": "b0950602654d75815845369a9888eee57a89b264150e245917f7f23993ab1e4e",
+    "FIGURES/02_final_roc_auc.png": "43480cd5f0ad800148c581dd050783909697199561fd15cd1395f17b637022a4",
+    "FIGURES/03_final_fpr.csv": "d81bf5ad3c8a51e94eae86836f08e09cd7dc7fd95cfdcf24d817a32ff9cdfadc",
+    "FIGURES/03_final_fpr.png": "d6f2b9ebd47a70073f4e218fe4abf76175ca162ce7e1607ac3c002017eb5ccfd",
+    "FIGURES/04_paired_delta_binary_f1.csv": "a2a2a19a4d2c5ad0935c5a8fa3bee1e17cf779e8b31f3460be810519d03da552",
+    "FIGURES/04_paired_delta_binary_f1.png": "8fcdda710deae3f9c260f0cef13b97fcc93a5aacf637a8ba05fa0b3ebd2d5791",
+    "FIGURES/05_paired_delta_roc_auc.csv": "4a4e33f1229d3cdfef456fee26be98d234b393d4756e8e42f100b84e8a1499c8",
+    "FIGURES/05_paired_delta_roc_auc.png": "96ec0b48300dd24ebecc1359450699fd34f676c8af91cc6385e99629019b0163",
+    "FIGURES/06_mean_confusion_matrix.csv": "c0893991eb4675939c6b49e49ef66931cbfdbffbaaa19c74c3d555e29efa2aea",
+    "FIGURES/06_mean_confusion_matrix.png": "1661dda3c290c1fc3d15736cfd9b121dd398de01d09bf91c2c3a277276933ef1",
+    "FIGURES/07_anomaly_recall_by_length.csv": "ed17b888a776a02b2f5f1bfb2d06764693467c276a058e4e0d317bf7cc488c82",
+    "FIGURES/07_anomaly_recall_by_length.png": "fecbf71b08134401b87920081204be9fc00a5816b7a3f19dc75376b225380084",
+    "FIGURES/08_development_vs_final.csv": "ed87798b18450eb7ca70de30ed3c0b3a6ceeb0743e31a4dd31387013b8cd7f68",
+    "FIGURES/08_development_vs_final.png": "79d04c3f9fadeb1855946b96e50a6525b6adfefb1adddff98f6445043a18cd54",
+    "METHODOLOGY.md": "458ab2df4eb46819f3361be3d2ba1515ce8009d86c7dc7a0842f603885d71ebf",
+    "REPRODUCIBILITY.md": "7b792d9b650fc286c6277cfc664fdc80041c005d52ebac1d26c90d6bf240edba",
+    "RESULTS_ANALYSIS.md": "bae8130970fa6c6c2e7e21dffec63c33e4c9dafab1c34b7d7d4b0559ebbcbfe2",
+    "RESULTS_TABLES.md": "69c8e87494edb549965e36963249a1d5ebc6c0e97abcda83fe149efb516fcb03",
+    "THESIS_SUMMARY_VI.md": "59b2a138ac15f7545ff89ad3c49abd1198e3704766a7e857a751e7d1e838e255",
+    "THREATS_TO_VALIDITY.md": "a003d1d845ffdd80384616e991d0d614a12a872aeff869786722d4cf67138032"
+  },
+  "checks": [
+    {
+      "name": "Protocol, recovery và sự cố",
+      "passed": true
+    },
+    {
+      "name": "Development seed và kích thước",
+      "passed": true
+    },
+    {
+      "name": "Development support hash theo cặp",
+      "passed": true
+    },
+    {
+      "name": "Development 200 query cố định, label, score và threshold",
+      "passed": true
+    },
+    {
+      "name": "Development confusion matrix, P/R/F1, AUC, AP và FPR tính lại",
+      "passed": true
+    },
+    {
+      "name": "Final seed và kích thước",
+      "passed": true
+    },
+    {
+      "name": "Final support hash theo cặp",
+      "passed": true
+    },
+    {
+      "name": "Final 200 query cố định, label, score và threshold",
+      "passed": true
+    },
+    {
+      "name": "Final confusion matrix, P/R/F1, AUC, AP và FPR tính lại",
+      "passed": true
+    },
+    {
+      "name": "Development khớp audit trước final",
+      "passed": true
+    },
+    {
+      "name": "Fallback, seed và ngưỡng",
+      "passed": true
+    },
+    {
+      "name": "Final thống kê single",
+      "passed": true
+    },
+    {
+      "name": "Development mean/SD single",
+      "passed": true
+    },
+    {
+      "name": "Final thống kê length_two",
+      "passed": true
+    },
+    {
+      "name": "Development mean/SD length_two",
+      "passed": true
+    },
+    {
+      "name": "Paired binary_f1",
+      "passed": true
+    },
+    {
+      "name": "Paired macro_f1",
+      "passed": true
+    },
+    {
+      "name": "Paired roc_auc",
+      "passed": true
+    },
+    {
+      "name": "Paired average_precision",
+      "passed": true
+    },
+    {
+      "name": "Paired fpr",
+      "passed": true
+    },
+    {
+      "name": "Paired binary_recall",
+      "passed": true
+    },
+    {
+      "name": "Recall/FPR và số mẫu nhóm 2-4",
+      "passed": true
+    },
+    {
+      "name": "Recall/FPR và số mẫu nhóm 5-19",
+      "passed": true
+    },
+    {
+      "name": "Recall/FPR và số mẫu nhóm 20-29",
+      "passed": true
+    },
+    {
+      "name": "Recall/FPR và số mẫu nhóm 30-50",
+      "passed": true
+    }
+  ],
+  "manifest_self_hash": "excluded"
+}

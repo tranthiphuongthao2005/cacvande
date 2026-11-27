@@ -1,0 +1,96 @@
+{
+  "argv": [
+    "--log_name",
+    "BGL",
+    "--window_size",
+    "20",
+    "--episodes",
+    "10",
+    "--k_norm",
+    "2",
+    "--k_anom",
+    "2",
+    "--m_query",
+    "1",
+    "--temperature",
+    "0.07",
+    "--lr",
+    "1e-5",
+    "--num_layers",
+    "1",
+    "--param_dim",
+    "8",
+    "--loss_type",
+    "apcl",
+    "--margin_mode",
+    "adaptive",
+    "--margin_scale",
+    "1.0",
+    "--seed",
+    "123",
+    "--viz",
+    "0",
+    "--tag",
+    "smoke10",
+    "--preprocessed_dir",
+    "./preprocessed_data"
+  ],
+  "losses": [
+    4.211925029754639,
+    0.03734111785888672,
+    11.25428581237793,
+    0.033609867095947266,
+    6.919236183166504,
+    1.361742377281189,
+    3.3647499084472656,
+    6.010822296142578,
+    8.367982864379883,
+    0.0758504867553711
+  ],
+  "gradient_l2_before_clip": [
+    32.264156341552734,
+    0.9881324172019958,
+    25.075960159301758,
+    2.66365122795105,
+    18.739505767822266,
+    20.847579956054688,
+    26.452829360961914,
+    28.607086181640625,
+    19.33832359313965,
+    5.158837795257568
+  ],
+  "seconds": 3.5622868998907506,
+  "process_peak_mib_through_train": 614.06,
+  "checkpoint": "checkpoints\\meta_11222236_BGL_1_8_1e-05_smoke10-latest.pt",
+  "checkpoint_sha256": "21c836b0873688adc078020c97256ef3b88188f1491599b1516a97fa8e14363d",
+  "tensor_count": 32,
+  "strict_load": "<All keys matched successfully>",
+  "metadata": {
+    "BGL_training.npz": {
+      "key_vocab_size": 12,
+      "char_vocab_size": 42,
+      "max_params": 8,
+      "max_chars": 16
+    },
+    "HDFS_training.npz": {
+      "key_vocab_size": 12,
+      "char_vocab_size": 42,
+      "max_params": 8,
+      "max_chars": 16
+    },
+    "HDFS_testing.npz": {
+      "key_vocab_size": 12,
+      "char_vocab_size": 42,
+      "max_params": 8,
+      "max_chars": 16
+    }
+  },
+  "vocabulary_sha256": "087874c66d0fabaeb2ab52cd36d05d6720389f3dc033834f90dac50e1c928e3d",
+  "input_sha256": {
+    "BGL_training.npz": "743fe2c864bd2d711e38cc8b4357c9b0601a2dd6a4dcb8601e112ca60daabff3",
+    "HDFS_training.npz": "adf3e468b95d5ae8f39efa6184dd50ac5832abb573454d4d59433b3ca89e1374",
+    "HDFS_testing.npz": "d9795b27b2f5abc385615b128f0996e361977925552f278a158e2c8e5590c753"
+  },
+  "threads": 2,
+  "torch": "2.7.1+cpu"
+}

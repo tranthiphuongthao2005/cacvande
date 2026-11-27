@@ -1,0 +1,40 @@
+def get_params():
+    return {
+        "meta_train": {
+            "log_name": "BGL",
+            "window_size": 20,
+            "num_layers": 1,
+            "param_dim": 8,
+            "lr": 1e-5,
+            "episodes": 2000,
+            "k_norm": 5,
+            "k_anom": 5,
+            "m_query": 10,
+            "margin": 0.5,
+            "temperature": 0.2,
+            "seed": 123,
+            "margin_mode": "adaptive",
+            "margin_scale": 1.0,
+            "fixed_margin": 0.0,
+            # APCL margin ablation sweep (see scripts/run_apcl_margin_ablation.sh)
+            "apcl_margin_ablation": {
+                "no_margin": {"margin_mode": "fixed", "fixed_margin": 0.0},
+                "fixed_margins": [0.05, 0.1, 0.2, 0.3],
+            },
+        },
+        "meta_test": {
+            "pretrained_log_name": "BGL",
+            "load_path": "checkpoints/train_BGL_1_8_1e-05-best.pt",
+            "log_name": "HDFS",
+            "num_layers": 1,
+            "param_dim": 8,
+            "window_size": 50,
+            "support_size": 0,
+            "episodes": 1,
+            "query_size": 0,
+            "batch_size": 128,
+            "seed": 123,
+            "viz_samples": 1000,
+            "viz": 1,
+        },
+    }

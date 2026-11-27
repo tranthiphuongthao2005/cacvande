@@ -1,0 +1,15 @@
+Original final_evaluation.py remains byte-identical to the incident runner.
+Original SHA-256: 88a5a173ffb7aa4aaa9fb1b11a55d8176f99330988cf40063ecb7870cfd22770
+Recovery wrapper SHA-256: 40a6d02bf1593784428f5c20666d15cd9ca8dd063bf00eb0f37a5dd17755b59a
+The runtime binding diff below is exhaustive for the original module.
+Recovery adds preflight artifacts and read-only postvalidation.
+
+--- original runtime bindings
++++ authorized recovery runtime bindings
+@@ -1,3 +1,3 @@
+-DEST = final_evaluation_locked_seed123
+-save = original JSON writer
+-write_csv = original CSV writer
++DEST = final_recovery_seed123
++save = recovery bootstrap + save_json(python_value(value))
++write_csv = save_csv(python_value(rows))

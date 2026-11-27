@@ -1,0 +1,44 @@
+{
+  "recovery_of": "final_evaluation_locked_seed123",
+  "reason": "NumPy JSON serialization failure",
+  "independent_final_test": false,
+  "original_runner_sha256": "88a5a173ffb7aa4aaa9fb1b11a55d8176f99330988cf40063ecb7870cfd22770",
+  "incident_artifacts_sha256": {
+    "final_protocol_verification.json": "6162ccc294d2b8dfaf1f4f7757904e8aa3987ea7201558911eb37c79e8514134",
+    "FINAL_REPORT.md": "3933ad8e367ca14df36094dc1e4da4797577a96ecffdf319deb7cef7a6b0106d",
+    "final_support_seeds.json": "baf32b9ff150d511f6e4f934765e1d7f4e1334da85f0c1dd99990fa996d9663c",
+    "incident.json": "c771ec6bd8ef80963f608f84505a6bfd6060825ae24ab6991140f876d47421a4",
+    "RUN.md": "38f6a91f7e26664d8204d35d9975f584ee240e619a265f270417c39e099a4824"
+  },
+  "recovery_wrapper_sha256": "40a6d02bf1593784428f5c20666d15cd9ca8dd063bf00eb0f37a5dd17755b59a",
+  "automatic_retry": false,
+  "validation": {
+    "passed": true,
+    "runs": 40,
+    "scores": 8000,
+    "predictions": 8000,
+    "seeds": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007,
+      1008,
+      1009,
+      1010,
+      1011,
+      1012,
+      1013,
+      1014,
+      1015,
+      1016,
+      1017,
+      1018,
+      1019
+    ],
+    "fallback_seeds": []
+  }
+}

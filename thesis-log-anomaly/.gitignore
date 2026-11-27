@@ -1,4 +1,16 @@
+# Python environment
 .venv/
+venv/
+__pycache__/
+*.pyc
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/.venv/
 .pytest_cache/
 **/__pycache__/
 .pg-test/
