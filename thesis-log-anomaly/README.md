@@ -1,5 +1,7 @@
 # Thesis Log Anomaly Lab
 
+[Tiến độ sau merge và kế hoạch tiếp theo](docs/PROJECT_PROGRESS.md)
+
 Giai đoạn 1 gồm ba FastAPI microservice, PostgreSQL riêng cho mỗi service, JSON logs, OpenTelemetry spans và các scenario lỗi có ground truth riêng. Project nằm cạnh thư mục mã nguồn MeCoLog trong workspace.
 
 | Thư mục | Nội dung |
